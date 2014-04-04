@@ -1,0 +1,25 @@
+#hash
+
+=> # a hash rocket
+
+#when you create a hash with strings you need a hash rocket
+a = { "my_first_hash"} => "Hey man" }
+
+#access the hash
+#if you create a hash with a string then you have to access it with quotes
+a["my_first_hash"]
+
+a.class => hash #a is a hash value
+
+#a hash is a key value
+#ex: if someone asks for a key value they are asking for a hash
+
+#most of the time you should write hash using colons
+b = :my_first_hash
+b.class => Symbol #b is a Symbol class
+
+#a hash of my name called 'name'
+name = {first_name: "Preston", middle_name: "Manning", last_name: "Bernstein"}
+
+#call the hash
+=> {:first_name=>"Preston", :middle_name=>"Manning", :last_name=>"Bernstein"}

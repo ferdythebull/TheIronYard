@@ -1,0 +1,13 @@
+Download the Ruby Koans:
+http://rubykoans.com/
+
+Direct download:
+https://github.com/neo/ruby_koans/blob/master/download/rubykoans.zip?raw=true
+
+Move it to somewhere on your computer. My example will be on the desktop.
+
+Open Iterm2
+$ cd ~/Desktop
+$ cd koans/
+$ rake
+sub.
