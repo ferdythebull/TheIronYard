@@ -49,14 +49,6 @@ end
 
 @gameon = true
 
-def check_win(cards)  # parameters is anything passed inside a function
-	if cards > 21
-		@gameon = false
-	elsif cards == 21
-		@gameon = false
-	elsif cards < 21
-	end
-end
 
 dealer_cards_in_hand.push(get_card)
 dealer_cards_in_hand.push(get_card)
@@ -89,7 +81,7 @@ elsif dealer_card_values > 21 && card_values <= 21
 	puts "User wins with a total of: #{card_values}"
 elsif card_values > 21 && dealer_card_values <= 21
 	puts "Dealer wins with a total of: #{dealer_card_values}"
-else
+else 
 	puts "Tie."
 end
 

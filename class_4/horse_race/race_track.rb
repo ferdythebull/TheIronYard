@@ -1,7 +1,3 @@
-# all class files link to this file
-# this file contains information on how all the class files interact with one another
-# this file contains particulars specific to the charleston_track
-
 require "./enemy_horse.rb"
 require "./user_horse.rb"
 
@@ -11,22 +7,10 @@ require "./user_horse.rb"
 @toronado = Enemy_horse.new("Toronado")
 @game_on = nil
 
-# displays all the horses
-	# each horse will have a name
-	# one user_horse
-	# three enemy_horse
-# displays the track
-#start the game
-	#accept user input
-	#horses will move according to our code
-		#cheat codes
-	#check to see if anyone wins
-
 def game
 	@game_on = true
 	welcome
 	track
-	#cheat_code
 end
 
 def welcome
@@ -34,54 +18,80 @@ def welcome
 end
 
 def track
-	#while @game_on == true
-		puts "#{user_horse.name}: #{user_horse.position}\n"
-		puts "#{enemy_horse_one.name}: #{enemy_horse_one.position}\n"
-		puts "#{enemy_horse_two.name}: #{enemy_horse_two.position}\n"
-		puts "#{enemy_horse_three.name}: #{enemy_horse_three.position}\n" 
+	while @game_on == true
+		puts "#{@mertal.name}: #{@mertal.position}\n"
+		puts "#{@tomorrows_glue.name}: #{@tomorrows_glue.position}\n"
+		puts "#{@love_substitute.name}: #{@love_substitute.position}\n"
+		puts "#{@toronado.name}: #{@toronado.position}\n" 
 		puts "|-----|-----|-----|-----|"
-		user_horse.position.times do |x|
+		@mertal.position.times do |x|
 			print "*"
 		end
 		print "\n"
-		enemy_horse_one.position.times do |x|
+		@tomorrows_glue.position.times do |x|
 			print "*"
 		end
 		print "\n"
-		enemy_horse_two.position.times do |x|
+		@love_substitute.position.times do |x|
 			print "*"
 		end
 		print "\n"
-		enemy_horse_three.position.times do |x|
+		@toronado.position.times do |x|
 			print "*"
 		end
 		print "\n"
 		puts "|-----|-----|-----|-----|"
-	#end
+		puts "Press ENTER to continue...\n\n"
+		move = gets.chomp.downcase
+		@mertal.cheat_codes(move)
+		system "clear"
+		@tomorrows_glue.move_forward
+		@love_substitute.move_forward
+		@toronado.move_forward
+		lose
+	end
+
+	puts "#{@mertal.name}: #{@mertal.position}\n"
+		puts "#{@tomorrows_glue.name}: #{@tomorrows_glue.position}\n"
+		puts "#{@love_substitute.name}: #{@love_substitute.position}\n"
+		puts "#{@toronado.name}: #{@toronado.position}\n" 
+		puts "|-----|-----|-----|-----|"
+		@mertal.position.times do |x|
+			print "*"
+		end
+		print "\n"
+		@tomorrows_glue.position.times do |x|
+			print "*"
+		end
+		print "\n"
+		@love_substitute.position.times do |x|
+			print "*"
+		end
+		print "\n"
+		@toronado.position.times do |x|
+			print "*"
+		end
+		print "\n"
+		puts "|-----|-----|-----|-----|"
+		lose
 end
 
-def user_horse
-	@mertal
+def lose
+	if @mertal.position >= 20
+		puts "#{@mertal.name} wins! Congratulations!"
+		@game_on = false
+	elsif @tomorrows_glue.position >= 20
+		puts "#{@tomorrows_glue.name} wins! You lose."
+		@game_on = false
+	elsif @love_substitute.position >= 20
+		puts "#{@love_substitute.name} wins! You lose."
+		@game_on = false
+	elsif @toronado.position >= 20
+		puts "#{@toronado.name} wins! You lose."
+		@game_on = false
+	else
+	end
 end
 
-def enemy_horse_one
-	@tomorrows_glue
-end
-
-def enemy_horse_two
-	@love_substitute
-end
-
-def enemy_horse_three
-	@toronado
-end
-
-def game_over
-	@game_on != true
-end
-
-#def cheat_code
-#	user_horse.cheat_code() = gets.chomp.downcase
-#end
 
 game()

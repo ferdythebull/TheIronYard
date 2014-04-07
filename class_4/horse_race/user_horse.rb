@@ -2,10 +2,9 @@
 # accept user input
 #cheat code will be in this file
 
-CHEAT_CODES = ["instawin", "instastart"]
 
 class User_horse
-	attr_accessor :name, :position
+	attr_accessor :name, :position, :move
 
 	#cheat codes array via a constant
 
@@ -13,14 +12,15 @@ class User_horse
 		@name = name
 		@position = 1
 	end
-	def move_forward
-		@position += rand(4)
-	end
 
-	def cheat_codes(user_input)
-		#include - Array
-		instawin = CHEAT_CODES[0]
-		instastart = CHEAT_CODES[1] 
+	def cheat_codes(move)
+		if move == "instawin"
+			@position = 20
+		elsif move == "instastart"
+			@position = 1
+		else
+			@position += rand(4)
+		end
 	end
 
 end

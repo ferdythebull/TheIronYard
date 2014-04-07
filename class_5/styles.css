@@ -1,0 +1,26 @@
+.blue-box {
+	width: 600px;
+	height: 100px;
+	background-color: blue;
+	margin-bottom: 20px;
+}
+
+.inner-box {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	background-color: purple;
+}
+
+.red-box {
+	width: 480px;
+	height: 400px;
+	background-color: red;
+	margin: 0 auto; /*gives extra space in the borders directly outside the box.. 0 auto centers the box on the page*/
+	padding: 20px 50px 10px 100px; /*gives extra space in the borders within the box*/
+}
+
+span {
+	height: 1000px;
+	background-color: red;
+}
