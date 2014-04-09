@@ -30,6 +30,23 @@ a {
 	text-shadow: 3px 5px 2px black;
 	display: inline-block;
 }
+.banner_image img {
+	width:100%;
+	vertical-align:top;
+}
+.banner_image:after{
+	content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.banner_image:hover:after {
+	opacity:1;
+}
 .company {
 	left: 169px;
 	top: 22px;
@@ -83,6 +100,7 @@ a {
 .container {
 	width: 1000px;
 	min-height: 1000px;
+	margin: auto;
 }
 /*content area starts here*/
 .content {
@@ -146,6 +164,7 @@ h6 {
 	vertical-align: middle;
 }
 .tag_image{
+	position: relative;
 	margin-left: 0px;
 	margin-bottom: 0px;
 	margin-top: 0px;
@@ -157,6 +176,24 @@ h6 {
 	-webkit-border-radius: 11px;
 	-moz-border-radius: 11px;
 	background: url("./images/tag_image.jpg") no-repeat;
+}
+
+.tag_image img {
+	width:100%;
+	vertical-align:top;
+}
+.tag_image:after{
+	content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.tag_image:hover:after {
+	opacity:1;
 }
 .tag_name{
 	margin-left: 0px;
@@ -263,7 +300,6 @@ h6 {
 	position: absolute;
 	right: 0;
 	display: inline-block;
-	border: 4px dashed blue;
 }
 .contact{
 	margin-top: 13px;
@@ -275,7 +311,7 @@ h6 {
 	display: inline-block;
 }
 .headshot{
-
+	position: relative;
 	margin: 0 auto;
 	width: 84px;
 	height: 84px;
@@ -283,6 +319,24 @@ h6 {
 	-webkit-border-radius: 42px;
 	-moz-border-radius: 42px;
 	background: url("./images/headshot.jpg") no-repeat;
+}
+
+.headshot img {
+	width:100%;
+	vertical-align:top;
+}
+.headshot:after{
+	content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.headshot:hover:after {
+	opacity:1;
 }
 .contact_name{
 	margin-top: 15px;
@@ -299,11 +353,30 @@ h6 {
 	color: gray;
 }
 .image{
+	position: relative;
 	margin-top: 0px;
 	height: 300px;
 	width: 285px;
 	display: inline-block;
 	background: url("./images/shamwow.jpg") no-repeat;
+}
+
+.image img {
+	width:100%;
+	vertical-align:top;
+}
+.image:after{
+	content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.image:hover:after {
+	opacity:1;
 }
 .about_ad{
 	margin-top: 8px;
@@ -315,13 +388,22 @@ h6 {
 }
 .sidebar_heading{
 	margin-top: 50px;
-	height:190px;
+	height:18px;
 	width: 278px;
 	display: inline-block;
-	border: 1px dashed red;
+	text-align: center;
+	color: purple;
+}
+.sidebar_text{
+	text-align: center;
+	margin-top: 14px;
+	height: 160px;
+	width: 278px;
+	display: inline-block;
+	color: purple;
 }
 .footer {
-   	position: relative;
+   	position: relative;
 	margin-top: 20;
 	margin-right: 0px;
 	margin-left: 0px;
@@ -337,12 +419,24 @@ h6 {
 	display: inline-block;
 	line-height: normal;
 	vertical-align: middle;
-	color: white;
+	color: gray;
 }
 .company_copyright {
 	margin: 0px;
 	display: inline-block;
 	vertical-align: middle;
+}
+.nav {
+	margin:0px;
+	display: inline-block;
+	vertical-align: middle;
+	right: 160px;
+	bottom: 41px;
+	position: absolute;
+	color: white;
+}
+.nav a {
+	text-decoration: none
 }
 .toolbar {
 	right: 169px;
