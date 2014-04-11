@@ -1,0 +1,10 @@
+<h5><% @driving.each do |guy| %>
+	You met 
+	<%= guy[:name] %>
+	while driving down the streets of
+	<%= guy[:city] %>
+	, 
+	<%= guy[:state] %>
+	.
+	<br>
+<% end %></h5>

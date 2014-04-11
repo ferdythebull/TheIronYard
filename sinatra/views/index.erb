@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>People You Saw Today</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta name="author" content="Preston Bernstein">
+	<meta name="description" content="A demonstration of what can be accomplished using Sinatra">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header-image">
+		</div>
+		<div class="header">
+			<h1>People You Saw Today</h1>
+		</div>
+		<div class="container">
+			<div class="left-column">
+				<%= yield %>
+			</div>
+			<div class="right-column">
+			<table>
+				<h3>You Saw Them:</h3>
+				<tr>
+					<td>
+						<h5>In The Supermarket</h5>
+					</td>
+				</tr>
+					<td>
+						<h5>While Driving</h5>
+					</td>
+				<tr>
+					<td>
+						<h5>In The Gym</h5>
+					</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="navbar-footer">
+				<table>
+					<tr>
+						<td><a href="/views/index.erb">Home</a></td>
+						<td> | </td>
+						<td><a href="/views/supermarket.erb">Supermarket</a></td>
+						<td> | </td>
+						<td><a href="/views/driving.erb">Driving</a></td>
+						<td> | </td>
+						<td><a href="/views/gym">Gym</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

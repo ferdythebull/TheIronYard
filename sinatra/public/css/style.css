@@ -1,0 +1,94 @@
+html {
+	margin: 0px;
+	background: url(public/images/bgimage.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+body {
+	
+}
+h1 {
+	font-size: 75px;
+	text-shadow: 2px 6px 22px rgba(106, 150, 150, 0.71);
+	color: white;
+}
+h2 {
+
+}
+h3 {
+	font-size: 16px;
+}
+h4 {
+
+}
+h5 {
+	font-size: 12px;
+}
+h6 {
+	font-size: 10px;
+}
+a {
+	text-decoration: none;
+}
+.wrapper {
+	position: relative;
+	min-height: 800px;
+	width: 100%;
+}
+.header {
+	position: absolute;
+	height: 250px;
+	width: 100%;
+	top: 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+.header-image {
+	position: absolute;
+	height: 250px;
+	width: 100%;
+	background: url(http://placekitten.com/g/2000/250) no-repeat;
+}
+.container {
+	position: absolute;
+	margin-top: 250px;
+	height: 100%;
+	width: 100%;
+	border: dashed red 3px;
+}
+.left-column {
+	position: absolute;
+	left: 0;
+	margin-left: 2%;
+	width: 60%;
+	border: dashed blue 2px;
+}
+.right-column {
+	position: absolute;
+	right: 0;
+	margin-right: 2%;
+	width: 30%;
+	border: dashed blue 2px;
+}
+.navbar {
+	position: absolute;
+	left: 0px;
+	background-color: gray;
+}
+.footer {
+	position: absolute;
+	height: 100px;
+	width: 100%;
+	border: dashed green 3px;
+	background-color: gray;
+}
+.navbar-footer {
+	position: absolute;
+	right: 75px;
+	padding-top: 50%;
+	padding-bottom: 50%;
+	color: white;
+}
+/*google : flexbox on css tricks;*/
