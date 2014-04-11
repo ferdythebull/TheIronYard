@@ -11,6 +11,7 @@ person_address = Faker::Address.street_address
 person_city = Faker::Address.city
 person_state = Faker::Address.state
 person_zip = Faker::Address.zip_code
+avatar = Faker::Avatar.image
 
 # The basis of any website. Get the root file..
 get '/' do
@@ -48,7 +49,7 @@ end
 
 get '/gym' do
 	@gym = [
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
+		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image},
 		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
 		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state}
 	]

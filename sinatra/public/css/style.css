@@ -1,6 +1,5 @@
 html {
 	margin: 0px;
-	background: url(public/images/bgimage.jpg) no-repeat center center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -31,11 +30,14 @@ h6 {
 }
 a {
 	text-decoration: none;
+	color: white;
+	text-shadow: 2px 6px 22px rgba(106, 150, 150, 0.71);
 }
 .wrapper {
 	position: relative;
 	min-height: 800px;
 	width: 100%;
+	background: url(/images/bg.jpg) no-repeat center center fixed;
 }
 .header {
 	position: absolute;
@@ -44,33 +46,49 @@ a {
 	top: 0px;
 	text-align: center;
 	vertical-align: middle;
+	text-shadow: 2px 20px 22px rgba(106, 150, 150, 0.71);
 }
 .header-image {
 	position: absolute;
 	height: 250px;
 	width: 100%;
-	background: url(http://placekitten.com/g/2000/250) no-repeat;
+	background-color: gray;
+    filter: blur(150px);
+    opacity: 0.7;
+	border-radius: 15px;
+	box-shadow: 0px -20px 20px rgba(34,34,34,0.6);
 }
 .container {
-	position: absolute;
-	margin-top: 250px;
-	height: 100%;
+	position: relative;
+	margin-top: 0;
+	height: 1000px;
 	width: 100%;
-	border: dashed red 3px;
 }
 .left-column {
+	margin-top: 100px;
 	position: absolute;
+	top: 250px;
 	left: 0;
 	margin-left: 2%;
 	width: 60%;
-	border: dashed blue 2px;
+	background-color: gray;
+    filter: blur(150px);
+    opacity: 0.9;
+	border-radius: 10px;
+	box-shadow: 0px -20px 20px rgba(34,34,34,0.6);
 }
 .right-column {
+	margin-top: 100px;
 	position: absolute;
+	top: 250px;
 	right: 0;
 	margin-right: 2%;
 	width: 30%;
-	border: dashed blue 2px;
+	background-color: gray;
+    filter: blur(150px);
+    opacity: 0.9;
+	border-radius: 10px;
+	box-shadow: 0px -20px 20px rgba(34,34,34,0.6);
 }
 .navbar {
 	position: absolute;
@@ -78,17 +96,15 @@ a {
 	background-color: gray;
 }
 .footer {
-	position: absolute;
+	position: relative;
 	height: 100px;
 	width: 100%;
-	border: dashed green 3px;
 	background-color: gray;
 }
 .navbar-footer {
 	position: absolute;
+	top: 40px;
 	right: 75px;
-	padding-top: 50%;
-	padding-bottom: 50%;
 	color: white;
 }
 /*google : flexbox on css tricks;*/

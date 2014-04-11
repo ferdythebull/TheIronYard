@@ -1,10 +1,17 @@
 <h5><% @gym.each do |guy| %>
-	You met 
-	<%= guy[:name] %>
-	while pumping iron in 
-	<%= guy[:city] %>
-	, 
-	<%= guy[:state] %>
-	.
+	<tr>
+		<td>
+			You met 
+			<%= guy[:name] %>
+			while pumping iron in 
+			<%= guy[:city] %>
+			, 
+			<%= guy[:state] %>
+			.
+			<br>
+		</td>
+		<td>
+			<img src="<%= guy[:avatar] %>" alt="">
+	</tr>
 	<br>
 <% end %></h5>

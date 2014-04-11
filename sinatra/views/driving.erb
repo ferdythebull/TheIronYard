@@ -1,4 +1,6 @@
 <h5><% @driving.each do |guy| %>
+	<tr>
+		<td>
 	You met 
 	<%= guy[:name] %>
 	while driving down the streets of
@@ -6,5 +8,10 @@
 	, 
 	<%= guy[:state] %>
 	.
+	<br>
+	</td>
+		<td>
+			<img src="<%= guy[:avatar] %>" alt="">
+	</tr>
 	<br>
 <% end %></h5>

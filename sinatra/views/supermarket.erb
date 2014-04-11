@@ -1,9 +1,17 @@
 <h5><% @supermarket.each do |guy| %>
+	<tr>
+		<td>
+	You met
 	<%= guy[:name] %>
 	while wandering the aisles of the supermarket in 
 	<%= guy[:city] %>
 	, 
 	<%= guy[:state] %>
 	.
+	<br>
+	</td>
+		<td>
+			<img src="<%= guy[:avatar] %>" alt="">
+	</tr>
 	<br>
 <% end %></h5>
