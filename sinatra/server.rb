@@ -20,11 +20,13 @@ end
 
 get '/index'  do
 	@supermarket = [
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state}
+		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image(Faker::Name.name)},
 	]
 	erb :supermarket, layout: :index
+end
+
+get '/home' do
+	
 end
 # Run this file in the terminal. Go to localhost:(whateverserver)(whatever base location)
 #ex: localhost:4567/index
