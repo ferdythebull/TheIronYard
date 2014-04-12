@@ -1,17 +1,19 @@
-<h5><% @gym.each do |guy| %>
-	<tr>
-		<td>
-			You met 
-			<%= guy[:name] %>
-			while pumping iron in 
-			<%= guy[:city] %>
-			, 
-			<%= guy[:state] %>
-			.
-			<br>
-		</td>
-		<td>
+<a href="/driving" class="meet-btn">Meet Someone New</a>
+<div class="middle-row-text-bg">
+</div>
+<div class="middle-row-text">
+<h3><% @gym.each do |guy| %>
+	You met 
+	<%= guy[:name] %>
+	while driving down the streets of
+	<%= guy[:city] %>
+	, 
+	<%= guy[:state] %>
+	.</h3>
+</div>
+		<div class="middle-row-image-bg">
+			</div>
+			<div class="middle-row-image">
 			<img src="<%= guy[:avatar] %>" alt="">
-	</tr>
-	<br>
-<% end %></h5>
+		</div>
+<% end %>
