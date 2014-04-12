@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>People You Saw Today</title>
+	<title>The People You Meet</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<meta name="author" content="Preston Bernstein">
 	<meta name="description" content="A demonstration of what can be accomplished using Sinatra">
@@ -11,30 +11,12 @@
 		<div class="header-image">
 		</div>
 		<div class="header">
-			<h1>People You Saw Today</h1>
+			<h1>The People You Meet</h1>
+			<br>
+			<h4>A Reflection on the Enormous Beauty and Insanity of Our Mundane Lives</h4>
 		</div>
 		<div class="container">
-			<div class="left-column">
-				<%= yield %>
-			</div>
-			<div class="right-column">
-			<table>
-				<h3>You Saw Them:</h3>
-				<tr>
-					<td>
-						<h5>In The Supermarket</h5>
-					</td>
-				</tr>
-					<td>
-						<h5>While Driving</h5>
-					</td>
-				<tr>
-					<td>
-						<h5>In The Gym</h5>
-					</td>
-				</tr>
-			</table>
-			</div>
+			<%= yield %>
 		</div>
 		<div class="footer">
 			<div class="navbar-footer">

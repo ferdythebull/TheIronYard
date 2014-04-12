@@ -31,27 +31,21 @@ end
 
 get '/supermarket' do
 	@supermarket = [
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state}
+		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image(Faker::Name.name)},
 	]
 	erb :supermarket, layout: :index
 end
 
 get '/driving' do
 	@driving = [
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state}
+		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image(Faker::Name.name)},
 	]
 	erb :driving, layout: :index
 end
 
 get '/gym' do
 	@gym = [
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state},
-		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state}
+		{name: Faker::Name.name, city: Faker::Address.city, state: Faker::Address.state, avatar: Faker::Avatar.image(Faker::Name.name)},
 	]
 	erb :gym, layout: :index
 end
