@@ -25,9 +25,6 @@ get '/index'  do
 	erb :supermarket, layout: :index
 end
 
-get '/home' do
-	
-end
 # Run this file in the terminal. Go to localhost:(whateverserver)(whatever base location)
 #ex: localhost:4567/index
 
