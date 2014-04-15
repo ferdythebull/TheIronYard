@@ -1,0 +1,5 @@
+<h4>This is a blogpost in the database.</h4>
+
+<%= @post.title %> got into the database at <%= @post.create_at.strftime("%l:%M%p") %>
+<br>
+<%= link_to "Home", root_path %>
