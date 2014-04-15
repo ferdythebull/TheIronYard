@@ -1,0 +1,11 @@
+          <div class="blog-post">
+            <h2 class="blog-post-title">The Iron Yard: Weeks One and Two</h2>
+
+            <% @all_posts.each do |post| %>
+            <%= post.title %>
+            <%= post.created_at.strftime("%l:%M%p") %>
+
+            <% link_to "sumtin", post_path(post) %>
+
+            <% end %>
+          </div><!-- /.blog-post -->

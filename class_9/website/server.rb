@@ -10,6 +10,7 @@ class Post
   include DataMapper::Resource
 
   property :id, Serial
+  property :blog_title, String
   property :blog_post, String
 end
 
