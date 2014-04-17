@@ -1,0 +1,18 @@
+<div class ="info-bg">
+</div>
+<div class ="info">
+<div class="movie-bg">
+  </div>
+  <div class="movie">
+    <%=link_to 'Show', new_dvd_path %>
+    <br>
+
+    <% @dvds.each do |dvd| %>
+    <%= link_to "#{dvd.title}", dvd_path(dvd) %>
+    <%= link_to 'Edit', edit_dvd_path(dvd) %>
+    |
+    <%= link_to 'Delete', dvd_path(dvd), method: :delete  %>
+    <br>
+    <% end %>
+  </div>
+</div>

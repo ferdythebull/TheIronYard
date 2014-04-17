@@ -1,0 +1,37 @@
+<div class ="info-bg">
+</div>
+<div class ="info">
+<%= form_for @dvd do |f| %>
+  <%= render 'layouts/error_messages', object: @dvd %>
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <br>
+
+  <%= f.label :director %>
+  <%= f.text_field :director%>
+  <br>
+
+  <%= f.label :star %>
+  <%= f.text_field :star %>
+  <br>
+
+  <%= f.label :writer %>
+  <%= f.text_field :writer %>
+  <br>
+  
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+
+  <%= f.submit %>
+  <% end %>
+  <%= link_to 'Home', root_path %>  
+</div>
