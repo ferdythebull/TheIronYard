@@ -1,0 +1,23 @@
+= form_for @patient do |f|
+  = render 'layouts/error_messages', object: @patient
+  %br
+
+  = f.label :name
+  = f.text_field :name
+  %br
+
+  = f.label :age
+  = f.text_field :age
+  %br <!-- change to date of birth -->
+
+  = f.label :sex
+  = f.text_field :sex
+  %br <!-- change to radio button "Male / Female" -->
+
+  = f.label :symptoms
+  = f.text_area :symptoms, placeholder: "Hey dude"
+  %br
+
+  = f.submit
+
+  = link_to 'Home', root_path
