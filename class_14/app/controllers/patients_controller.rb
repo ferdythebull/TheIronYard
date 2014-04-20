@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-before_filter :find_patient, only: [:show, :edit, :update, :destroy]
+before_filter :find_patient, only: [:show, :edit, :update, :destroy, :waiting, :doctor, :xray, :surgery, :leaving, :billpay, :release]
 
   def show
   end
@@ -9,8 +9,9 @@ before_filter :find_patient, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @patient = Patient.new patient_params
-    if @patient.save
+    @patient = Patient.create patient_params
+    success = @patient.save
+    if success == true
       flash[:notice] = "The patient has now been admitted into the waiting room!"
       redirect_to root_path
     else
@@ -23,13 +24,8 @@ before_filter :find_patient, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    if @patient.update_attributes patient_params
-      flash[:notice] = "You successfully updated this patient listing!"
-      redirect_to root_path
-    else
-      flash[:error] = "You were unsuccessful in updating this patient listing!"
-      render :edit
-    end
+    @patient.update_attributes patient_params
+    redirect_to root_path
   end
 
   def destroy
@@ -37,10 +33,43 @@ before_filter :find_patient, only: [:show, :edit, :update, :destroy]
     redirect_to root_path
   end
 
+  def waiting
+    @patient.waiting!
+    redirect_to root_path
+  end
+
   def doctor
     @patient.doctor!
     redirect_to root_path
   end
+
+  def xray
+    @patient.xray!
+    redirect_to root_path
+  end
+
+  def surgery
+    @patient.surgery!
+    redirect_to root_path
+  end
+
+  def pay
+    @patient.pay!
+    redirect_to root_path
+  end
+
+  def leaving
+    @patient.exit!
+    redirect_to root_path
+  end
+
+  def exit
+    if
+      flash[:error] = "Please enter any notes about patient."
+      render :exit
+    end
+      
+    end
 
 private
   def patient_params

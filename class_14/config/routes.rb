@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       patch :xray
       patch :surgery
       patch :pay
-      patch :leave
+      patch :leaving
+      get :release
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
