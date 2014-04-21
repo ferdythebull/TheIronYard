@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-before_filter :find_patient, only: [:show, :edit, :update, :destroy, :waiting, :doctor, :xray, :surgery, :leaving, :billpay, :release]
+before_filter :find_patient, only: [:show, :edit, :update, :destroy, :waiting, :doctor, :xray, :pay, :surgery, :leaving, :billpay, :release]
 
   def show
   end

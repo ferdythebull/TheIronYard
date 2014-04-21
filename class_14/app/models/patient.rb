@@ -31,6 +31,7 @@ class Patient < ActiveRecord::Base
     end
     state :pay do
       event :leaving, transitions_to: :leaving
-    end    
+    end
+    state :leaving
   end
 end
