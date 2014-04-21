@@ -63,14 +63,6 @@ before_filter :find_patient, only: [:show, :edit, :update, :destroy, :waiting, :
     redirect_to release_patient_path(@patient)
   end
 
-  def exit
-    if
-      flash[:error] = "Please enter any notes about patient."
-      render :exit
-    end
-      
-    end
-
 private
   def patient_params
     params.require(:patient).permit(:name, :age, :sex, :symptoms)

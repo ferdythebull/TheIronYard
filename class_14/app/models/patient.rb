@@ -1,6 +1,5 @@
 class Patient < ActiveRecord::Base
   validates :name, presence: true
-  validates :description, presence: true, if: :patient_leaving
 
   def patient_leaving
     workflow_state == 'leaving'
@@ -12,7 +11,7 @@ class Patient < ActiveRecord::Base
       event :doctor, transitions_to: :doctor
       event :xray, transitions_to: :xray
       event :surgery, transitions_to: :surgery
-      event :exit, transitions_to: :leaving
+      event :leaving, transitions_to: :leaving
     end
     state :doctor do
       event :xray, transitions_to: :xray
