@@ -1,0 +1,1 @@
+Design a website from scrach, including CSS. This exercise lasted two days.
