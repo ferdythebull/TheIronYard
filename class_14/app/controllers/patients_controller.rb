@@ -59,8 +59,8 @@ before_filter :find_patient, only: [:show, :edit, :update, :destroy, :waiting, :
   end
 
   def leaving
-    @patient.exit!
-    redirect_to root_path
+    @patient.leaving!
+    redirect_to release_patient_path(@patient)
   end
 
   def exit

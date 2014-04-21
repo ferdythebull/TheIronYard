@@ -1,0 +1,10 @@
+%h4 Summary Notes:
+
+= form_for @patient do |f|
+  =f.label :notes
+  =f.text_area :notes, placeholder: "Write your summary here..."
+  %br
+  =f.submit
+  %br
+  %hr
+  = link_to "Home", root_path
