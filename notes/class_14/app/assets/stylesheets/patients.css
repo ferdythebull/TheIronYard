@@ -2,16 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.wrapper {
-  margin: 0px;
-  position: relative;
-  min-height: 800px;
-  width: 100%;
-  background-color: #DEE7F3;
+html {
+  background-color: #5FBDCE;
 }
 
-body{
-  background-color: #F4F7FB;
+body {
+  background-color: #5FBDCE;
   font-family: Georgia, serif;
   margin: 25px;
 }
@@ -19,8 +15,8 @@ body{
 .title{
   width: 500px;
   height: 50px;
-  background-color: #B2B2FF;
-  box-shadow: 1px 1px 1px black;
+  background-color: #04859D;
+  box-shadow: 1px 1px 1px #015666;
   text-align: center;
   margin: 0 auto;
 }
@@ -28,7 +24,7 @@ body{
 form{
   width: 350px;
   height: 200px;
-  background-color: #B2B2FF;
+  background-color: #206876;
   text-align: center;
   margin-left: 10px;
   padding: 10px;
@@ -39,7 +35,7 @@ input, label {
 }
 
 a{
-  color: blue;
+  color: #37B6CE;
 }
 
 a:hover {

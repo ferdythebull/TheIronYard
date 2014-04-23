@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :patients do
-
-    collection do
-    end
-
-    member do
-      patch :waiting
-      patch :doctor
-      patch :xray
-      patch :surgery
-      patch :pay
-      patch :leaving
-      get :release
+  resources :hospitals do
+    resources :patients do
+      resources :medications
+      # Member vs Collection
+      # Collection: Does not require an ID
+      # Member: requires an ID
+      # Say you have a route in collection called
+      # display_patients
+      # patients/display_patients
+      # Say you have a route in member called display_patients
+      # patients/:id/display_patients
+      member do
+        patch :waiting
+        patch :doctor
+        patch :xray
+        patch :surgery
+        patch :pay
+        patch :leaving
+        get :release
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
