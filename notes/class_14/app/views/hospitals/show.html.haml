@@ -9,7 +9,7 @@
 %h4 Patients Waiting
 
 .list
-  %table.table-hover
+  %table
     %tr
       %th Name
       %th Status
@@ -17,7 +17,7 @@
     - @patients_processing.each do |patient|
     %tr
       %td
-        = link_to patient.name, hospital_patient_path(@hospital, patient), :class => 'box'
+        = link_to patient.name, hospital_patient_path(@hospital, patient)
       %td
         (#{patient.workflow_state})
       %td
