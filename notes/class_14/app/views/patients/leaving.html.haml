@@ -1,0 +1,15 @@
+%h4 Summary Notes:
+
+  Patient Name:
+= @patient.name
+%p
+  Symptoms:
+= @patient.symptom
+%p
+
+= form_for [@hospital, @patient], :html => {:class => "form-horizontal"} do |f|
+  %fieldset
+    = f.label :release_note
+      = f.submit "Submit"
+
+= link_to "Home", root_path

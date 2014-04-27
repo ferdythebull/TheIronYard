@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @patients_waiting = Patient.where.not(workflow_state: 'leaving')
-    @patients_completed = Patient.where(workflow_state: 'leaving')
+    @hospitals = Hospital.all
+    @patients = Patient.all
+    @medications = Medication.all
 
   end
 end

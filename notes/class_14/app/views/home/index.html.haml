@@ -1,15 +1,15 @@
 .title
-  %h1 Patient List
+  %h1 Hospital List
 
-= link_to "New Patient", new_hospital_patient_path(:hospital_id)
+= link_to "New Hospital", new_hospital_path
+%br
+- @hospitals.each do |hospital|
+  = link_to hospital.name, hospital_path(hospital)
+  %br
+  = hospital.location
+  %br
 
-%h4 Click on Patient Name To View Detailed Report
-
-.list
-  %table.table-hover
-    %tr
-      %th Patient
-      %th Check-in
-      %th Edit
-      %th Delete
-      %th Action
+  = link_to "Edit", edit_hospital_path(hospital)
+  |
+  = link_to "Delete", hospital_path(hospital), method: :delete
+  %hr

@@ -6,6 +6,14 @@ Age: #{@patient.age}
 %br
 Sex: #{@patient.sex}
 %br
-Symptoms: #{@patient.symptoms}
+Symptoms: #{@patient.symptom}
 %br
+Workflow: #{@patient.worflow_state}
+%br
+Discharge Notes: #{@patient.discharge_note}
+%br
+
+= link_to "Edit", edit_hospital_patient_path
 = link_to "Home", root_path
+= link_to "Hospital List", hospital_path(@hospital)
+%hr

@@ -1,11 +1,9 @@
 class Patient < ActiveRecord::Base
   has_many :medications
-  belongs_to :hospitals
-  validates :name, presence: true
+  belongs_to :hospital
 
-  def patient_leaving
-    workflow_state == 'leaving'
-  end
+  validates :name, presence: true
+  validates :description, presence: true
 
   include Workflow
   workflow do

@@ -1,5 +1,6 @@
 - object.errors.messages.each do |k, v|
   - v.each do |message|
-    = k.capitalize
-    = message
-    %br
+    - unless k == :base
+      = k.capitalize
+      = message
+      %br

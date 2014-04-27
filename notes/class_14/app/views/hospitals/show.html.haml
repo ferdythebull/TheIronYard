@@ -1,0 +1,31 @@
+= link_to "Cancel", root_path
+%br
+= @hospital.name
+%br
+= @hospital.location
+%hr
+= link_to "New Patient", new_hospital_patient_path(@hospital)
+
+%h4 Patients Waiting
+
+.list
+  %table.table-hover
+    %tr
+      %th Name
+      %th Status
+      %th Action
+    - @patients_processing.each do |patient|
+    %tr
+      %td
+        = link_to patient.name, hospital_patient_path(@hospital, patient), :class => 'box'
+      %td
+        (#{patient.workflow_state})
+      %td
+        = workflow_links(patient)
+
+%hr
+- @patients_completed.each do |patient|
+  = link_to patient.name, hospital_patient_path(@hospital, patient)
+  helped at
+  = patient.updated_at.strftime("%l:%M%p")
+  %br
