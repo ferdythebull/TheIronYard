@@ -1,31 +1,12 @@
-= link_to "Cancel", root_path
+= link_to "Go Back", root_path
 %br
+Hospital: 
 = @hospital.name
 %br
+Location: 
 = @hospital.location
+%br
+= link_to "Edit", edit_hospital_path(@hospital)
 %hr
 = link_to "New Patient", new_hospital_patient_path(@hospital)
-
-%h4 Patients Waiting
-
-.list
-  %table
-    %tr
-      %th Name
-      %th Status
-      %th Action
-    - @patients_processing.each do |patient|
-    %tr
-      %td
-        = link_to patient.name, hospital_patient_path(@hospital, patient)
-      %td
-        (#{patient.workflow_state})
-      %td
-        = workflow_links(patient)
-
-%hr
-- @patients_completed.each do |patient|
-  = link_to patient.name, hospital_patient_path(@hospital, patient)
-  helped at
-  = patient.updated_at.strftime("%l:%M%p")
-  %br
+%br

@@ -36,5 +36,4 @@ private
   def hospital_params
     params.require(:hospital).permit(:name, :location)
   end
-  
 end

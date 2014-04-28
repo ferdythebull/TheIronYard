@@ -3,7 +3,7 @@ class Patient < ActiveRecord::Base
   belongs_to :hospital
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :symptom, presence: true
 
   include Workflow
   workflow do

@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
   before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :discharge]
 
   def show
+    @hospitals = Hospital.all
   end
 
   def new
@@ -66,7 +67,7 @@ class PatientsController < ApplicationController
       flash[:notice] = "The patient has been discharged successfully."
       redirect_to root_path
     else
-      flash[:error] = "Please reenter the discharge summary."
+      flash[:error] = "Please re-enter the discharge summary."
       render :leaving
     end
   end
