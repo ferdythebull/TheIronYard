@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         patch :surgery
         patch :pay
         patch :leaving
-        get :release
+        get :discharge
       end
     end
   end

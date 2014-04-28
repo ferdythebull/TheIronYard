@@ -62,18 +62,11 @@ class PatientsController < ApplicationController
   end
 
   def discharge
-    success = @patient.update_attributes patient_params
-    if success == true
-      flash[:notice] = "The patient has been discharged successfully."
-      redirect_to root_path
-    else
-      flash[:error] = "Please re-enter the discharge summary."
-      render :leaving
-    end
   end
 
   def leaving
-    @patient.discharge!
+    @patient.leaving!
+    redirect_to discharge_hospital_patient_path(@hospital, @patient)
   end
 
 private

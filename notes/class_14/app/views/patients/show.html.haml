@@ -14,6 +14,20 @@ Discharge Notes: #{@patient.discharge_note}
 %br
 
 = link_to "Edit", edit_hospital_patient_path
+|
 = link_to "Home", root_path
+|
 = link_to "Hospital List", hospital_path(@hospital)
 %hr
+%h1 Medication
+= link_to "New Medication", new_hospital_patient_medication_path(@hospital, @patient, @medication)
+%br
+%br
+- @patient.medications.each do |medication|
+  Name: 
+  = link_to medication.name, hospital_patient_medication_path(@hospital, @patient, medication)
+  %br
+  Description: 
+  = medication.description
+  %br
+  %br

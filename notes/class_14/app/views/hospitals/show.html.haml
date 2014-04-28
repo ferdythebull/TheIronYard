@@ -1,3 +1,5 @@
+%h1 Hospital Info
+%hr
 = link_to "Go Back", root_path
 %br
 Hospital: 
@@ -15,7 +17,6 @@ Location:
   = link_to patient.name, hospital_patient_path(@hospital, patient)
   (#{patient.workflow_state})
   = workflow_links(patient)
-  %end
 
 Name:
 
