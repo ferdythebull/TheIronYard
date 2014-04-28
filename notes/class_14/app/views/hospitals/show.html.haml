@@ -10,3 +10,14 @@ Location:
 %hr
 = link_to "New Patient", new_hospital_patient_path(@hospital)
 %br
+
+- @patients_processing.each do |patient|
+  = link_to patient.name, hospital_patient_path(@hospital, patient)
+  (#{patient.workflow_state})
+  = workflow_links(patient)
+  %end
+
+Name:
+
+%br
+Condition:
