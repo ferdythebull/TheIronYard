@@ -1,6 +1,8 @@
 class Patient < ActiveRecord::Base
   has_many :medications
-  belongs_to :hospital
+  has_many :join_tables
+  has_many :hospitals, through: :join_tables
+  has_many :doctors, as: :doctorable
 
   validates :name, presence: true
   validates :symptom, presence: true

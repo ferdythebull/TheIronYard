@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :hospitals do
+    member do
+      get :doctor
+      post :add_doctor
+    end
     resources :patients do
       resources :medications
       # Member vs Collection
@@ -20,6 +24,8 @@ Rails.application.routes.draw do
         patch :pay
         patch :leaving
         get :discharge
+        get :doctor_name
+        post :add_doctor
       end
     end
   end

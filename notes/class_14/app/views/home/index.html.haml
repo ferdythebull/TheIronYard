@@ -1,6 +1,6 @@
 %h1 Hospital List
 %hr
-= link_to "New Hospital", new_hospital_path
+= link_to "Create Hospital", new_hospital_path
 %br
 - @hospitals.each do |hospital|
   = link_to hospital.name, hospital_path(hospital)

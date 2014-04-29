@@ -69,6 +69,20 @@ class PatientsController < ApplicationController
     redirect_to discharge_hospital_patient_path(@hospital, @patient)
   end
 
+  def doctor
+    @patient.doctor!
+    redirect_to hospital_path(@hospital)
+  end
+
+  def doctor_name
+    @doctor = @patient.doctors.new
+  end
+
+  def add_doctor
+    @doctor = @patient.doctors.create doctor_params
+    redirect_to hospital_patient_path
+  end
+
 private
   def patient_params
     params.require(:patient).permit(:name, :age, :sex, :symptom, :discharge_note)
@@ -80,5 +94,9 @@ private
 
   def find_patient
     @patient = Patient.find params[:id]
+  end
+
+  def doctor_params
+    params.require(:doctor).permit(:surname)
   end
 end

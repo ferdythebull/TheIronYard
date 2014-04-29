@@ -19,6 +19,9 @@ Discharge Notes: #{@patient.discharge_note}
 |
 = link_to "Hospital List", hospital_path(@hospital)
 %hr
+%h1 Doctors
+= link_to "Add Doctor", doctor_name_hospital_patient_path(@hospital, @patient)
+%hr
 %h1 Medication
 = link_to "New Medication", new_hospital_patient_medication_path(@hospital, @patient, @medication)
 %br

@@ -7,18 +7,29 @@ Hospital:
 %br
 Location: 
 = @hospital.location
-%br
-= link_to "Edit", edit_hospital_path(@hospital)
 %hr
+= link_to "Edit Hospital", edit_hospital_path(@hospital)
+|
 = link_to "New Patient", new_hospital_patient_path(@hospital)
-%br
-
+|
+= link_to "Add a Doctor", doctor_hospital_path(@hospital)
+%hr
 - @patients_processing.each do |patient|
   = link_to patient.name, hospital_patient_path(@hospital, patient)
   (#{patient.workflow_state})
   = workflow_links(patient)
 
-Name:
+%hr
+%h3 Doctors
+-@hospital.doctors.each do |doctor|
+  Name: Dr. 
+  =doctor.name
 
-%br
-Condition:
+%hr
+%h3 Patients Completed
+-@patients_completed.each do |patient|
+  Name: 
+  = patient.name
+  %br
+  discharged at
+  = patient.updated_at.strftime("%l:%M%p")

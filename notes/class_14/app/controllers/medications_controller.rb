@@ -1,7 +1,7 @@
 class MedicationsController < ApplicationController
   before_filter :find_patient
   before_filter :find_hospital
-  before_filter :find_medication, only: [:show, :edit, :update, :destroy]
+  before_filter :find_medication, only: [:show, :edit, :update, :destroy, :doctor, :add_doctor]
 
   def new
     @medication = @patient.medications.new
