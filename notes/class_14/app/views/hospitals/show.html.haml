@@ -12,8 +12,9 @@ Location:
 |
 = link_to "New Patient", new_hospital_patient_path(@hospital)
 |
-= link_to "Add a Doctor", doctor_hospital_path(@hospital)
+= link_to "Add a Doctor", new_doctor_hospital_path(@hospital)
 %hr
+%h1 Patients at Hospital
 - @patients_processing.each do |patient|
   = link_to patient.name, hospital_patient_path(@hospital, patient)
   (#{patient.workflow_state})
@@ -24,6 +25,7 @@ Location:
 -@hospital.doctors.each do |doctor|
   Name: Dr. 
   =doctor.name
+  %br
 
 %hr
 %h3 Patients Completed

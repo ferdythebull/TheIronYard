@@ -1,9 +1,10 @@
 class PatientsController < ApplicationController
   before_filter :find_hospital
-  before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :discharge]
+  before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :email, :doctor_name, :add_doctor, :doctor_show, :discharge]
 
   def show
     @hospitals = Hospital.all
+    @doctors = Doctor.all
   end
 
   def new
@@ -74,7 +75,7 @@ class PatientsController < ApplicationController
     redirect_to hospital_path(@hospital)
   end
 
-  def doctor_name
+  def new_doctor
     @doctor = @patient.doctors.new
   end
 
@@ -83,9 +84,13 @@ class PatientsController < ApplicationController
     redirect_to hospital_patient_path
   end
 
+  def search_names
+    @search_names = Patient.search_names params[:q]
+  end
+
 private
   def patient_params
-    params.require(:patient).permit(:name, :age, :sex, :symptom, :discharge_note)
+    params.require(:patient).permit(:name, :age, :sex, :symptom, :email, :discharge_note)
   end
 
   def find_hospital

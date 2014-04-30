@@ -1,5 +1,5 @@
 class HospitalsController < ApplicationController
-  before_filter :find_hospital, only: [:show, :edit, :update, :destroy, :doctor, :add_doctor]
+  before_filter :find_hospital, only: [:show, :edit, :update, :destroy, :add_doctor, :new_doctor]
 
   def show
     @patients_processing = @hospital.patients.where.not(workflow_state: 'leaving')
@@ -28,13 +28,13 @@ class HospitalsController < ApplicationController
     redirect_to root_path
   end
 
-  def doctor
+  def new_doctor
     @doctor = @hospital.doctors.new
   end
 
   def add_doctor
     @doctor = @hospital.doctors.create doctor_params
-    redirect_to root_path
+    redirect_to hospital_path(@hospital)
   end
 
 private

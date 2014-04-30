@@ -18,6 +18,9 @@
   = f.text_area :symptom, placeholder: "Write the symptoms here"
   %br
 
+  = f.label :email
+  = f.text_field :email, placeholder: "Email"
+
   = f.submit
 %hr
   = link_to "Cancel", hospital_path(@hospital)

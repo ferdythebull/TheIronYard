@@ -5,7 +5,20 @@ class Patient < ActiveRecord::Base
   has_many :doctors, as: :doctorable
 
   validates :name, presence: true
+  validates :email, presence: true
   validates :symptom, presence: true
+
+  before_create :send_hospital_email
+
+  def send_hospital_email
+    HospitalMailer.new_hospital_mailer(self).deliver
+  end
+
+  scope :search_names, -> search { where( "name like ?", "%#{search}%") }
+
+  def display_name
+    "Mr. #{name}"
+  end
 
   include Workflow
   workflow do

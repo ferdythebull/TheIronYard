@@ -1,9 +1,18 @@
+# CRUD
+# Create
+# Read
+# Update
+# Destroy
+# Index/Show/New/Create/Edit/Update/Destroy
+
+
+
 Rails.application.routes.draw do
   root 'home#index'
 
   resources :hospitals do
     member do
-      get :doctor
+      get :new_doctor
       post :add_doctor
     end
     resources :patients do
@@ -24,7 +33,7 @@ Rails.application.routes.draw do
         patch :pay
         patch :leaving
         get :discharge
-        get :doctor_name
+        get :new_doctor
         post :add_doctor
       end
     end
