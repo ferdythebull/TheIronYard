@@ -1,0 +1,24 @@
+jQuery
+
+# brings up the first item in an array
+:first 
+$("div.blue_background:first");
+
+#brings up the last item in an array
+:last
+$("div.blue_background:last");
+
+#only returns the direct descndent of that html element
+>
+$("div.red_background > div.blue_background");
+
+#if you want to select a particular background, but only want to get the hidden ones
+:hidden
+$("h3.black_background")
+
+
+#setting data elements ofn
+.prop
+
+#accesses the parent of an element
+.parent

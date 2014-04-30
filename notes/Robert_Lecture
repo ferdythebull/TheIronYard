@@ -1,0 +1,14 @@
+Models
+  - data
+  - validations
+  - methods
+  - constants
+  - scopes
+  - callbacks
+  - relationships
+
+Views
+
+Controllers
+
+Routes
