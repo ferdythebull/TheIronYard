@@ -1,5 +1,5 @@
-class HospitalsController < ApplicationController
-  before_filter :find_hospital, only: [:show, :edit, :update, :destroy, :add_doctor, :new_doctor]
+class HospitalsController < ApplicationController      
+  before_filter :find_hospital, only: [:show, :edit, :update, :destroy, :add_doctor, :new_doctor, :search_names]
 
   def show
     @patients_processing = @hospital.patients.where.not(workflow_state: 'leaving')
@@ -37,7 +37,12 @@ class HospitalsController < ApplicationController
     redirect_to hospital_path(@hospital)
   end
 
+  def search_names
+    @search_names = Patient.search_names params[:q]
+  end
+
 private
+
   def find_hospital
     @hospital = Hospital.find params[:id]
   end

@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     member do
       get :new_doctor
       post :add_doctor
+      get :search_names
     end
     resources :patients do
-      get :search_names
       resources :medications
       # Member vs Collection
       # Collection: Does not require an ID
