@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_filter :find_hospital
-  before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :email, :doctor_name, :add_doctor, :doctor_show, :discharge]
+  before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :email, :doctor_name, :add_doctor, :new_doctor, :discharge]
 
   def show
     @hospitals = Hospital.all

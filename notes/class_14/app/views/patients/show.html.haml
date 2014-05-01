@@ -19,7 +19,7 @@ Discharge Notes: #{@patient.discharge_note}
 |
 = link_to "Hospital List", hospital_path(@hospital)
 %hr
-= link_to "Add Doctor", add_doctor_hospital_patient_path(@hospital, @patient)
+= link_to "Add Doctor", new_doctor_hospital_patient_path(@hospital, @patient)
 %h1 Personal Physicians
 
 - @doctors.each do |doctor|
