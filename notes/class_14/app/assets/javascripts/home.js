@@ -19,7 +19,15 @@ var when_page_is_ready = function() {
       }
     });
   })
+  //all the patients are listed out on the page. Then, all of the patients are hidden. Then, up to 10 patients are shown. If there is more than 10 patients to be shown, the rest of the patients are divided up into more pages within groupings of 10
+  showPage = function(page) {
+    $(".patient").hide();
+    $(".patient").show();
+  }
+  showPage(1);
+
 };
 
 $(document).ready(when_page_is_ready);
 $(document).on("page:load", when_page_is_ready);
+

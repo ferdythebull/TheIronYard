@@ -16,7 +16,8 @@ class PatientsController < ApplicationController
     success = @patient.save
     if success == true
       flash[:notice] = "The patient has now been admitted into the waiting room!"
-      redirect_to hospital_patient_path(@hospital, @patient)
+      # Fix this redirect
+      redirect_to hospital_path(@hospital)
     else
       flash[:error] = "You were unsuccessful in admitting this patient."
       render :new
