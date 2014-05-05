@@ -9,9 +9,6 @@
 
 var when_page_is_ready = function() {
 
-
-//if you enter in any text to the name field of the submit form, the text "Required Field" below it disappears
-
   $(document).ready(function() {
     $(".submit").hide();
     $(".name").keyup(function() {
