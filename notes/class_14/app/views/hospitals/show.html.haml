@@ -1,39 +1,96 @@
-%h1 Hospital Info
-%hr
-= link_to "Go Back", root_path
-%hr
-Hospital: 
-= @hospital.name
-%br
-Location: 
-= @hospital.location
-%br
-= render 'hospitals/search'
-%hr
-= link_to "Edit Hospital", edit_hospital_path(@hospital)
-|
-= link_to "New Patient", new_hospital_patient_path(@hospital)
-|
-= link_to "Add a Doctor", new_doctor_hospital_path(@hospital)
-%hr
-%h1 Patients at Hospital
-- @patients_processing.each do |patient|
-  = link_to patient.name, hospital_patient_path(@hospital, patient)
-  (#{patient.workflow_state})
-  = workflow_links(patient)
-
-%hr
-%h3 Doctors
--@hospital.doctors.each do |doctor|
-  Name: Dr. 
-  =doctor.name
-  %br
-
-%hr
-%h3 Patients Completed
--@patients_completed.each do |patient|
-  Name: 
-  = patient.name
-  %br
-  discharged at
-  = patient.updated_at.strftime("%l:%M%p")
+.box
+  .title
+    %h3 Hospital Info: #{@hospital.name}
+  .align-center
+    .navbar
+      .create-new
+        = link_to "Go Back", root_path
+  .box-bg
+    %table
+      %tr
+        %td
+          %table
+            %tr
+              %td
+                Location:
+              %td
+                = @hospital.location
+            %tr
+              %td
+                Search for a patient:
+              %td
+                = render 'hospitals/search'
+      %tr
+        %td
+          %table
+            %tr
+              %td
+                = link_to "Edit Hospital", edit_hospital_path(@hospital)
+              %td
+                = link_to "New Patient", new_hospital_patient_path(@hospital)
+              %td
+                = link_to "Add a Doctor", new_doctor_hospital_path(@hospital)
+      %tr
+        %td
+          %table
+            %tr
+              %td
+                %table
+                  %tr
+                    %td
+                      %h1 Patients at Hospital
+            %tr
+              %td
+                %table
+                  %tr
+                    %th
+                      Patient Name
+                    %th
+                      Workflow State
+                    %th
+                      Workflow Links
+                  %tr
+                    - @patients_processing.each do |patient|
+                      %td
+                        = link_to patient.name, hospital_patient_path(@hospital, patient)
+                      %td
+                        (#{patient.workflow_state})
+                      %td
+                        = workflow_links(patient)
+      %tr
+        %td
+          %table
+            %tr
+              %td
+                %table
+                  %tr
+                    %th
+                      %h1 Doctors
+            %tr
+              %td
+                %table
+                  %tr
+                    %td
+                      -@hospital.doctors.each do |doctor|
+                        Dr. #{doctor.name}
+                        |
+      %tr
+        %td
+          %table
+            %tr
+              %td
+                %table
+                  %tr
+                    %th
+                      %h1 Patients Completed
+            %tr
+              %td
+                %table
+                  -@patients_completed.each do |patient|
+                    %tr
+                      %td
+                        Name:
+                        = patient.name
+                      %td
+                        discharged at
+                        = patient.updated_at.strftime("%l:%M%p")

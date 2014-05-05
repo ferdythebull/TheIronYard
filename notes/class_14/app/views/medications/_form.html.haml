@@ -1,11 +1,18 @@
 = form_for [@hospital, @patient, @medication] do |f|
   = render 'layouts/error_messages', object: @medication
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.label :description
-  = f.text_area :description
-  %br
-  =f.submit
-  %hr
-= link_to "Go Back Home", hospital_patient_path(@hospital, @patient)
+  %table
+    %tr
+      %td
+        = f.label :name
+      %td
+        = f.text_field :name, placeholder: "Enter name here", class: "name"
+    %tr
+      %td
+        = f.label :description
+      %td
+        = f.text_area :description
+    %tr
+      %td
+        =f.submit "Submit", class: "name"
+      %td
+        = link_to "Go Back Home", hospital_patient_path(@hospital, @patient)

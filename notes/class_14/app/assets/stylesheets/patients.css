@@ -3,22 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html {
-  background-color: #5FBDCE;
-}
-
-body {
-  background-color: #5FBDCE;
-  font-family: Georgia, serif;
-  margin: 25px;
-}
-
-.title{
-  width: 500px;
-  height: 50px;
-  background-color: #04859D;
-  box-shadow: 1px 1px 1px #015666;
-  text-align: center;
-  margin: 0 auto;
+  background-color: #34EAFF;
 }
 
 form{
@@ -35,9 +20,14 @@ input, label {
 }
 
 a{
-  color: #FFFFFF;
+  color: #005C66;
+  text-decoration: none;
 }
 
 a:hover {
-  color: grey;
+  color: #00A0B2;
+}
+
+text {
+  color: #34EAFF;
 }

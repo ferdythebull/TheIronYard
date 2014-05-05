@@ -4,6 +4,9 @@ gem 'workflow'
 gem 'bootstrap_form'
 gem 'devise'
 
+#create lots of fake info for databases
+gem 'faker'
+
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'

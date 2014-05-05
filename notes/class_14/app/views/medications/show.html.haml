@@ -1,11 +1,18 @@
-%h1 Medication Info
-%hr
-Name: 
-= @medication.name
-%br
-Description: 
-= @medication.description
-%br
-%hr
-= link_to "Hospital Page", hospital_patient_path(@hospital, @patient)
-%hr
+.box
+  .title
+    %h3 Medication Info
+  .box-bg
+    %table
+      %tr
+        %td
+          Name:
+        %td 
+          = @medication.name
+      %tr
+        %td
+          Description: 
+        %td
+          = @medication.description
+      %tr
+        %td
+          = link_to "Hospital Page", hospital_patient_path(@hospital, @patient)
