@@ -1,0 +1,91 @@
+- @patients_processing.each_slice(10) do |patient1, patient2, patient3, patient4, patient5, patient6, patient7, patient8, patient9, patient10|            
+  - if patient1
+    %tr.patient
+      %td
+        1. 
+        = link_to patient1.name, hospital_patient_path(@hospital, patient1)
+      %td
+        (#{patient1.workflow_state})
+      %td
+        = workflow_links(patient1)
+  - if patient2
+    %tr.patient
+      %td
+        2. 
+        = link_to patient2.name, hospital_patient_path(@hospital, patient2)
+      %td
+        (#{patient2.workflow_state})
+      %td
+        = workflow_links(patient2)
+  - if patient3
+    %tr.patient
+      %td
+        3. 
+        = link_to patient3.name, hospital_patient_path(@hospital, patient3)
+      %td
+        (#{patient3.workflow_state})
+      %td
+        = workflow_links(patient3)
+  - if patient4
+    %tr.patient
+      %td
+        4. 
+        = link_to patient4.name, hospital_patient_path(@hospital, patient4)
+      %td
+        (#{patient4.workflow_state})
+      %td
+        = workflow_links(patient4)
+  - if patient5
+    %tr.patient
+      %td
+        5. 
+        = link_to patient5.name, hospital_patient_path(@hospital, patient5)
+      %td
+        (#{patient5.workflow_state})
+      %td
+        = workflow_links(patient5)
+  - if patient6
+    %tr.patient
+      %td
+        6. 
+        = link_to patient6.name, hospital_patient_path(@hospital, patient6)
+      %td
+        (#{patient6.workflow_state})
+      %td
+        = workflow_links(patient6)
+  - if patient7
+    %tr.patient
+      %td
+        7. 
+        = link_to patient7.name, hospital_patient_path(@hospital, patient7)
+      %td
+        (#{patient7.workflow_state})
+      %td
+        = workflow_links(patient7)
+  - if patient8
+    %tr.patient
+      %td
+        8. 
+        = link_to patient8.name, hospital_patient_path(@hospital, patient8)
+      %td
+        (#{patient8.workflow_state})
+      %td
+        = workflow_links(patient8)
+  - if patient9
+    %tr.patient
+      %td
+        9.
+        = link_to patient9.name, hospital_patient_path(@hospital, patient9)
+      %td
+        (#{patient9.workflow_state})
+      %td
+        = workflow_links(patient9)
+  - if patient10
+    %tr.patient
+      %td
+        10. 
+        = link_to patient10.name, hospital_patient_path(@hospital, patient10)
+      %td
+        (#{patient10.workflow_state})
+      %td
+        = workflow_links(patient10)

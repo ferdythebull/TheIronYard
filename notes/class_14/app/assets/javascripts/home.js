@@ -26,6 +26,8 @@ var when_page_is_ready = function() {
   }
   showPage(1);
 
+  
+
 };
 
 $(document).ready(when_page_is_ready);
