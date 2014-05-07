@@ -1,0 +1,27 @@
+= form_for @class do |f|
+  %table
+    %tr
+      %td
+        = f.label :name
+      %td
+        = f.text_field :street, placeholder: "Enter street here", class: "street"
+    %tr
+      %td
+        = f.label :city
+      %td
+        = f.text_field :city, placeholder: "Enter city here", class: "street"
+    %tr
+      %td
+        = f.label :state
+      %td
+        = f.select :state, options_for_select(us_states), include_blank: '--- Select State ---'
+    %tr
+      %td
+        = f.label :zipCode
+      %td
+        = f.text_field :zipCode, placeholder: "Enter zip code here", class: "zipCode"
+    %tr
+      %td
+        = f.submit "Submit", class: "submit"
+      %td
+        = link_to "Go back", root_path

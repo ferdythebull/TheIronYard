@@ -1,4 +1,5 @@
-var when_page_is_ready = function() {}
+var when_page_is_ready = function() {
+  
   $('#myTab a').click(function (e) {
     console.log("hi");
     e.preventDefault()

@@ -1,12 +1,10 @@
 var when_page_is_loaded = function() {
 
-  $(document).ready(function() {
-    $('#myTab a').click(function (e) {
-      console.log("hi");
-      e.preventDefault()
-      $(this).tab('show')
-    })
-  });
+  $('#myTab a').click(function (e) {
+    console.log("hi");
+    e.preventDefault()
+    $(this).tab('show')
+  })
 
 };
 

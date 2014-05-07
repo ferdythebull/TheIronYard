@@ -1,28 +1,20 @@
 %ul#myTab.nav.nav-tabs
-  %li.active
-    %a{href: "#home"} Home
-  %li
-    %a{href: "#profile"} Profile
-  %li
-    %a{href: "#messages"} Messages
+  - @locations.each do |location|
+    %li
+      %a{href: "##{location.id}"} #{location.city}
+
 #content.tab-content
-  #home.tab-pane.active
-    %ul
-      %li home
-      %li home
-      %li home
-      %li home
-      %li home
-      %li home
-      %li home
-  #profile.tab-pane
-    %ul
-      %li profile
-      %li profile
-      %li profile
-      %li profile
-      %li profile
-      %li profile
-      %li profile
-  #messages.tab-pane
-  #settings.tab-pane 
+  - @locations.each do |location|
+    .tab-pane{id: location.id}
+      %strong The Iron Yard 
+      %br
+      = location.street
+      %br
+      = location.city
+      ,
+      = location.state
+      %br
+      = location.zipCode
+      %br
+      = link_to "Edit", edit_location_path(location)
+      |
