@@ -5,6 +5,13 @@ var when_page_is_loaded = function() {
     e.preventDefault()
     $(this).tab('show')
   })
+  
+  $("#myTab a:first").click()  
+
+  $("div.accordion").accordion({
+  })
+
+  $("#accordion").accordion({collapsible: true, active: false });
 
 };
 

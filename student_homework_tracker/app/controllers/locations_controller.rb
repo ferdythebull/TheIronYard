@@ -1,8 +1,14 @@
 class LocationsController < ApplicationController
   before_filter :find_location, only: [:show, :edit, :update, :destroy]
 
-  def show
+  def index
     @locations = Location.all
+  end
+
+  def show
+    # need the @locations because of the navigation bar
+    @locations = Location.all
+    @courses = Course.all
   end
 
   def new
@@ -12,11 +18,10 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.create location_params
-    redirect_to root_path
+    redirect_to locations_path
   end
 
   def edit
-    @locations = Location.all
   end
 
   def update

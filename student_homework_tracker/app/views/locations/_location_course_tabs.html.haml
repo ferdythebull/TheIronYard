@@ -1,0 +1,15 @@
+%ul#myTab.nav.nav-tabs
+  - @locations.each do |location|
+    %li
+      %a{href: "##{location.id}"} #{location.city}
+
+#content.tab-content
+  - @location.courses.each do |location.courses|
+    .tab-pane{id: location.courses.id}
+      %strong The Iron Yard
+    
+      %br
+      = link_to "Edit", edit_location_course_path(location)
+      |
+      = link_to "Delete", location_course_path(location), method: :delete
+      %br
