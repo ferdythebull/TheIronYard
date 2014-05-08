@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
-  before_filter :find_location, only: [:index, :show, :edit, :update, :destroy]
   before_filter :find_course, only: [:show, :edit, :update, :destroy]
 
   def index
+    :find_location
     @courses = Course.all
     @assignments = Assignment.all
     puts @location.inspect
@@ -12,15 +12,13 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @locations = Location.all
     @courses = Course.all
-    @assignments = Assignment.all
     @course = Course.new
   end
 
   def create
-    @course = Course.create course_params
-    redirect_to location_courses_path
+    @course = @location.courses.create course_params
+    redirect_to location_path(@location)
   end
 
   def edit

@@ -7,6 +7,16 @@
   - @locations.each do |location|
     .tab-pane{id: location.id}
       %div.accordion
+
+        %h3
+          %a{href:'#'}Location Controls
+        %div
+          =link_to "School Info", location_path(location)
+          |
+          =link_to "Edit", edit_location_path(location)
+          |
+          =link_to "Delete", location_path(location), method: :delete
+
         %h3
           %a{href:'#'}Address
         %div
@@ -17,16 +27,8 @@
           =location.state
           %br
           =location.zipCode
-        %h3
-          %a{href:'#'}Location Controls
-        %div
-          =link_to "Edit", edit_location_path(location)
-          |
-          =link_to "Delete", location_path(location), method: :delete
-        %h3
-          %a{href: '#'}Classes
-        %div
-          =link_to "Class List", location_courses_path(@location)
+          / =link_to "New Course", new_location_course_path(@location)
+          / =link_to "Class List", location_courses_path(@location)
 / = render 'admin_location_course_tabs'
 
 
