@@ -1,36 +1,15 @@
 %ul#myTab.nav.nav-tabs
-  - @locations.each do |location|
+  - @courses.each do |course|
     %li
-      %a{href: "##{location.id}"} #{location.city}
+      %a{href: "##{course.id}"} #{course.name}
 
 #content.tab-content
-  - @locations.each do |location|
-    .tab-pane{id: location.id}
-      %div.accordion
-
-        %h3
-          %a{href:'#'}Location Controls
-        %div
-          =link_to "School Info", location_path(location)
-          |
-          =link_to "Edit", edit_location_path(location)
-          |
-          =link_to "Delete", location_path(location), method: :delete
-
-        %h3
-          %a{href:'#'}Address
-        %div
-          =location.street
-          %br
-          =location.city
-          ,
-          =location.state
-          %br
-          =location.zipCode
-          / =link_to "New Course", new_location_course_path(@location)
-          / =link_to "Class List", location_courses_path(@location)
-/ = render 'admin_location_course_tabs'
-
-
-
-/ = link_to "Edit", edit_location_course_path(@location, @course)
+  - @courses.each do |course|
+    .tab-pane{id: course.id}
+      %strong The Iron Yard
+    
+      %br
+      = link_to "Edit", edit_location_course_path(@location, course)
+      |
+      = link_to "Delete", location_course_path(@location, course), method: :delete
+      %br

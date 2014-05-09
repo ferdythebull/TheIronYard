@@ -1,18 +1,15 @@
 class LocationsController < ApplicationController
+  before_filter :navbar
   before_filter :find_location, only: [:show, :edit, :update, :destroy]
 
   def index
-    @locations = Location.all
   end
 
   def show
     # need the @locations because of the navigation bar
-    @locations = Location.all
-    @courses = Course.all
   end
 
   def new
-    @locations = Location.all
     @location = Location.new
   end
 
@@ -35,6 +32,11 @@ class LocationsController < ApplicationController
   end
 
 private
+
+  def navbar
+    @locations = Location.all
+    @courses = Course.all
+  end
 
   def find_location
     @location = Location.find params[:id]

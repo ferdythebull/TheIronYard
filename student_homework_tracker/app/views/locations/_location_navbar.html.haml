@@ -1,6 +1,17 @@
 %ul.nav.nav-pills
   %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+      My Dashboard
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        = link_to "My Dashboard", dashboard_index_path
+      %li.divider
+      %li
+        %a{href: "#"} Enrollment
+
+  %li.dropdown.active
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
       Locations
       %b.caret
     %ul.dropdown-menu
@@ -9,14 +20,14 @@
       %li.divider
         -@locations.each do |location|
           %li
-            = link_to "#{location.city}, #{location.state}",location_path(location)
+            = link_to "#{location.city}, #{location.state}",locations_path
       %li.divider
       %li
-        %a{href: "#"} Add New Location
+        %a{href: "#"} Enroll at a New Location
       %li.divider
       %li
-        = link_to "Create New Location", new_location_path(@location)
-  %li.dropdown.active
+        = link_to "Create New Location", new_location_path
+  %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
       Courses
       %b.caret
@@ -29,10 +40,11 @@
             = link_to "#{location.city}, #{location.state}",location_path(location)
       %li.divider
       %li
-        %a{href: "#"} Add New Course
+        %a{href: "#"} Enroll in a New Course
       %li.divider
       %li
-        = link_to "Create New Course", new_location_path(@location)
+        = link_to "Create New Course", new_location_course_path(@location)
+    
   %li.dropdown.pull-right
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
       #{current_user.email}

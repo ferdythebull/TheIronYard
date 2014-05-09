@@ -1,15 +1,20 @@
-= form_for @course do |f|
+= form_for [@location, @course] do |f|
   %table
     %tr
       %td
         = f.label :name
       %td
-        = f.text_field :name, placeholder: "Enter class name here", class: "name"
+        = f.text_field :name, placeholder: "Enter the course name here", class: "name"
+    %tr
+      %td
+        = f.label :title
+      %td
+        = f.text_field :title, placeholder: "Enter the course title here", class: "title"
     %tr
       %td
         = f.label :description
       %td
-        = f.text_area :description, placeholder: "Enter a description of the class here", class: "description"
+        = f.text_area :description, placeholder: "Enter a description of the course here", class: "description"
     %tr
       %td
         = f.submit "Submit", class: "submit"

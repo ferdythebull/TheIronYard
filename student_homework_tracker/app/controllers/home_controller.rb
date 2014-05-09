@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :navbar
+  
   def index
     if user_signed_in?
       redirect_to :controller=>'dashboard', :action => 'index'
@@ -6,4 +8,11 @@ class HomeController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+private
+  def navbar
+    @locations = Location.all
+    @courses = Course.all
+  end
+
 end
