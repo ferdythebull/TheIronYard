@@ -1,0 +1,5 @@
+.btn-group
+  - @courses.each do |course|
+    %a.btn.btn-info.btn-large.active{href: "#{@location.id}/courses/#{course.id}"}
+      %i.icon-white.icon-th-large
+        #{course.name}

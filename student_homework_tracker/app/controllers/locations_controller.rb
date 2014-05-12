@@ -1,34 +1,47 @@
 class LocationsController < ApplicationController
   before_filter :navbar
+  before_action :authenticate_user!
   before_filter :find_location, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize! :read, Location
   end
 
   def show
-    # need the @locations because of the navigation bar
+    authorize! :read, Location
   end
 
   def new
+    authorize! :create, Location
     @location = Location.new
   end
 
   def create
-    @location = Location.create location_params
-    redirect_to locations_path
+    authorize! :create, Location
+    @location = Location.new location_params
+    if @location.save
+      flash[:notice] = "A new location has been added to The Iron Yard family."
+      redirect_to locations_path
+    else
+      flash[:error] = "Please enter more information."
+      render :new
+    end
   end
 
   def edit
+    authorize! :update, Location
   end
 
   def update
+    authorize! :update, Location
     @location.update_attributes location_params
-    redirect_to
+    redirect_to locations_path
   end
 
   def destroy
+    authorize! :destroy, Location
     @location.delete
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
 private
@@ -43,7 +56,7 @@ private
   end
 
   def location_params
-    params.require(:location).permit(:street, :city, :state, :zipCode)
+    params.require(:location).permit(:street, :city, :state, :zipCode, :phone_number)
   end
 
 end

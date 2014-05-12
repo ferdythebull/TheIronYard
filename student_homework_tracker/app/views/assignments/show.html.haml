@@ -1,0 +1,26 @@
+= render 'assignment_navbar_index_new'
+.container
+  %h2 The Current Location is The Iron Yard #{@location.city}
+
+  %hr
+
+  %h2 The Current Course is #{@course.name}
+
+  %hr
+
+  %h2 The Current Assignment is #{@assignment.name}
+
+  %hr
+
+  %h4 Comments:
+  = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
+  #accordion
+    - @assignment.comments.each do |comment|
+      %h3 Comment #{comment.id}
+      %div
+        %p
+          = comment.comment
+
+  %hr
+  - @assignment.submissions.each do |submission|
+    = submission.id

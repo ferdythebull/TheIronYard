@@ -1,3 +1,10 @@
-= render 'location_navbar_index_new'
-%h1 Iron Yard Locations
-= render 'location_tabs_index'
+/ = render 'navbar'
+.container
+  %h1 Iron Yard Locations
+
+  .btn-group.btn-group-justified
+    %button.btn.btn-default{type: "button"} Left
+    %button.btn.btn-default{type: "button"} Middle
+    %button.btn.btn-default{type: "button"} Right
+
+  / = render 'location_tabs_index'

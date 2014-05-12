@@ -1,5 +1,15 @@
-= render 'location_navbar'
+= render 'navbar'
+.container
+  %hr
+  %h4 Schools Available
+  .btn-group
+  - @locations.each do |location|
+    %a.btn.btn-info.btn-default{href: "locations/#{location.id}"}
+      %i.icon-white.icon-th-large
+        #{location.city}
 
-%h1 The Iron Yard #{@location.city}
+  %h2 The Current Location is The Iron Yard #{@location.city}
+  %hr
 
-= render 'location_tabs'
+  %h1 Please choose a course.
+  = render 'tabs'

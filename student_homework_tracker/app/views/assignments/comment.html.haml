@@ -1,0 +1,8 @@
+.container
+  %h1 Add a Comment to the Assignment titled #{@assignment.name} in The Iron Yard #{@location.city}'s #{@course.name} Course.
+
+  = simple_form_for [@location, @course, @assignment, @comment], url: new_comment_location_course_assignment_path(@location, @course, @assignment) do |f|
+    .field
+      = f.input :comment
+    .actions
+      = f.submit 'Save'

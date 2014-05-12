@@ -11,14 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509145451) do
+ActiveRecord::Schema.define(version: 20140512021047) do
 
   create_table "assignments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
+    t.string   "name"
+    t.text     "description"
   end
 
   create_table "comments", force: true do |t|
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,13 +33,23 @@ ActiveRecord::Schema.define(version: 20140509145451) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "title"
+    t.integer  "location_id"
   end
 
   create_table "join_tables", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
+    t.integer  "user_id"
+  end
+
+  create_table "links", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "links"
+    t.integer  "submission_id"
   end
 
   create_table "locations", force: true do |t|
@@ -43,11 +59,15 @@ ActiveRecord::Schema.define(version: 20140509145451) do
     t.string   "city"
     t.string   "state"
     t.string   "zipCode"
+    t.string   "phone_number"
   end
 
   create_table "submissions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "workflow_state"
+    t.integer  "user_id"
+    t.integer  "assignment_id"
   end
 
   create_table "users", force: true do |t|
@@ -63,6 +83,9 @@ ActiveRecord::Schema.define(version: 20140509145451) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "admin"
+    t.string   "user_type"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,6 +1,21 @@
-= render 'course_navbar'
+/ = render 'navbar'
+.container
+  %h2 The Current Location is The Iron Yard #{@location.city}
 
-%h1 The Iron Yard #{@location.city}
+  %hr
+  %h4 Courses Available
+  .btn-group
+  - @courses.each do |course|
+    %a.btn.btn-info.btn-small{href: "#{@location.id}/courses/#{course.id}"}
+      %i.icon-white.icon-th-large
+        #{course.name}
 
-= render 'course
-_tabs'
+  %h2 The Current Course is #{@course.name}
+  %hr
+
+  %h1 Please choose an assignment.
+  %h4
+    = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment)
+    .btn-group
+      - @course.assignments.each do |assignment|
+        = render 'assignments/tabs', assignment: assignment

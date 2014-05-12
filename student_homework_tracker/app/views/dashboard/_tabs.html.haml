@@ -1,0 +1,5 @@
+.btn-group
+  - @locations.each do |location|
+    %a.btn.btn-info.btn-large.btn-block.active{href: "locations/#{location.id}"}
+      %i.icon-white.icon-th-large
+        #{location.city}

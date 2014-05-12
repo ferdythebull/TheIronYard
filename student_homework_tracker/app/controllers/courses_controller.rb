@@ -14,17 +14,26 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create course_params
-    redirect_to location_path(@location)
+    if @course.save
+      flash[:notice] = "A new course has been added to the site."
+      redirect_to location_path(@location)
+    else
+      flash[:error] = "Please enter more info."
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @course.update_attributes course_params
+    redirect_to location_path(@location)
   end
 
   def destroy
+    @course.delete
+    redirect_to location_path(@location)
   end
 
 private

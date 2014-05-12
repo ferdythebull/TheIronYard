@@ -6,7 +6,22 @@ resources :dashboard
 
   resources :locations do
     resources :courses do
-      resources :assignments
+      resources :assignments do
+        member do
+          get :comment
+          post :new_comment
+        end
+        resources :submissions do
+          member do
+            get :comment
+            post :new_comment
+            patch :new
+            patch :grading
+            patch :incomplete
+            patch :complete
+          end
+        end
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

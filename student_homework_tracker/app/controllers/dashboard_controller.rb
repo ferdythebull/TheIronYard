@@ -4,14 +4,13 @@ class DashboardController < ApplicationController
 
 
   def index
+    authorize! :read, Location
   end
 
 private
 
   def navbar
     @locations = Location.all
-    @courses = Course.all
-    @assignments = Assignment.all
   end
 
 end
