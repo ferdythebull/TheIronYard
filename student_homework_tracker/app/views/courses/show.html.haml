@@ -6,7 +6,7 @@
   %h4 Courses Available
   .btn-group
   - @courses.each do |course|
-    %a.btn.btn-info.btn-small{href: "#{@location.id}/courses/#{course.id}"}
+    %a.btn.btn-info.btn-small{href: "#{@location.id}/courses/#{@course.id}"}
       %i.icon-white.icon-th-large
         #{course.name}
 
