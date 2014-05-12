@@ -1,21 +1,36 @@
-/ = render 'navbar'
-.container
-  %h2 The Current Location is The Iron Yard #{@location.city}
-
+.container-narrow
+  = render 'navbar'
   %hr
-  %h4 Courses Available
-  .btn-group
-  - @courses.each do |course|
-    %a.btn.btn-info.btn-small{href: "#{@location.id}/courses/#{@course.id}"}
-      %i.icon-white.icon-th-large
-        #{course.name}
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 The Iron Yard #{@location.city}
+        %table
+          %tr
+            %td
+              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+            %td
+              |
+            %td
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+        %hr
+        %h1 #{@course.name} Class
+        %table
+          %tr
+            %td
+              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course)
+            %td
+              |
+            %td
+              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete
 
-  %h2 The Current Course is #{@course.name}
-  %hr
-
-  %h1 Please choose an assignment.
-  %h4
-    = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment)
-    .btn-group
-      - @course.assignments.each do |assignment|
-        = render 'assignments/tabs', assignment: assignment
+      %hr
+      %h1 Please choose an assignment.
+      %h4
+        = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment)
+        %br
+        .btn-group
+          - @course.assignments.each do |assignment|
+            = render 'assignments/tabs', assignment: assignment

@@ -1,15 +1,21 @@
-= render 'navbar'
-.container
+.container-narrow
+  = render 'navbar'
   %hr
-  %h4 Schools Available
-  .btn-group
-  - @locations.each do |location|
-    %a.btn.btn-info.btn-default{href: "#{location.id}"}
-      %i.icon-white.icon-th-large
-        #{location.city}
-
-  %h2 The Current Location is The Iron Yard #{@location.city}
-  %hr
-
-  %h1 Please choose a course.
-  = render 'tabs'
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 The Iron Yard #{@location.city}
+        %table
+          %tr
+            %td
+              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+            %td
+              |
+            %td
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+          %br
+        %p.lead
+          %h2 Please choose a course.
+          = render 'tabs'

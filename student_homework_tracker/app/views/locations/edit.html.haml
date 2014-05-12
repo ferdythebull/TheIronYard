@@ -1,4 +1,10 @@
-.container
-  %h1 Edit The Iron Yard #{@location.city}
-
-  = render 'form'
+.container-fluid
+  = render 'navbar'
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      %hr
+      .jumbotrown
+        %h1 Edit The Iron Yard #{@location.city}
+        = render 'form'

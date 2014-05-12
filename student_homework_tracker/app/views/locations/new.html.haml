@@ -1,4 +1,9 @@
-= render 'navbar'
-.container
-  %h2 Create New Location
-  = render 'form'
+.container-narrow
+  = render 'navbar'
+.row-fluid
+  .span3
+    = render 'sidebar'
+  .span9
+    .jumbotron
+      %h2 Create New Location
+        = render 'form'

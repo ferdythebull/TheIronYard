@@ -54,9 +54,9 @@
       %li
         = link_to "All Assignments", location_course_assignments_path(@location, @course)
       %li.divider
-        -@assignments.each do |assignment|
+        -@course.assignments.each do |assignment|
           %li
-            = link_to "#{assignment.name}",location_course_assignment_path(@location, @course, @assignment)
+            = render 'assignments/assignments', assignment: assignment
       %li.divider
       %li
         %a{href: "#"} Enroll in a New Course

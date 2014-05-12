@@ -1,0 +1,29 @@
+.well.sidebar-nav
+  %ul.nav.nav-list
+    %li.nav-header Schools Available
+    .btn-group
+    - @locations.each do |location|
+      %li
+        %a.btn.btn-info.btn-default{href: "/../locations/#{location.id}"}
+          %i.icon-white.icon-th-large
+            #{location.city}
+    .btn-group
+      %li
+        %a.btn.btn-info.btn-default{href: "/../locations/new"}
+          %i.icon-white.icon-th-large
+            Create New location
+
+    %hr
+
+    %li.nav-header Courses Available
+    .btn-group
+    - @courses.each do |course|
+      %li
+        %a.btn.btn-info.btn-default{href: "./#{course.id}"}
+          %i.icon-white.icon-th-large
+            #{course.name}
+    .btn-group
+      %li
+        %a.btn.btn-info.btn-default{href: "./new"}
+          %i.icon-white.icon-th-large
+            Create New Course

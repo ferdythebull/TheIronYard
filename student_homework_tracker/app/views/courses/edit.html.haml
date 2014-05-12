@@ -1,2 +1,10 @@
-.container
-  .starter-template
+.container-narrow
+  = render 'navbar'
+  %hr
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 Edit #{@course.name} Class
+      = render "form"

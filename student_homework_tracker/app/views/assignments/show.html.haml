@@ -1,26 +1,40 @@
-= render 'assignment_navbar_index_new'
-.container
-  %h2 The Current Location is The Iron Yard #{@location.city}
-
+.container-narrow
+  = render 'navbar'
   %hr
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 The Iron Yard #{@location.city}
+        %table
+          %tr
+            %td
+              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+            %td
+              |
+            %td
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+        %hr
+        %h1 #{@course.name} Class
+        %table
+          %tr
+            %td
+              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course)
+            %td
+              |
+            %td
+              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete
+        %hr
+          %h4 Comments:
+          = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
+          #accordion
+            - @assignment.comments.each do |comment|
+              %h3 Comment created at #{comment.created_at}
+              %div
+                %p
+                  = comment.comment
 
-  %h2 The Current Course is #{@course.name}
-
-  %hr
-
-  %h2 The Current Assignment is #{@assignment.name}
-
-  %hr
-
-  %h4 Comments:
-  = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
-  #accordion
-    - @assignment.comments.each do |comment|
-      %h3 Comment #{comment.id}
-      %div
-        %p
-          = comment.comment
-
-  %hr
-  - @assignment.submissions.each do |submission|
-    = submission.id
+          %hr
+          - @assignment.submissions.each do |submission|
+            = submission.id

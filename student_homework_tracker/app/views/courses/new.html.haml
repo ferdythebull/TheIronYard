@@ -1,4 +1,10 @@
-= render 'course_navbar'
-.container
-  .starter-template
-    = render 'form'
+.container-narrow
+  = render 'navbar_new'
+  %hr
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 The Iron Yard #{@course.name}
+      = render 'form'
