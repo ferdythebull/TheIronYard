@@ -1,0 +1,6 @@
+%h1 Assignments for #{@course.name}
+.btn-group
+  - @assignments.each do |assignment|
+    %a.btn.btn-info.btn-large{href: "#{@course.id}/..assignment"}
+      %i.icon-white.icon-th-large
+        nada

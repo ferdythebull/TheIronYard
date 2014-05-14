@@ -1,0 +1,10 @@
+= if can? :create, Course
+  %a.btn.btn-info.btn-large{href: "../#{@location.id}/courses/new"}
+    %i.icon-white.icon-th-large
+      Add Course
+= if can? :read, Course
+  .btn-group
+    - @location.courses.each do |course|
+      %a.btn.btn-info.btn-large{href: "/./../locations/#{@location.id}/courses/#{course.id}"}
+        %i.icon-white.icon-th-large
+          #{course.name}

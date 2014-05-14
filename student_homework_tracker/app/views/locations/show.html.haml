@@ -10,12 +10,13 @@
         %table
           %tr
             %td
-              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+              = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
+            = if can? :edit, Location
+              %td
+                |
             %td
-              |
-            %td
-              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
           %br
         %p.lead
           %h2 Please choose a course.
-          = render 'tabs'
+          = render 'courses'

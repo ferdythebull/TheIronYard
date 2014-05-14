@@ -1,6 +1,10 @@
-= render 'course_navbar_index_new'
-.container
-  .starter-template
-    %h1 Iron Yard Courses
-
-    = render 'course_tabs_index_new'
+.container-narrow
+  
+%hr
+.row-fluid
+  .span3
+    = render 'sidebar'
+  .span9
+    .jumbotron
+      %h1 Iron Yard #{@location.city} Courses
+      = render 'index'

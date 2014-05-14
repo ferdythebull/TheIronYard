@@ -1,0 +1,10 @@
+.container-narrow
+  = render 'navbar'
+  %hr
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 The Iron Yard #{@location.city}
+        = render 'form'

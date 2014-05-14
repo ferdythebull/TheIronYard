@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 resources :dashboard
-
-  root 'home#index'
+  root 'dashboard#index'
 
   resources :locations do
     resources :courses do

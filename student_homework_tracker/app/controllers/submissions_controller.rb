@@ -53,15 +53,15 @@ private
 
   def navbar
     @locations = Location.all
-    @comments = @submission.comments.all
-    @assignments = @course.assignments.all
-    @submissions = @assignment.submissions.all
+    @courses = Course.all
+    @assignments = Assignment.all
   end
 
   def submission_params
     params.require(:submission).permit(
-      :workflow_state,
       :assignment_id,
+      :workflow_state,
+      :title,
       links_attributes: [:id, :links, :submission_id, :_destroy])
   end
 

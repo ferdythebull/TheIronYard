@@ -10,21 +10,37 @@
         %table
           %tr
             %td
-              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+              = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
+            = if can? :edit, Location
+              %td
+                |
             %td
-              |
-            %td
-              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
         %hr
         %h1 #{@course.name} Class
         %table
           %tr
             %td
-              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course)
+              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course) if can? :edit, Course
+            = if can? :edit, Course
+              %td
+                |
             %td
-              |
-            %td
-              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete
+              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete if can? :destroy, Course
+        %hr
+        %h1 Assignment: #{@assignment.name}
+        %table
+          %tr
+            = if can? :edit, Assignment
+              %td
+                = link_to "Edit #{@assignment.name}", edit_location_course_assignment_path(@location, @course, @assignment) 
+
+            = if can? :edit, Assignment
+              %td
+                |
+            = if can? :destroy, Assignment
+              %td
+                = link_to "Delete #{@assignment.name}", location_course_path(@location, @course, @assignment), method: :delete
         %hr
           %h4 Comments:
           = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
@@ -35,6 +51,6 @@
                 %p
                   = comment.comment
 
-          %hr
-          - @assignment.submissions.each do |submission|
-            = submission.id
+        / %hr
+        / - @assignment.submissions.each do |submission|
+        /   = submission.id

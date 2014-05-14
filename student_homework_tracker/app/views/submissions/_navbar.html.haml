@@ -29,7 +29,7 @@
       %li
         = link_to "All courses", location_courses_path(@location)
       %li.divider
-        -@location.courses.each do |course|
+        -@courses.each do |course|
           %li
             = link_to "#{course.name}",location_course_path(@location, course)
         %li.divider
@@ -42,12 +42,25 @@
       %b.caret
     %ul.dropdown-menu
       %li.divider
-        -@course.assignments.each do |assignment|
+        -@assignments.each do |assignment|
           %li
             = link_to "#{assignment.name}",location_course_assignment_path(@location, @course, assignment)
       %li.divider
       %li
         = link_to "Add New Assignment", new_location_course_assignment_path(@location, @course) if can? :create, Assignment
+
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+      Submissions
+      %b.caret
+    %ul.dropdown-menu
+      %li.divider
+        -@submissions.each do |submission|
+          %li
+            = link_to "#{submission.name}",location_course_assignment_path(@location, @course, @assignment, submission)
+      %li.divider
+      %li
+        = link_to "Add New Submission", new_location_course_assignment_submission_path(@location, @course, @assignment) if can? :create, Submission
 
   %li.dropdown.pull-right
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

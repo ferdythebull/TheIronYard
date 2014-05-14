@@ -4,5 +4,4 @@ class Assignment < ActiveRecord::Base
   has_many :users, through: :submissions
   has_many :comments, as: :commentable, :dependent => :destroy
   accepts_nested_attributes_for :submissions, allow_destroy: true
-  accepts_nested_attributes_for :comments
 end

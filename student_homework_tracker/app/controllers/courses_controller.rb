@@ -4,9 +4,11 @@ class CoursesController < ApplicationController
   before_filter :find_course, only: [:show, :edit, :update, :destroy]
 
   def index
+    @courses = @location.courses.all
   end
 
   def show
+    @courses = @location.courses.all
   end
 
   def new
@@ -14,6 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    @course = @location.courses.new course_params
     if @course.save
       flash[:notice] = "A new course has been added to the site."
       redirect_to location_path(@location)
@@ -40,7 +43,6 @@ private
 
   def navbar
     @locations = Location.all
-    @courses = Course.all
   end
 
   def find_location

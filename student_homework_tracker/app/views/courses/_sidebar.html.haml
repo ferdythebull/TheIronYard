@@ -1,13 +1,18 @@
 .well.sidebar-nav
   %ul.nav.nav-list
     %li.nav-header Schools Available
-    .btn-group
+
+    %li
+      %a.btn.btn-info.btn-default{href: '/./locations/'}
+        %i.icon-white.icon-th-large
+          All Locations
+
     - @locations.each do |location|
       %li
         %a.btn.btn-info.btn-default{href: "/../locations/#{location.id}"}
           %i.icon-white.icon-th-large
             #{location.city}
-    .btn-group
+    = if can? :create, Location
       %li
         %a.btn.btn-info.btn-default{href: "/../locations/new"}
           %i.icon-white.icon-th-large
@@ -16,13 +21,18 @@
     %hr
 
     %li.nav-header Courses Available
-    .btn-group
-    - @courses.each do |course|
+
+    %li
+      %a.btn.btn-info.btn-default{href: "./"}
+        %i.icon-white.icon-th-large
+          All Courses
+
+    - @location.courses.each do |course|
       %li
-        %a.btn.btn-info.btn-default{href: "./#{course.id}"}
+        %a.btn.btn-info.btn-default{href: "./../courses/#{course.id}"}
           %i.icon-white.icon-th-large
             #{course.name}
-    .btn-group
+    = if can? :create, Course
       %li
         %a.btn.btn-info.btn-default{href: "./new"}
           %i.icon-white.icon-th-large

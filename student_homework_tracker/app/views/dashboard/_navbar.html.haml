@@ -1,14 +1,6 @@
 %ul.nav.nav-pills
-  %li.dropdown.active
-    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-      My Dashboard
-      %b.caret
-    %ul.dropdown-menu
-      %li
-        = link_to "My Dashboard", dashboard_index_path
-      %li.divider
-      %li
-        %a{href: "#"} Enrollment
+  %li.active
+    = link_to "My Dashboard", dashboard_index_path
 
   %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
@@ -23,10 +15,7 @@
             = link_to "#{location.city}, #{location.state}",location_path(location)
       %li.divider
       %li
-        %a{href: "#"} Add New Location
-      %li.divider
-      %li
-        = link_to "Create New Location", new_location_path(@location)
+        = link_to "Create New Location", new_location_path(@location) if can? :create, Assignment
   %li.dropdown.pull-right
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
       #{current_user.email}
@@ -34,7 +23,7 @@
     %ul.dropdown-menu
       %li
         /here the access type (admin or student) would go
-        %strong Access Type: Student
+        %strong #{current_user.name}: #{current_user.user_type}
       %li
         #user_nav
           - if user_signed_in?

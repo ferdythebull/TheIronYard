@@ -1,0 +1,5 @@
+%h1 Iron Yard Locations
+.btn-group
+  - @locations.each do |location|
+    %a.btn.btn-info.btn-large{href: "./#{location.id}"}
+      #{location.city}

@@ -27,7 +27,7 @@
         %i.icon-white.icon-th-large
           All Courses
 
-    - @location.courses.each do |course|
+    - @courses.each do |course|
       %li
         %a.btn.btn-info.btn-default{href: "../../#{course.id}"}
           %i.icon-white.icon-th-large
@@ -45,7 +45,7 @@
         %i.icon-white.icon-th-large
           All Assignments
 
-    - @course.assignments.each do |assignment|
+    - @assignments.each do |assignment|
       %li
         %a.btn.btn-info.btn-default{href: "../assignments/#{assignment.id}"}
           %i.icon-white.icon-th-large

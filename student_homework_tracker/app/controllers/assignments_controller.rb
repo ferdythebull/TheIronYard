@@ -37,6 +37,7 @@ class AssignmentsController < ApplicationController
   end
 
   def index
+    authorize! :read, Assignment
   end
 
   def comment
@@ -52,10 +53,9 @@ private
 
   def navbar
     @locations = Location.all
-    @courses = Course.all
-    @assignments = Assignment.all
+    @courses = @location.courses.all
+    @assignments = @course.assignments.all
     @users = User.all
-    @submissions = Submission.all
   end
   
   def find_location

@@ -2,17 +2,16 @@
   %ul.nav.nav-list
     %li.nav-header Schools Available
     %li
-      %a.btn.btn-info.btn-default{href: "./"}
+      %a.btn.btn-info.btn-default{href: "./locations"}
         %i.icon-white.icon-th-large
           All Locations
-    
     - @locations.each do |location|
       %li
-        %a.btn.btn-info.btn-default{href: "./#{location.id}"}
+        %a.btn.btn-info.btn-default{href: "./locations/#{location.id}"}
           %i.icon-white.icon-th-large
             #{location.city}
     = if can? :create, Location
       %li
-        %a.btn.btn-info.btn-default{href: "./new"}
+        %a.btn.btn-info.btn-default{href: "./locations/new"}
           %i.icon-white.icon-th-large
             Create New location

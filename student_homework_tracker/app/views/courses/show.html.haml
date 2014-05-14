@@ -10,27 +10,29 @@
         %table
           %tr
             %td
-              = link_to "Edit #{@location.city} School", edit_location_path(@location)
+              = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
+            = if can? :edit, Location
+              %td
+                |
             %td
-              |
-            %td
-              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete
+              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
         %hr
-        %h1 #{@course.name} Class
+        %h1 #{@course.name} Course
         %table
           %tr
             %td
-              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course)
+              = link_to "Edit #{@course.name} Course", edit_location_course_path(@location, @course) if can? :edit, Course
+            = if can? :edit, Course
+              %td
+                |
             %td
-              |
-            %td
-              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete
+              = link_to "Delete #{@course.name} Course", location_course_path(@location, @course), method: :delete if can? :destroy, Course
 
       %hr
       %h1 Please choose an assignment.
       %h4
-        = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment)
+        = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment) if can? :create, Assignment
         %br
         .btn-group
-          - @course.assignments.each do |assignment|
-            = render 'assignments/tabs', assignment: assignment
+        - @course.assignments.each do |assignment|
+          = render 'assignments/assignments', assignment: assignment

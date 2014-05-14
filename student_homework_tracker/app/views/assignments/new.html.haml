@@ -1,4 +1,10 @@
-= render 'assignment_navbar_index_new'
-
-%h1 Add an Assignment
-= render 'form'
+.container-narrow
+  = render 'navbar'
+  %hr
+  .row-fluid
+    .span3
+      = render 'sidebar'
+    .span9
+      .jumbotron
+        %h1 Add an Assignment to the #{@course.name} Class
+        = render 'form'
