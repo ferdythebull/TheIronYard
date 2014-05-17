@@ -7,37 +7,27 @@
     .span9
       .jumbotron
         %h1 The Iron Yard #{@location.city}
-        %table
+        %table.table
           %tr
             %td
               = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
-            = if can? :edit, Location
-              %td
-                |
             %td
               = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
         %hr
         %h1 #{@course.name} Class
-        %table
+        %table.table
           %tr
             %td
               = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course) if can? :edit, Course
-            = if can? :edit, Course
-              %td
-                |
             %td
               = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete if can? :destroy, Course
         %hr
         %h1 Assignment: #{@assignment.name}
-        %table
+        %table.table
           %tr
             = if can? :edit, Assignment
               %td
                 = link_to "Edit #{@assignment.name}", edit_location_course_assignment_path(@location, @course, @assignment) 
-
-            = if can? :edit, Assignment
-              %td
-                |
             = if can? :destroy, Assignment
               %td
                 = link_to "Delete #{@assignment.name}", location_course_path(@location, @course, @assignment), method: :delete

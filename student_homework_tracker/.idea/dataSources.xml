@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1291488522">
+    <data-source source="LOCAL" name="Rails student_homework_tracker: development" uuid="455fd369-3e63-44df-8daf-1ce47914a607">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/student_homework_tracker_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails student_homework_tracker: test" uuid="fc5865e5-d422-4cff-a593-069021307767">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/student_homework_tracker_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails student_homework_tracker: production" uuid="2aeb1b8c-5462-4364-8778-4d0aca791283">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/student_homework_tracker_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

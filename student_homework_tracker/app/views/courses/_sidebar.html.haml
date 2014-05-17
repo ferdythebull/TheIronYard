@@ -12,7 +12,7 @@
         %a.btn.btn-info.btn-default{href: "/../locations/#{location.id}"}
           %i.icon-white.icon-th-large
             #{location.city}
-    = if can? :create, Location
+    - if can? :create, Location
       %li
         %a.btn.btn-info.btn-default{href: "/../locations/new"}
           %i.icon-white.icon-th-large
@@ -32,7 +32,7 @@
         %a.btn.btn-info.btn-default{href: "./../courses/#{course.id}"}
           %i.icon-white.icon-th-large
             #{course.name}
-    = if can? :create, Course
+    - if can? :create, Course
       %li
         %a.btn.btn-info.btn-default{href: "./new"}
           %i.icon-white.icon-th-large

@@ -11,7 +11,7 @@
         %a.btn.btn-info.btn-default{href: "./#{location.id}"}
           %i.icon-white.icon-th-large
             #{location.city}
-    = if can? :create, Location
+    - if can? :create, Location
       %li
         %a.btn.btn-info.btn-default{href: "./new"}
           %i.icon-white.icon-th-large
