@@ -15,7 +15,7 @@ resources :dashboard
             get :comment
             post :new_comment
             patch :new
-            patch :grading
+            patch :reviewing
             patch :incomplete
             patch :complete
           end

@@ -51,9 +51,6 @@
             = render 'assignments/assignments', assignment: assignment
       %li.divider
       %li
-        %a{href: "#"} Enroll in a New Course
-      %li.divider
-      %li
         = link_to "Create New Assignment", new_location_course_assignment_path(@location, @course, @assignment) if can? :create, Assignment 
 
   %li.dropdown.pull-right

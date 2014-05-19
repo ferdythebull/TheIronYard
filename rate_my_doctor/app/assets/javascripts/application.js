@@ -15,3 +15,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+var when_page_is_ready = function() {
+
+  $("p.alert").fadeOut(2500)
+  $("p.notice").fadeOut(2500)
+}
+
+$(document).ready(when_page_is_ready);
+$(document).on("page:load", when_page_is_ready);

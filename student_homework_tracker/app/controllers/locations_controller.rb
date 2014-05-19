@@ -5,10 +5,12 @@ class LocationsController < ApplicationController
 
   def index
     authorize! :read, Location
+    @locations = Location.accessible_by(current_ability)
   end
 
   def show
     authorize! :read, Location
+    @course = @location.courses.accessible_by(current_ability)
   end
 
   def new
@@ -48,7 +50,6 @@ private
 
   def navbar
     @locations = Location.all
-    @courses = Course.all
   end
 
   def find_location

@@ -1,0 +1,19 @@
+.jumbotron
+  %h1 Forums Page
+%table
+  %tr
+    %th{width: "70%"} Forum
+    %th{width: "30%"} Last Post
+  - @forums.each do |forum|
+    %tr
+      %td
+        %h4= link_to h(forum.name), forum_path(forum.id)
+        %small
+          = forum.topics.count
+          topics
+        %br/
+        = h forum.description
+      %td.right
+      %td= link_to "Edit", edit_forum_path(forum)
+      %td= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Forum", new_forum_path

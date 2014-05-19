@@ -18,8 +18,9 @@
     .container
       .header
         = render 'layouts/navbar'
-      %p.notice= notice
-      %p.alert= alert
+      - if notice || alert
+        %p.notice= notice
+        %p.alert= alert
       = yield
       .footer
         %p &copy; Company 2014

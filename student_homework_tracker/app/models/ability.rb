@@ -6,9 +6,12 @@ class Ability
       can :manage, :all
     elsif user.user_type == "student"
       can :read, Location
-      can :read, Course
-      can :read, Assignment
-      can :read, Submission
+      can :read, Course, id: user.courses.map(&:id)
+      can :read, Assignment, :user_id => user.id
+      can :read, Submission, id: user.submissions.map(&:id)
+      can :create, Submission, :user_id => user.id
+      can :update, Submission, :user_id => user.id
+      can :read, Comment, :user_id => user.id
     end
     # Define abilities for the passed in user here. For example:
     #

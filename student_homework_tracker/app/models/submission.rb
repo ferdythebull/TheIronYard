@@ -1,4 +1,5 @@
 class Submission < ActiveRecord::Base
+  validates :title, presence: true
   belongs_to :assignment
   has_many :comments, as: :commentable, :dependent => :destroy
   has_many :links
@@ -8,16 +9,18 @@ class Submission < ActiveRecord::Base
   include Workflow
   workflow do
     state :new do
-      event :grading, transitions_to: :grading
+      event :reviewing, transitions_to: :reviewing
     end
 
-    state :grading do
+    state :reviewing do
       event :complete, transitions_to: :complete
       event :incomplete, transitions_to: :incomplete
     end
 
     state :incomplete do
-      event :grading, transitions_to: :grading
+      event :reviewing, transitions_to: :reviewing
+      event :re_review, transitions_to: :reviewing
+      event :complete, transitions_to: :complete
     end
 
     state :complete    

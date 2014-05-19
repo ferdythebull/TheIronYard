@@ -1,0 +1,12 @@
+.row
+  .col-md-4
+  .col-md-4
+  = simple_form_for @forum do |f|
+    %form{role: "form"}
+      .form-group
+        =f.input :name
+      .form-group
+        =f.input :description
+      
+      %button.btn.btn-default{type: "submit"}=f.submit
+  .col-md-4

@@ -1,0 +1,28 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    %link{:href => "../../asset/ico/favicon.ico", :rel => "shortcut icon"}
+
+    %title Forum
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %script{src:"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
+    %script{src:"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"}
+  %body
+    .container
+      .header
+        = render 'layouts/navbar'
+        %h3.text-muted
+          = link_to "Forumz lolz", root_path
+
+      %p.notice= notice
+      %p.alert= alert
+      = yield
+      .footer
+        %p &copy; Preston 2014

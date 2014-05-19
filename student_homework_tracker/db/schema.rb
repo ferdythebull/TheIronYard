@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512021047) do
+ActiveRecord::Schema.define(version: 20140518042327) do
 
   create_table "assignments", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140512021047) do
     t.integer  "course_id"
     t.string   "name"
     t.text     "description"
+    t.integer  "user_id"
+    t.string   "due_date"
   end
 
   create_table "comments", force: true do |t|
@@ -27,6 +29,9 @@ ActiveRecord::Schema.define(version: 20140512021047) do
     t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
   end
 
   create_table "courses", force: true do |t|
@@ -68,6 +73,8 @@ ActiveRecord::Schema.define(version: 20140512021047) do
     t.string   "workflow_state"
     t.integer  "user_id"
     t.integer  "assignment_id"
+    t.string   "title"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|
@@ -86,6 +93,7 @@ ActiveRecord::Schema.define(version: 20140512021047) do
     t.boolean  "admin"
     t.string   "user_type"
     t.string   "name"
+    t.integer  "user_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
