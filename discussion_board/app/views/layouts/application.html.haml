@@ -9,20 +9,26 @@
     %link{:href => "../../asset/ico/favicon.ico", :rel => "shortcut icon"}
 
     %title Forum
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %script{src:"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
     %script{src:"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"}
   %body
-    .container
-      .header
-        = render 'layouts/navbar'
-        %h3.text-muted
-          = link_to "Forumz lolz", root_path
-
-      %p.notice= notice
-      %p.alert= alert
+    %header.navbar.navbar-inverse.navbar-fixed-top{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle Navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        %nav.collapse.navbar-collapse{:role => "navigation"}
+          = render 'layouts/navbar'
+    .container.theme-showcase{:role => "main"}
+      - if notice || alert
+        %p.notice= notice
+        %p.alert= alert
       = yield
       .footer
         %p &copy; Preston 2014

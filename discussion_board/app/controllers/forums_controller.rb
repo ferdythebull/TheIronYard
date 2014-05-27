@@ -45,6 +45,11 @@ class ForumsController < ApplicationController
   end
 
 private
+
+  def ratings
+    @rating = Rating.where(topic_id: @topic.id, user_id: @current_user.id).first unless @rating = Rating.create(topic_id: @topic.id, user_id: @current_user.id, score: 0)
+  end
+
   def navigation
     @forums = Forum.all
   end

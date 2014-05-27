@@ -1,0 +1,31 @@
+!!!
+%html{:lang => "en", ng: { app: "Cauldron" } }
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    /%link{:href => "../../asset/ico/favicon.ico", :rel => "shortcut icon"}
+
+    %title The Wizard's Chamber
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', controller_name
+    = csrf_meta_tags
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  %body{:role => "document"}
+    %header.navbar.navbar-inverse.navbar-fixed-top{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle Navigation
+        %nav.navbar-collapse.collapse{:role => "navigation"}
+          = render 'layouts/navbar'
+    .container.theme-showcase{:role => "main"}
+      - if notice || alert
+        %p.notice= notice
+        %p.alert= alert
+      = yield
+      .footer
+        %p &copy;uff

@@ -1,0 +1,6 @@
+= form_for [@forum, @topic, @post] do |f|
+  %form{role: "form"}
+    .form-group
+      = f.label :content
+      = f.text_area :content
+    = f.submit "Submit", class: "btn btn-default"

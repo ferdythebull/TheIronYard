@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="text-center">{{title}}</h1>
+</div>
+<form>
+  <label><strong>Spell Name</strong>
+    <input ng-model="formData.newSpellName">
+  </label>
+
+  <label><strong>Effects:</strong>
+    <textarea ng-model="formData.newSpellEffect"></textarea>
+  </label>
+
+  <button class="btn btn-primary" ng-click="createSpell()">Create</button>
+  <button class="btn btn-warning" ng-click="returnHome()">Home</button>
+</form>

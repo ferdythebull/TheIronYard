@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518211855) do
+ActiveRecord::Schema.define(version: 20140526070924) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20140518211855) do
     t.integer  "user_id"
   end
 
+  create_table "ratings", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["topic_id"], name: "index_ratings_on_topic_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+
   create_table "topics", force: true do |t|
     t.string   "name"
     t.integer  "last_poster_id"
@@ -40,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140518211855) do
     t.datetime "updated_at"
     t.integer  "forum_id"
     t.integer  "user_id"
+    t.datetime "last_post_at"
   end
 
   create_table "users", force: true do |t|

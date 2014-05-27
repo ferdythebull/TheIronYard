@@ -1,0 +1,6 @@
+.jumbotron
+  %h1 User #{@user.name}
+#topics
+  %strong topics
+  - @user.topics.each do |topic|
+    = link_to "#{@forum.topic.name}", forum_topic_path(@forum, @topic)

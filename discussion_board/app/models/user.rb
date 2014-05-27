@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
   has_many :forums
   has_many :posts
   has_many :topics
+  has_many :ratings
 
   def is_admin?
     is_admin
   end
 
-  USER_TYPES = ["admin", "student"]
+  USER_TYPES = ["admin", "user"]
 
 end

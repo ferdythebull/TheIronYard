@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_filter :navigation
   before_filter :find_forum
+  # before_filter :find_user
   before_filter :find_topic, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -11,14 +12,11 @@ class TopicsController < ApplicationController
   def index
     authorize! :read, Topic
     @topics = @forum.topics.accessible_by(current_ability, :read)
-    respond_to do |format|
-      format.html { redirect_to forum_topic_path(@forum) }
-    end
   end
 
   def create
     authorize! :create, Topic
-    @topic = @forum.topics.new topic_params
+    @topic = @forum.topics.new topic_params.merge(user_id: current_user.id)
     if @topic.save
       flash[:notice] = "You just made a new topic!"
       redirect_to forum_path(@forum)
@@ -26,17 +24,6 @@ class TopicsController < ApplicationController
       flash[:error] = "Please enter a little more information..."
       render :new
     end
-  end
-
-  def edit
-    authorize! :update, Topic
-    @forums = Forum.all
-  end
-
-  def update
-    authorize! :update, Topic
-    @topic.update_attributes topic_params
-    redirect_to forum_path(@forum)
   end
 
   def show
@@ -57,7 +44,7 @@ private
   end
 
   def topic_params
-    params.require(:topic).permit(:name, :last_poster_id, :forum_id)
+    params.require(:topic).permit(:name, :last_poster_id, :forum_id, :user_id, :last_post_at)
   end
 
   def find_topic
@@ -67,5 +54,9 @@ private
   def find_forum
     @forum = Forum.find params[:forum_id]
   end
+
+  # def find_user
+  #   @user = User.find params[:user_id]
+  # end
 
 end

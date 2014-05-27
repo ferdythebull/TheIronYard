@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require turbolinks
+//= require jquery.raty.js
+//= require bootstrap
 //= require_tree .
 var when_page_is_ready = function(){
 

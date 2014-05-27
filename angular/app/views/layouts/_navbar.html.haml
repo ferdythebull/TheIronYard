@@ -1,0 +1,13 @@
+%ul.nav.navbar-nav
+  %li
+    .navbar-header
+      = link_to "Wizard Chamber", root_path, class: "navbar-brand"
+%ul.nav.nav-pills.pull-right
+  - if current_user
+    %li
+      = link_to "Logout", destroy_user_session_path, method: :delete
+  - else
+    %li
+      = link_to "Register", new_user_registration_path
+    %li
+      = link_to "Login", new_user_session_path

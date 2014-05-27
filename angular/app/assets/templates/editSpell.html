@@ -1,0 +1,12 @@
+<form>
+  <label><strong>Name</strong>
+    <input ng-model="formData.editSpellName">
+  </label>
+
+  <label><strong>Effect</strong>
+    <textarea ng-model="formData.editSpellEffect"></textarea>
+  </label>
+
+  <button class="btn btn-primary" ng-click="editSpell()">Edit</button>
+  <button class="btn btn-warning" ng-click="returnHome()">Home</button>
+</form>

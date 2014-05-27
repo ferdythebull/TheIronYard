@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1 class="text-center">{{ data.currentSpell.name }}</h1>
+</div>
+<div class="row">
+  <p>{{ data.currentSpell.effect }}</p>
+</div>
+<button class="btn btn-primary" ng-click="returnHome()">Home</button>
+<button class="btn btn-success" ng-click="editSpell()">Edit</button>
+<button class="btn btn-danger" ng-click="deleteSpell()">Delete</button>

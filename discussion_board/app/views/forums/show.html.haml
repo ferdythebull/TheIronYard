@@ -1,14 +1,28 @@
+.jumbotron
+  %h1 #{@forum.name}
 %table
   %tr
     %th{width: "60%"} Topic Title
     %th{width: "10%"} Replies
     %th{width: "30%"} Last Post
-  - @forum.topics.each do |topic|
+  - for topic in @forum.topics
     %tr
-      %td = link_to h(topic.name), topic_path(topic.id)
-      %td = topic.posts - 1
+      %td= link_to h(topic.name), forum_topic_path(@forum, topic.id)
+      %td =topic.posts - 1
       %td.right
-      %td = link_to "Show", topic
-      %td = link_to "Edit", edit_topic_path(topic)
-      %td = link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete
+        = distance_of_time_in_words_to_now topic.last_post_at
+        ago by
+        = link_to topic.user.name, "/users/#{topic.last_poster_id}"
+      %td
+        :javascript
+          $('#star').raty({
+            halfScore: true,
+            score: 3,
+            path: '/assets'
+          });
+        %div#star
+      %td
+        %div#user_star
+      %td= link_to "Edit", edit_forum_topic_path(@forum, topic)
+      %td= link_to "Delete", forum_topic_path(@forum, topic), :confirm => 'Are you sure?', :method => :delete
 %p= link_to "New Topic", new_forum_topic_path(@forum)

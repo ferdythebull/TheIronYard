@@ -1,8 +1,13 @@
-= simple_form_for [@forum, @topic] do |f|
+.row
+
+= form_for [@forum, @topic] do |f|
   - if params[:forum]
     %input#topic_forum_id{name: "topic[forum_id]", type: "hidden", value: params[:forum]}/
-  %p
-    = f.input :name
-  / %p
-  /   %textarea{cols: "80", name: "post[content]", rows: "20"}= @post.content
-  %p= f.submit "Create"
+  .form-group
+    = f.label :name
+    = f.text_field :name
+  .form-group
+    = f.fields_for :posts do |post|
+      =post.label :content
+      =post.text_area :content
+  =f.submit "Create", class: "btn btn-default"

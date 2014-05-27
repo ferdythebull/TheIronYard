@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resources :users
+  resources :ratings, only: :update
+
   resources :forums do
     resources :topics do
       resources :posts do
