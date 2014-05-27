@@ -1,4 +1,0 @@
-%li{ class: "#{patient.workflow_state}"}
-  = link_to patient.name, hospital_patient_path(@hospital, patient)
-  (#{patient.workflow_state})
-  = patient.created_at.strftime("%l:%M%p")
