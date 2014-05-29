@@ -1,0 +1,16 @@
+%h4 Summary Notes:
+
+  Patient Name:
+= @patient.name
+%p
+  Symptoms:
+= @patient.symptom
+%p
+
+= form_for [@hospital, @patient] do |f|
+  %fieldset
+    = f.label :discharge_note
+    = f.text_area :discharge_note
+      = f.submit "Submit"
+
+= link_to "Home", root_path

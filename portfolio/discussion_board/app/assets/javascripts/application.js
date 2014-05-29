@@ -20,6 +20,20 @@ var when_page_is_ready = function(){
 
   $("p.alert").fadeOut(2000)
   $("p.notice").fadeOut(2000)
+
+   $('.star').raty({
+      halfScore: true,
+      score: 3,
+      path: '/assets'
+    });
+
+   $('.user_star').raty({
+      halfScore: true,
+      score: 3,
+      path: '/assets'
+    });
+
+
 }
 
 $(document).ready(when_page_is_ready);

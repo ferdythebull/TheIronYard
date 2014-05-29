@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   before_filter :navigation
   before_filter :find_forum
-  # before_filter :find_user
   before_filter :find_topic, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -16,7 +15,7 @@ class TopicsController < ApplicationController
 
   def create
     authorize! :create, Topic
-    @topic = @forum.topics.new topic_params.merge(user_id: current_user.id)
+    @topic = @forum.topics.new topic_params.merge(user_id: current_user.id, last_post_at: DateTime.now)
     if @topic.save
       flash[:notice] = "You just made a new topic!"
       redirect_to forum_path(@forum)
@@ -54,9 +53,5 @@ private
   def find_forum
     @forum = Forum.find params[:forum_id]
   end
-
-  # def find_user
-  #   @user = User.find params[:user_id]
-  # end
 
 end

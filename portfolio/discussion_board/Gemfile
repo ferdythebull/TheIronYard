@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# ability to add images to post
+gem 'paperclip', "~> 4.1"
 
 # HAML support for entire application
 gem 'haml-rails'

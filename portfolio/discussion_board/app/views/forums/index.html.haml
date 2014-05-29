@@ -1,5 +1,6 @@
 .jumbotron
   %h1 Forums Page
+  %p= link_to "Create New Forum", new_forum_path if can? :create, Forum
 %table
   %tr
     %th{width: "70%"} Forum
@@ -9,16 +10,23 @@
       %td
         %h4= link_to h(forum.name), forum_path(forum.id)
         %small
-          = forum.topics.count
-          topics
+          - if forum.topics.count > 0
+            = forum.topics.count
+            topics
+          - else
+            no topics
         %br/
         = h forum.description
       %td.right
-        / - if forum.most_recent_post
-        /   = distance_of_time_in_words_to_now forum.most_recent_post.last_post_at
-        /   ago
-        / - else
-        /   no posts
-      %td= link_to "Edit", edit_forum_path(forum)
-      %td= link_to "Delete", forum, :confirm => 'Are you sure?', :method => :delete
-%p= link_to "New Forum", new_forum_path
+        - if forum.most_recent_post
+          = distance_of_time_in_words_to_now forum.most_recent_post.last_post_at
+          ago by
+          = forum.most_recent_post.user.name
+        - else
+          no posts
+      - if can? :edit, Forum    
+        %td= link_to "Edit", edit_forum_path(forum)
+      - else
+      - if can? :delete, Forum
+        %td= link_to "Delete", forum, :confirm => 'Are you sure?', :method => :delete if can? :delete, Forum
+      - else

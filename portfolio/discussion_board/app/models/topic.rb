@@ -8,4 +8,8 @@ class Topic < ActiveRecord::Base
     ratings.sum(:score) / ratings.size
   end
 
+  def last_poster
+    self.posts.last.user
+  end
+
 end

@@ -1,18 +1,20 @@
 .jumbotron
   %h1 #{@topic.name}
   %p 
-    %h5 Topic Controls: 
-  = link_to "Reply", new_forum_topic_post_path(@forum, @topic)
-  |
-  \#{link_to "Delete Topic", forum_topic_path(@forum, @topic), :confirm => 'Are you sure?', :method => :delete}
-  |
-  \#{link_to "View All", forum_path(@forum)}
+    = link_to "Reply", new_forum_topic_post_path(@forum, @topic)
+    |
+    \#{link_to "Delete Topic", forum_topic_path(@forum, @topic), :confirm => 'Are you sure?', :method => :delete}
+    |
+    \#{link_to "View All Topics", forum_path(@forum)}
 - for post in @topic.posts
   .post
-  %span.left
-    / = link_to "dude", user_path(@user)
+    %span.left
+      = link_to post.user.name, user_url(post.user)
+      %br/
+      = link_to "Delete", forum_topic_post_path(@forum, @topic, post), confirm: "Are You Sure?", method: :delete
+    %span.right
+      = post.content
     %br/
     / = link_to "Edit", edit_forum_topic_post_path(@forum, @topic, @post)
     %br/
     / = link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete
-  %span.right= post.content

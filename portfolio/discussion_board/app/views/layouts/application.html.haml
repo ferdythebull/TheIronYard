@@ -9,7 +9,7 @@
     %link{:href => "../../asset/ico/favicon.ico", :rel => "shortcut icon"}
 
     %title Forum
-    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %script{src:"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
@@ -29,6 +29,7 @@
       - if notice || alert
         %p.notice= notice
         %p.alert= alert
-      = yield
+      .template
+        = yield
       .footer
         %p &copy; Preston 2014

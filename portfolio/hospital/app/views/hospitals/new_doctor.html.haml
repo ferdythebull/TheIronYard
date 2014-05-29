@@ -1,0 +1,16 @@
+.box
+  .title
+    %h1 Add A Doctor
+  .box-bg
+    = form_for [@hospital, @doctor], url: add_doctor_hospital_path(@hospital) do |f|
+      %table
+        %tr
+          %td
+            =f.label :name
+          %td
+            =f.text_area :name
+        %tr
+          %td
+            =f.submit
+          %td
+            = link_to "Cancel", hospital_path(@hospital)

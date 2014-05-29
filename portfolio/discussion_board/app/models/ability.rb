@@ -4,9 +4,14 @@ class Ability
   def initialize(user)
     if user.user_type == "admin"
         can :manage, :all
-    else
+    elsif user.user_type == "user"
         can :read, Forum
-        can :read, Topic, id: user.topics.map(&:id)
+        can :read, Topic
+        can :create, Topic
+        can :update, Topic
+        can :read, Post
+        can :create, Post
+        can :update, Post
     end
     # Define abilities for the passed in user here. For example:
     #

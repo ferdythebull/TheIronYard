@@ -1,0 +1,33 @@
+// Place all the styles related to the patients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  background-color: #34EAFF;
+}
+
+form{
+  width: 350px;
+  height: 200px;
+  background-color: #206876;
+  text-align: center;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+input, label {
+  display: inline-block;
+}
+
+a{
+  color: #005C66;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00A0B2;
+}
+
+text {
+  color: #34EAFF;
+}

@@ -1,13 +1,8 @@
-.row
 
 = form_for [@forum, @topic] do |f|
   - if params[:forum]
     %input#topic_forum_id{name: "topic[forum_id]", type: "hidden", value: params[:forum]}/
-  .form-group
-    = f.label :name
-    = f.text_field :name
-  .form-group
-    = f.fields_for :posts do |post|
-      =post.label :content
-      =post.text_area :content
-  =f.submit "Create", class: "btn btn-default"
+  = f.text_field :name, autocomplete: "off", required: true, class: "form-control", placeholder: "Topic Title"
+  = f.fields_for :posts do |post|
+    = post.text_area :content, autocomplete: "off", required: true, class: "form-control", placeholder: "Write the first post here..."
+  =f.submit "Create", class: "btn btn-lg btn-primary btn-block"

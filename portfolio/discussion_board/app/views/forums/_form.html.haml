@@ -1,12 +1,4 @@
-.row
-
 = form_for @forum do |f|
-  %form{role: "form"}
-    .form-group
-      = f.label :name
-      = f.text_field :name
-    .form-group
-      = f.label :description
-      = f.text_area :description
-    
-    =f.submit "Submit", class: "btn btn-default"
+  = f.text_field :name, autocomplete: "off", required: true, class: "form-control", placeholder: "Forum Name"
+  = f.text_area :description, autocomplete: "off", required: true, class: "form-control", placeholder: "Forum Description..."
+  = f.submit "Create", class: "btn btn-g btn-primary btn-block"

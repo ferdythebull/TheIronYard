@@ -1,0 +1,75 @@
+.box
+  .title
+    %h2 Showing #{@patient.name}'s File
+  .box-bg
+    %table
+      %tr
+        %table
+          %tr
+            %th
+              Age
+            %th
+              Sex
+            %th
+              Symptoms
+            %th
+              Workflow
+          %tr
+            %td
+              #{@patient.age}
+            %td
+              #{@patient.sex}
+            %td
+              #{@patient.symptom}
+            %td
+              #{@patient.workflow_state}
+      %tr
+        %table
+          %tr
+            %td
+              = link_to "Edit", edit_hospital_patient_path
+            %td
+              = link_to "Home", root_path
+            %td
+              = link_to "Hospital List", hospital_path(@hospital)
+      %tr
+        %table
+          %tr
+            %th
+              %h1 Personal Physicians
+      %tr
+        %table
+          %tr
+            %td
+              = link_to "Add Doctor", new_doctor_hospital_patient_path(@hospital, @patient)
+      %tr
+        %table
+          %tr
+            - @doctors.each do |doctor|
+              %td
+                = doctor.name
+      %tr
+        %table
+          %tr
+            %th
+              %h1 Medication
+      %tr
+        %table
+          %tr
+            %td
+              = link_to "New Medication", new_hospital_patient_medication_path(@hospital, @patient, @medication)
+      %tr
+        %table
+          %tr
+            %td
+              Name:
+            %td
+              Description: 
+          %tr
+            - @patient.medications.each do |medication|
+              %td
+                = link_to medication.name, hospital_patient_medication_path(@hospital, @patient, medication)
+              %td
+                = medication.description
+  %br
+  %br

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :navigation
   before_filter :find_forum
   before_filter :find_topic
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
     authorize! :create, Post
     @post = @topic.posts.new post_params.merge(user_id: current_user.id)
     if @post.save
-      flash[:notice] = "You just made a new topic!"
+      flash[:notice] = "You just made a new post!"
       redirect_to forum_topic_path(@forum, @topic)
     else
       flash[:error] = "Please enter a little more information..."
@@ -22,12 +23,19 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize! :update, Post
   end
 
   def update
+    authorize! :update, Post
+    @post.update_attributes post_params
+    redirect_to forum_topic_path(@forum, @topic)
   end
 
   def destroy
+    authorize! :destroy, Post
+    @post.delete
+    redirect_to forum_topic_path(@forum, @topic)
   end
   
 private
