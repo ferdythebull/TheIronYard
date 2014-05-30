@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   def new
     authorize! :create, Topic
     @topic = Topic.new
+    @post = @topic.posts.new
   end
 
   def index
@@ -17,6 +18,7 @@ class TopicsController < ApplicationController
     authorize! :create, Topic
     @topic = @forum.topics.new topic_params.merge(user_id: current_user.id, last_post_at: DateTime.now)
     if @topic.save
+      # @post = @topic.posts.create post_params[:topic][:posts]
       flash[:notice] = "You just made a new topic!"
       redirect_to forum_path(@forum)
     else
@@ -43,7 +45,8 @@ private
   end
 
   def topic_params
-    params.require(:topic).permit(:name, :last_poster_id, :forum_id, :user_id, :last_post_at)
+    params.require(:topic).permit(:name, :last_poster_id, :forum_id, :user_id, :last_post_at,
+    posts_attributes: [:id, :content, :topic_id, :user_id ])
   end
 
   def find_topic

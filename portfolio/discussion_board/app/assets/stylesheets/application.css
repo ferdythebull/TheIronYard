@@ -24,6 +24,12 @@ body {
   text-align: center;
 }
 
+.form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  }
+
 table tr th {background:#222; color:#fff; padding:0; border:#111 solid 1px;}
 table tr td {border:1px #ccc solid; padding:5px;}
 table tr td.right {background: #eee;}
