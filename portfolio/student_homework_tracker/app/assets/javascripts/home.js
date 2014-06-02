@@ -19,8 +19,6 @@ var when_page_is_loaded = function() {
         $(".location_" + location_id).show()
     })
 
-  $(".alert").addClass("in").fadeOut(4500);
-
   $(document.body).on("click", "a.change_workflow", function() {
     $.ajax({
       type: "PATCH",
