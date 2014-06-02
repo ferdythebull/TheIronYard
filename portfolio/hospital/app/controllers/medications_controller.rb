@@ -8,10 +8,12 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    @medication = @patient.medications.new medication_params
+    @medication = @patient.medications.create medication_params
     if @medication.save
+      flash[:notice] = "You created a new medication."
       redirect_to hospital_patient_path(@hospital, @patient)
     else
+      flash[:error] = "Your medication was not successfully saved."
       render :new
     end
   end
@@ -29,7 +31,7 @@ class MedicationsController < ApplicationController
 
   def destroy
     @medication.delete
-    redirect_to root_path
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
 
 private

@@ -2,7 +2,9 @@ class HospitalsController < ApplicationController
   before_filter :find_hospital, only: [:show, :edit, :update, :destroy, :add_doctor, :new_doctor, :search_names]
 
   def show
+    @patients = @hospital.patients
     @patients_processing = @hospital.patients.where.not(workflow_state: 'leaving')
+    puts @patients_processing.inspect
     @patients_completed = @hospital.patients.where(workflow_state: 'leaving')
   end
 
@@ -12,7 +14,13 @@ class HospitalsController < ApplicationController
 
   def create
     @hospital = Hospital.create hospital_params
-    redirect_to root_path
+    if @hospital.save
+      flash[:notice] = "A new hospital has been added."
+      redirect_to root_path
+    else
+      flash[:error] = "Please try once more to create a hospital."
+      render :new
+    end
   end
 
   def edit

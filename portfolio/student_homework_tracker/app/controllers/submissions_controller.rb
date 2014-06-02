@@ -56,9 +56,6 @@ class SubmissionsController < ApplicationController
 
   def comment
     @comment = @submission.comments.new.accessible_by(current_ability, :read)
-    respond_to do |format|
-      format.js
-    end
   end
 
   def new_comment

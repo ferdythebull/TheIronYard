@@ -6,13 +6,58 @@ html {
   background-color: #34EAFF;
 }
 
+body{
+  background-color: #94B2D9;
+  font-family: Helvetica, sans-serif;
+  margin: 25px;
+}
+
+.search {
+  width: 175px;
+  height: 25px;
+  background-color:  #8D8D8D;
+  box-shadow: 5px 5px 5px black;
+  text-align: left;
+  margin-left:  10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.patients_completed {
+  width: 500px;
+}
+
+.title{
+  width: 500px;
+  height: 50px;
+  background-color: #8D8D8D;
+  box-shadow: 5px 5px 5px black;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.link {
+  display: block;
+}
+
+.patient {
+  width: 500px;
+}
+
 form{
   width: 350px;
   height: 200px;
   background-color: #206876;
-  text-align: center;
+  box-shadow: 5px 5px 5px black;
+  text-align: left;
   margin-left: 10px;
   padding: 10px;
+  border-radius: 4px;
+}
+
+h1, h2, h3, h4{
+  text-shadow: 1px 1px 1px grey;
 }
 
 input, label {
@@ -23,6 +68,10 @@ a{
   color: #005C66;
   text-decoration: none;
 }
+
+a:link {}
+
+a:visited {}
 
 a:hover {
   color: #00A0B2;

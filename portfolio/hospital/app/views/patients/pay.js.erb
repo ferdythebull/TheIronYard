@@ -1,0 +1,3 @@
+$("li.patient_" + "<%= @patient.id %>").replaceWith(
+    "<%=escape_javascripte(render(partial: 'hospitals/patient', locals:{ patient: @patient})) %>"
+    )

@@ -1,5 +1,17 @@
 .well.sidebar-nav
   %ul.nav.nav-list
+    %li.nav-header TIY #{@location.city}
+    =link_to "Edit School", edit_location_path(@location), class: "btn.btn-info.btn-default" if can? :edit, Location
+    %i.icon-white.icon-th-large
+    %br
+    =link_to "Delete School", location_path(@location), method: :delete, class: "btn.btn-info.btn-default" if can? :destroy, Location
+    %i.icon-white.icon-th-large
+    %br
+    =link_to "Edit Course", edit_location_course_path(@location, @course), class: "btn.btn-info.btn-default" if can? :edit, Course
+    %i.icon-white.icon-th-large
+    %br
+    =link_to "Delete Course", location_course_path(@location, @course), method: :delete, class: "btn.btn-info.btn-default" if can? :destroy, Course
+    %i.icon-white.icon-th-large
     %li.nav-header Schools Available
 
     %li

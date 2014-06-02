@@ -3,32 +3,49 @@ class PatientsController < ApplicationController
   before_filter :find_patient, only: [:show, :edit, :update, :waiting, :doctor, :xray, :surgery, :leaving, :pay, :email, :doctor_name, :add_doctor, :new_doctor, :discharge]
 
   def show
+    @medications = Medication.all
     @hospitals = Hospital.all
     @doctors = Doctor.all
   end
 
   def new
+    @hospitals = Hospital.all
     @patient= @hospital.patients.new
   end
 
   def create
-    @patient = @hospital.patients.create patient_params
-    success = @patient.save
-    if success == true
+    @patient = Patient.create patient_params
+    if @patient.save
       flash[:notice] = "The patient has now been admitted into the waiting room!"
-      redirect_to hospital_patient_path(@hospital, @patient)
+      redirect_to hospital_path(@hospital)
     else
       flash[:error] = "You were unsuccessful in admitting this patient."
       render :new
     end
   end
 
+  def index
+    @patients = if params[:q]
+      @hospital.patients.search_names params[:q]
+    else
+      @hospital.patients.all
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def destroy
+    @patient.delete
+    redirect_to hospital_patient_path(@hospital, @patient)
+  end
+
   def edit
+    @hospitals = Hospital.all
   end
 
   def update
-    success = @patient.update_attributes patient_params
-    if success == true
+    if @patient.update_attributes patient_params
       flash[:notice] = "The patient record has been updated successfuly."
       redirect_to hospital_patient_path(@hospital, @patient)
     else
@@ -39,27 +56,37 @@ class PatientsController < ApplicationController
 
   def waiting
     @patient.waiting!
-    redirect_to hospital_path(@hospital)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def doctor
     @patient.doctor!
-    redirect_to hospital_path(@hospital)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def xray
     @patient.xray!
-    redirect_to hospital_path(@hospital)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def surgery
     @patient.surgery!
-    redirect_to hospital_path(@hospital)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def pay
     @patient.pay!
-    redirect_to hospital_path(@hospital)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def discharge
@@ -90,7 +117,7 @@ class PatientsController < ApplicationController
 
 private
   def patient_params
-    params.require(:patient).permit(:name, :age, :sex, :symptom, :email, :discharge_note)
+    params.require(:patient).permit(:name, :age, :sex, :symptom, :email, :discharge_note, {hospital_ids: []})
   end
 
   def find_hospital
@@ -102,6 +129,6 @@ private
   end
 
   def doctor_params
-    params.require(:doctor).permit(:surname)
+    params.require(:doctor).permit(:name)
   end
 end

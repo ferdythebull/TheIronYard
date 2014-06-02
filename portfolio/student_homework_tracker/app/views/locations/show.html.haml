@@ -6,7 +6,7 @@
       = render 'sidebar'
     .span9
       .jumbotron
-        %h1 The Iron Yard #{@location.city}
+        %h2 The Iron Yard #{@location.city}
         %table.table
           %tr
             %td
@@ -15,5 +15,5 @@
               = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
           %br
         %p.lead
-          %h2 Please choose a course.
+          %h3 Please choose a course.
           = render 'courses'

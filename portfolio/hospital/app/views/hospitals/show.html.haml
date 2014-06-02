@@ -12,14 +12,33 @@
           %table
             %tr
               %td
-                Location:
+                %h3 Location:
               %td
-                = @hospital.location
+                %h3= @hospital.location
             %tr
               %td
-                Search for a patient:
-              %td
-                = render 'hospitals/search'
+                = render 'patients/search'
+      %ul.patients
+        - @patients_processing.each_slice(10) do |patient, patient_1, patient_2, patient_3, patient_4, patient_5, patient_6, patient_7, patient_8, patient_9,|
+
+          = render 'patient', patient: patient if patient
+          = render 'patient', patient: patient_1 if patient_1
+          = render 'patient', patient: patient_2 if patient_2
+          = render 'patient', patient: patient_3 if patient_3
+          = render 'patient', patient: patient_4 if patient_4
+          = render 'patient', patient: patient_5 if patient_5
+          = render 'patient', patient: patient_6 if patient_6
+          = render 'patient', patient: patient_7 if patient_7
+          = render 'patient', patient: patient_8 if patient_8
+          = render 'patient', patient: patient_9 if patient_9
+      %ul
+        .link
+          %li
+            %a{:href => "#"} 1
+          %li
+            %a{:href => "#"} 2
+          %li
+            %a{:href => "#"} 3
       %tr
         %td
           %table
@@ -29,34 +48,7 @@
               %td
                 = link_to "New Patient", new_hospital_patient_path(@hospital)
               %td
-                = link_to "Add a Doctor", new_doctor_hospital_path(@hospital)
-      %tr
-        %td
-          %table
-            %tr
-              %td
-                %table
-                  %tr
-                    %td
-                      %h1 Patients at Hospital
-            %tr
-              %td
-                %table
-                  %tr
-                    %th
-                      Patient Name
-                    %th
-                      Workflow State
-                    %th
-                      Workflow Links
-                  %tr
-                    - @patients_processing.each do |patient|
-                      %td
-                        = link_to patient.name, hospital_patient_path(@hospital, patient)
-                      %td
-                        (#{patient.workflow_state})
-                      %td
-                        = workflow_links(patient)
+                = link_to "Add a Doctor", add_doctor_hospital_path(@hospital)
       %tr
         %td
           %table
@@ -72,8 +64,9 @@
                   %tr
                     %td
                       -@hospital.doctors.each do |doctor|
-                        Dr. #{doctor.name}
-                        |
+                        %li
+                          Dr. #{doctor.name}
+
       %tr
         %td
           %table

@@ -1,4 +1,37 @@
-%li{ class: "#{patient.workflow_state}"}
-  = link_to patient.name, hospital_patient_path(@hospital, patient)
+%li.patient{ class: "#{patient.workflow_state} patient patient_#{patient.id}", class: "patient_styles"}
+  = patient.name
   (#{patient.workflow_state})
   = patient.created_at.strftime("%l:%M%p")
+  = patient.symptom
+  = link_to "Show", hospital_patient_path(@hospital, patient)
+  |
+  = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
+  |
+  - if patient.workflow_state == 'waiting'
+    =link_to 'Doctor', 'javascript:void(0);', class: 'doctor change_workflow', patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Surgery', 'javascript:void(0);', class: 'surgery change_workflow', patient_url: surgery_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'X-Ray', 'javascript:void(0);', class: 'xray change_workflow', patient_url: xray_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Leaving', 'javascript:void(0);', class: 'leaving change_workflow', patient_url:leaving_hospital_patient_path(@hospital, patient)
+  -elsif patient.workflow_state == 'doctor'
+    =link_to 'Surgery', 'javascript:void(0);', class: 'surgery change_workflow', patient_url: surgery_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'X-Ray', 'javascript:void(0);', class: 'xray change_workflow', patient_url: xray_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Pay Bill', 'javascript:void(0);', class: 'pay change_workflow', patient_url: pay_hospital_patient_path(@hospital, patient)
+  -elsif patient.workflow_state == 'surgery'
+    =link_to 'Doctor', 'javascript:void(0);', class: 'doctor change_workflow', patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'X-Ray', 'javascript:void(0);', class: 'xray change_workflow', patient_url: xray_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Pay Bill', 'javascript:void(0);', class: 'pay change_workflow', patient_url: pay_hospital_patient_path(@hospital, patient)
+  -elsif patient.workflow_state == 'xray'
+    =link_to 'Doctor', 'javascript:void(0);', class: 'doctor change_workflow', patient_url: doctor_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Surgery', 'javascript:void(0);', class: 'surgery change_workflow', patient_url: surgery_hospital_patient_path(@hospital, patient)
+    |
+    =link_to 'Pay Bill', 'javascript:void(0);', class: 'pay change_workflow', patient_url: pay_hospital_patient_path(@hospital, patient)
+  -elsif patient.workflow_state == 'pay'
+    =link_to 'Leaving', 'javascript:void(0);', class: 'leaving change_workflow', patient_url:leaving_hospital_patient_path(@hospital, patient)

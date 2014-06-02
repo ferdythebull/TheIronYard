@@ -1,32 +1,22 @@
-.container-narrow
-  = render 'navbar'
-  %hr
-  .row-fluid
-    .span3
-      = render 'sidebar'
-    .span9
-      .jumbotron
-        %h1 The Iron Yard #{@location.city}
-        %table.table
-          %tr
-            %td
-              = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
-            %td
-              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
-        %hr
-        %h1 #{@course.name} Course
-        %table.table
-          %tr
-            %td
-              = link_to "Edit #{@course.name} Course", edit_location_course_path(@location, @course) if can? :edit, Course
-            %td
-              = link_to "Delete #{@course.name} Course", location_course_path(@location, @course), method: :delete if can? :destroy, Course
-
+= render 'navbar'
+.container.theme-showcase{:role => "main"}
+  .template
+    .container-narrow
       %hr
-      %h1 Please choose an assignment.
-      %h4
-        = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment) if can? :create, Assignment
-        %br
-        .btn-group
-        - @course.assignments.each do |assignment|
-          = render 'assignments/assignments', assignment: assignment
+      = link_to "The Iron Yard #{@location.city}", location_path(@location)
+      >
+      =link_to "#{@course.name} Course", location_course_path(@location, @course)
+      .row-fluid
+        .span3
+          = render 'sidebar'
+        .span9
+          .jumbotron
+            %h1 #{@course.name} Course
+          %hr
+          %h1 Please choose an assignment.
+          %h4
+            = link_to "Add Assignment", new_location_course_assignment_path(@location, @course, @assignment) if can? :create, Assignment
+            %br
+            .btn-group
+            - @course.assignments.each do |assignment|
+              = render 'assignments/assignments', assignment: assignment

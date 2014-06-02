@@ -1,46 +1,37 @@
-.container-narrow
-  = render 'navbar'
-  %hr
-  .row-fluid
-    .span3
-      = render 'sidebar'
-    .span9
-      .jumbotron
-        %h1 The Iron Yard #{@location.city}
-        %table.table
-          %tr
-            %td
-              = link_to "Edit #{@location.city} School", edit_location_path(@location) if can? :edit, Location
-            %td
-              = link_to "Delete #{@location.city} School", location_path(@location), method: :delete if can? :destroy, Location
-        %hr
-        %h1 #{@course.name} Class
-        %table.table
-          %tr
-            %td
-              = link_to "Edit #{@course.name} Class", edit_location_course_path(@location, @course) if can? :edit, Course
-            %td
-              = link_to "Delete #{@course.name} Class", location_course_path(@location, @course), method: :delete if can? :destroy, Course
-        %hr
-        %h1 Assignment: #{@assignment.name}
-        %table.table
-          %tr
-            = if can? :edit, Assignment
-              %td
-                = link_to "Edit #{@assignment.name}", edit_location_course_assignment_path(@location, @course, @assignment) 
-            = if can? :destroy, Assignment
-              %td
-                = link_to "Delete #{@assignment.name}", location_course_path(@location, @course, @assignment), method: :delete
-        %hr
-          %h4 Comments:
-          = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
-          #accordion
-            - @assignment.comments.each do |comment|
-              %h3 Comment created at #{comment.created_at}
-              %div
-                %p
-                  = comment.comment
+= render 'navbar'
+.container.theme-showcase{:role => "main"}
+  .template
+    .container-narrow
+      %hr
+      = link_to "The Iron Yard #{@location.city}", location_path(@location)
+      >
+      =link_to "#{@course.name} Course", location_course_path(@location, @course)
+      >
+      =link_to "#{@assignment.name}", location_course_assignment_path(@location, @course, @assignment)
+      .row-fluid
+        .span3
+          = render 'sidebar'
+        .span9
+          .jumbotron
+            %h1 Assignment: #{@assignment.name}
+            %table.table
+              %tr
+                - if can? :edit, Assignment
+                  %td
+                    = link_to "Edit #{@assignment.name}", edit_location_course_assignment_path(@location, @course, @assignment) 
+                - if can? :destroy, Assignment
+                  %td
+                    = link_to "Delete #{@assignment.name}", location_course_path(@location, @course, @assignment), method: :delete
+            %hr
+              %h4 Comments:
+              = link_to "Write a Comment", comment_location_course_assignment_path(@location, @course, @assignment, @comment)
+              #accordion
+                - @assignment.comments.each do |comment|
+                  %h3 Comment created at #{comment.created_at}
+                  %div
+                    %p
+                      = comment.comment
 
-        / %hr
-        / - @assignment.submissions.each do |submission|
-        /   = submission.id
+            / %hr
+            / - @assignment.submissions.each do |submission|
+            /   = submission.id

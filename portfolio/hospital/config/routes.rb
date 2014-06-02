@@ -12,12 +12,16 @@ Rails.application.routes.draw do
 
   resources :hospitals do
     member do
-      get :new_doctor
+      get :doctor
       post :add_doctor
       get :search_names
     end
     resources :patients do
-      resources :medications
+      resources :medications do
+      end
+      collection do
+        get :search_names
+      end
       # Member vs Collection
       # Collection: Does not require an ID
       # Member: requires an ID
@@ -33,9 +37,9 @@ Rails.application.routes.draw do
         patch :surgery
         patch :pay
         patch :leaving
-        get :discharge
+        get :exit
         get :new_doctor
-        post :add_doctor
+        post :doctor
       end
     end
   end

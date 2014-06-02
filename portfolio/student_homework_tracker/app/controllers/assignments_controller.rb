@@ -59,9 +59,6 @@ class AssignmentsController < ApplicationController
 
   def comment
     @comment = @assignment.comments.new
-    respond_to do |format|
-      format.js
-    end
   end
 
   def new_comment
@@ -94,7 +91,7 @@ private
   end
 
   def assignment_params
-    params.require(:assignment).permit(:title, :description, :due_date, :course_id)
+    params.require(:assignment).permit(:name, :description, :due_date, :course_id)
   end
 
   def comment_params

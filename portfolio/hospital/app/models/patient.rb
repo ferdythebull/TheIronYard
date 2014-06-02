@@ -20,13 +20,28 @@ class Patient < ActiveRecord::Base
     "Mr. #{name}"
   end
 
+  def workflow_stuff
+    if workflow_state == 'waiting'
+      [[ 'See a Doctor', 'doctor'], ['X-Ray', 'xray'], ['Surgery', 'surgery'], ['Leave', 'leaving']]
+    elsif workflow_state == 'surgery'
+      [['See a Doctor', 'doctor'], ['X-Ray', 'xray'], ['Pay Bill', 'pay']]
+    elsif workflow_state == 'doctor'
+      [['X-Ray', 'xray'], ['Surgery', 'surgery'], ['Pay Bill', 'pay']]
+    elsif workflow_state == 'xray'
+      [['Surgery', 'surgery'], ['See a Doctor', 'doctor'], ['Pay Bill', 'pay']]
+    elsif workflow_state == 'pay'
+      [['Leave', 'leaving']]
+    else[]
+    end
+  end
+
   include Workflow
   workflow do
     state :waiting do
       event :doctor, transitions_to: :doctor
       event :xray, transitions_to: :xray
       event :surgery, transitions_to: :surgery
-      event :leaving, transitions_to: :leaving
+      event :exit, transitions_to: :leaving
     end
     state :doctor do
       event :xray, transitions_to: :xray
@@ -44,10 +59,10 @@ class Patient < ActiveRecord::Base
       event :pay, transitions_to: :pay
     end
     state :pay do
-      event :leaving, transitions_to: :leaving
+      event :exit, transitions_to: :leaving
     end
     state :leaving do
-      event :discharge, transitions_to: :leaving
+      event :exit, transitions_to: :leaving
     end
   end
 end
