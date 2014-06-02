@@ -62,6 +62,7 @@ class PatientsController < ApplicationController
   end
 
   def doctor
+    p '*'*100
     @patient.doctor!
     respond_to do |format|
       format.js
