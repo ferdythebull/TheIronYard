@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20140430185716) do
   end
 
   create_table "hospitals", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "name"
     t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "join_tables", force: true do |t|
