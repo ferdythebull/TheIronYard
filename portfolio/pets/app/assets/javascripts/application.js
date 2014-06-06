@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+var when_page_is_ready = function(){
 
 $(function() {
   $("#user_birthday").datepicker({
@@ -27,21 +28,7 @@ $(function() {
   });
 });
 
-function show_image_preview() {
-  // read content here.
-  var data = window.image_preview.document;
-  if (data && data.getElementById("preview")) {
-    // now either do something with the preview or just place the iframe so it
-    // is already positioned correctly
-  }
 }
 
-function file_field_changed() {
-  var form = $('..');
-  var original_action form.action;
-  form.action = "special_preview_path";
-  form.target = "image_preview";
-  form.submit();
-
-  form.action = original_action;
-}
+$(document).ready(when_page_is_ready);
+$(document).on("page:load", when_page_is_ready);

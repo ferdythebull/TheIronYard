@@ -40,23 +40,35 @@
 /       %li#events.inline-block
 /         %a{href: "/events/charleston"} Events
 
-- if user_signed_in?
-  %ul.nav.nav-pills
-    %li.dropdown.pull-right
-      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-        = image_tag current_user.avatar.url(:thumb)
-        %b.caret
-      %ul.dropdown-menu
-        %li
-          %strong #{current_user.first_name} #{current_user.last_name}
-        %li
-          = link_to "User Settings", edit_user_registration_path
-        %li
-          #user_nav
-            Not you?
-            \#{link_to "Sign Out", destroy_user_session_path, :method => :delete}
--else
-  %ul.nav.nav-pills
-    %li.pull-right
-      = link_to "Sign Up", new_user_registration_path, class: "btn btn-default"
-      = link_to "Log In", user_session_path
+.row
+  .row
+    - if user_signed_in?
+      %ul.nav.nav-pills
+        %li.dropdown.pull-right
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %strong #{current_user.first_name} #{current_user.last_name}
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              = image_tag current_user.avatar.url(:thumb)
+            %li
+              = link_to "About Me", user_path(@user)
+            %li
+              = link_to "Account Settings", account_settings_user_path(@user)
+            %li
+              #user_nav
+                Not you?
+                \#{link_to "Sign Out", destroy_user_session_path, :method => :delete}
+    -else
+      %ul.nav.nav-pills
+        %li.pull-right
+          = link_to "Sign Up", new_user_registration_path, class: "btn btn-default"
+  .row
+    -if user_signed_in?
+      %ul.nav.nav-pills
+        .pull-right
+          #{link_to "Sign Out", destroy_user_session_path, :method => :delete}
+    -else
+      %ul.nav.nav-pills
+        .pull-right
+          = link_to "Log In", user_session_path

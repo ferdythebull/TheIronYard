@@ -1,0 +1,38 @@
+.row
+  .col-md-8
+    = link_to "Account Settings", account_settings_user_path(@user)
+    >> Overview
+.row
+  .col-md-2
+  .col-md-6
+    %table
+      %tr
+        %th
+          = image_tag current_user.avatar.url(:thumb)
+          #{current_user.first_name} #{current_user.last_name}'s Account Settings
+      %tr
+        %td
+          = link_to "Profile", edit_user_path(@user)
+          %br
+          Edit your name, public profile information, and your Member Search preference.
+      %tr
+        %td
+          = link_to "Password", edit_user_path(@user)
+          %br
+          Change the password for your account.
+      %tr
+        %td
+          = link_to "Email / Notifications", edit_user_path(@user)
+          %br
+          Manage your email accounts, notifications, and newsletter subscriptions.
+      %tr
+        %td
+          = link_to "Locations", edit_user_path(@user)
+          %br
+          Add, edit, or remove your saved locations.
+      %tr
+        %td
+          = link_to "Friends", edit_user_path(@user)
+          %br
+          Remove friends and track friend invitations you have sent.
+  .col-md-2

@@ -2,6 +2,21 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'home#index'
+
+  resources :users do
+    member do
+      get :account_settings
+    end
+
+    member do
+      resource :password, :controller => :users_password_controller
+    end
+  end
+
+  resources :ratings, only: :update
+
+  resources :locations
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

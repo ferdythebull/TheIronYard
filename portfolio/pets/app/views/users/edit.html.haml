@@ -1,0 +1,193 @@
+.row
+  .col-md-12
+    = link_to "Account Settings", account_settings_user_path(@user)
+    >> Profile
+
+.row
+  = form_for @user, html: { class: "form", role: "form", method: :put } do |f|
+
+    .row{style: "padding-bottom: 12px"}
+      %h1.form-signin-heading{style: "text-align:center"} Edit #{current_user.first_name}'s profile
+      
+    .row{style: "padding-bottom: 12px"}
+      .form-group
+        .col-md-5
+        .col-md-1{style: "padding-right: 0"}
+          = link_to "Back", :back, class: "btn btn-primary btn-block"
+        .col-md-1{style: "padding-left: 0"}
+          = f.submit "Update", class: "btn btn-success btn-block"
+        .col-md-5
+
+    .row{style: "padding-bottom: 12px"}
+      .col-md-6
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :name
+            .col-md-4{style: "padding-right: 0"}         
+              = f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "This field is required."
+            .col-md-5{style: "padding-left: 0"}
+              = f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "This field is also required."
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :nickname
+            .col-md-9
+              = f.text_field :nickname, autofocus: true, class: "form-control", placeholder: "El Diablo, The Hulk, Timmy"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :your_headline
+            .col-md-9
+              = f.text_field :your_headline, autofocus: true, class: "form-control", placeholder: "Life, Universe, Everything || The King of Rock and Roll"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :i_love
+            .col-md-9
+              = f.text_area :i_love, autofocus: true, class: "form-control", placeholder: "Comma separated phrases (e.g. tacos, My Bloody Valentine, turtles)"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :find_me_in
+            .col-md-9
+              = f.text_field :find_me_in, autofocus: true, class: "form-control", placeholder: "Shibuya, East Point, or boat shoes"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_hometown
+            .col-md-9
+              = f.text_field :hometown, autofocus: true, class: "form-control", placeholder: "Mount Pleasant, SC"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_blog_or_website
+            .col-md-9
+              = f.text_field :website, autofocus: true, class: "form-control", placeholder: "www.randomblog.wordpress.com"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :when_not_with_my_pet
+            .col-md-9
+              = f.text_field :when_not_with_pet, autofocus: true, class: "form-control", placeholder: "I go ghost-hunting; I work at a bar downtown"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :why_you_should_read_my_reviews
+            .col-md-9
+              = f.text_field :why_you_should_read_my_reviews, autofocus: true, class: "form-control", placeholder: "I love my pet; I'm a genius!"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_second_favorite_website
+            .col-md-9
+              = f.text_field :second_favorite_website, autofocus: true, class: "form-control", placeholder: "www.facebook.com; www.vice.com"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :the_last_great_book_I_read
+            .col-md-9
+              = f.text_field :last_great_book_read, autofocus: true, class: "form-control", placeholder: "Thomas Pynchon's Gravity's Rainbow, Game of Thrones"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_first_concert
+            .col-md-9
+              = f.text_field :my_first_concert, autofocus: true, class: "form-control", placeholder: "JPNTHR, The Beatles, LCD Soundsystem"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_favorite_movie
+            .col-md-9
+              = f.text_field :my_favorite_movie, autofocus: true, class: "form-control", placeholder: "Le Samourai, Caddyshack"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_last_meal
+            .col-md-9
+              = f.text_field :my_last_meal, autofocus: true, class: "form-control", placeholder: "King Crab, a burger from the backyard grill"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :dont_tell_anyone_else_but
+            .col-md-9
+              = f.text_field :my_secret, autofocus: true, class: "form-control", placeholder: "I love Justin Bieber; I want to be a professional comedian"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :most_recent_discovery
+            .col-md-9
+              = f.text_field :my_recent_discovery, autofocus: true, class: "form-control", placeholder: "Samba music, Marc Maron's WTF Podcast"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_pets
+            .col-md-9
+              = f.text_field :my_pets, autofocus: true, class: "form-control", placeholder: "Timmy the Parrot, Jake the Dog"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_favorite_breeds
+            .col-md-9
+              = f.text_field :my_favorite_breeds, autofocus: true, class: "form-control", placeholder: "Lhapso Apso Dogs, Siamese Cats"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :my_favorite_place_to_go_walking
+            .col-md-9
+              = f.text_field :my_favorite_place_to_go_walking, autofocus: true, class: "form-control", placeholder: "Riverfront Park; around my neighborhood"
+
+        .row{style: "padding-bottom: 12px"}
+          =f.fields_for :locations do |location|
+            .form-group
+              .col-md-3
+                =location.label :zip_code
+              .col-md-9
+                =location.text_field :zip_code, autocomplete: "off", class: "form-control", placeholder: "29464"
+
+        .row{style: "padding-bottom: 12px"}
+          .form-group
+            .col-md-3
+              = f.label :birthday
+            .col-md-9
+              = f.text_field :birthday, autocomplete: "off", class: "form-control", placeholder: "Birthday"
+
+      .col-md-6
+        .row
+          .form-group.avatar
+            .col-md-12
+              = f.label :your_profile_photo
+            %br
+            .col-md-12
+              = f.file_field :avatar
+            %br
+            .col-md-12
+              = image_tag @user.avatar.url(:medium)
+
+      .col-md-12
+        .row
+          .form-group
+            .col-md-2
+            .col-md-2
+              = link_to "Back", :back, class: "btn btn-primary btn-block"
+            .col-md-2
+              = f.submit "Update", class: "btn btn-success btn-block"
+
