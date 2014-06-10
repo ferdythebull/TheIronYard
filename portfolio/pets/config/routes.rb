@@ -7,10 +7,6 @@ Rails.application.routes.draw do
     member do
       get :account_settings
     end
-
-    member do
-      resource :password, :controller => :users_password_controller
-    end
   end
 
   resources :ratings, only: :update

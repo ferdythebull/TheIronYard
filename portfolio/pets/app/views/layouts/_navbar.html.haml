@@ -1,74 +1,31 @@
-/ .app-header
-/   #mastHead.webview-hidden.header-container.clearfix
-/     .logo
-/       %a{href: "/"} Adopt A Pet
-/     %form#header_find_form.header-search-form{action: "/search", method: "get"}
-/       %label.flex-container-inline.search-field.find-decorator
-/         .label Find
-/         .flex-box.input-holder
-/           %input#find_desc{autocomplete: "off", maxlength: "64", name: "find_desc", placeholder: "tacos, cheap dinner, Max’s", tabindex: "1", value: ""}
-/       %label.flex-container-inline.search-field.near-decorator
-/         .label Near
-/         .flex-box.input-holder
-/           %input#dropperText_Mast{autocomplete: "off", maxlength: "64", name: "find_loc", placeholder: "address, neighborhood, city, state or zip", tabindex: "2", value: "Charleston, SC"}/
-/           %input{name: "ns", type: "hidden", value: "1"}/
-/       .button-container
-/         %button#header-search-submit.ybtn.ybtn-primary.header-button{tabindex: "3", title: "Search", type: "submit", value: "submit"}
-/           %span
-/             %i.i.ig-common.i-search-common
-/     :javascript
-/       window.yPerfTimings.push(["search_bar:rendered", (new Date()).getTime()]);
-/     .header-account.webview-hidden
-/       %ul.logged-out-nav
-/         %li
-/           %a#header-sign-up.ybtn.ybtn-primary.header-button.sign-up{href: "https://www.yelp.com/signup"} Sign Up
-/         %li.text-centered
-/           %a.log-in{href: "https://www.yelp.com/login?return_url=%2Fcharleston"} Log In
-/     %ul#header-nav.header-nav
-/       %li.inline-block
-/         %a#home-link{href: "/"} Home
-/       %li#about-me.inline-block
-/         %a#Zabout_me{href: "/signup?return_url=%2Fuser_details"} About Me
-/       %li#write-review.inline-block
-/         %a#Zwrite_a_review{href: "/writeareview"} Write a Review
-/       %li#find-friends.inline-block
-/         %a#Zfind_friends{href: "/signup?return_url=%2Ffind_friends%2F"} Find Friends
-/       %li#messaging.inline-block
-/         %a#Zmail{href: "/signup?return_url=%2Fmail"} Messages
-/       %li#talk.inline-block
-/         %a{href: "/talk"} Talk
-/       %li#events.inline-block
-/         %a{href: "/events/charleston"} Events
-
 .row
-  .row
-    - if user_signed_in?
-      %ul.nav.nav-pills
-        %li.dropdown.pull-right
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            %strong #{current_user.first_name} #{current_user.last_name}
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = image_tag current_user.avatar.url(:thumb)
-            %li
-              = link_to "About Me", user_path(@user)
-            %li
-              = link_to "Account Settings", account_settings_user_path(@user)
-            %li
-              #user_nav
-                Not you?
-                \#{link_to "Sign Out", destroy_user_session_path, :method => :delete}
-    -else
-      %ul.nav.nav-pills
-        %li.pull-right
-          = link_to "Sign Up", new_user_registration_path, class: "btn btn-default"
-  .row
-    -if user_signed_in?
-      %ul.nav.nav-pills
-        .pull-right
-          #{link_to "Sign Out", destroy_user_session_path, :method => :delete}
-    -else
-      %ul.nav.nav-pills
-        .pull-right
-          = link_to "Log In", user_session_path
+  .col-md-3.logo
+    =image_tag("logo.png")
+  .col-md-9
+    .row
+      .col-md-12.bottomhead
+        - if user_signed_in?
+          %ul.nav.nav-pills
+            %li.dropdown.pull-right
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                %strong #{current_user.first_name} #{current_user.last_name}
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "About Me", user_path(@user)
+                %li
+                  = link_to "Account Settings", account_settings_user_path(@user)
+                %li
+                  #user_nav
+                    Not you?
+                    \#{link_to "Sign Out", destroy_user_session_path, :method => :delete}
+        -else
+          %ul.nav.nav-pills
+            %li.pull-right
+              = link_to "Sign Up", new_user_registration_path, class: "btn btn-default"
+    .row
+      -if user_signed_in?
+      -else
+        %ul.nav.nav-pills
+          .pull-right
+            = link_to "Log In", user_session_path

@@ -1,0 +1,49 @@
+= form_for @shelter, html: { class: 'form-horizontal' } do |f|
+  - if @shelter.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@shelter.errors.count, "error")
+        prohibited this shelter from being saved:
+      %ul
+        - @shelter.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.label :name, class: 'col-lg-2 form-control'
+    = f.text_field :name, class: "col-lg-10 form-control"
+
+  .form-group
+    = f.label :address, class: 'col-lg-2 form-control'
+    = f.text_field :address, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :city, class: 'col-lg-2 form-control'
+    = f.text_field :city, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :state, class: 'col-lg-2 form-control'
+    = f.text_field :state, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :zip_code, class: 'col-lg-2 form-control'
+    = f.text_field :zip_code, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :phone, class: 'col-lg-2 form-control'
+    = f.text_field :phone, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :main_url, class: 'col-lg-2 form-control'
+    = f.text_field :main_url, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :latitude, class: 'col-lg-2 form-control'
+    = f.text_field :latitude, class: 'col-lg-10 form-control'
+
+  .form-group
+    = f.label :longitude, class: 'col-lg-2 form-control'
+    = f.text_field :longitude, class: 'col-lg-10 form-control'
+    
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      = f.submit 'Submit', class: 'btn btn-primary'

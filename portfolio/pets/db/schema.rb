@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606003129) do
+ActiveRecord::Schema.define(version: 20140607214919) do
 
   create_table "locations", force: true do |t|
     t.string  "street"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20140606003129) do
     t.string  "state"
     t.string  "zip_code"
     t.integer "user_id"
+    t.string  "address"
+    t.float   "latitude"
+    t.float   "longitude"
   end
 
   create_table "users", force: true do |t|
@@ -66,5 +69,12 @@ ActiveRecord::Schema.define(version: 20140606003129) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_locations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -16,6 +16,11 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    @user.update_attributes user_params
+    redirect_to user_path(@user)
+  end
+
 private
 
   def user_params

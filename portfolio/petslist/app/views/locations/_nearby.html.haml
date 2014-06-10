@@ -1,0 +1,8 @@
+.list-group
+  .list-group-item
+    %h4.list-group-item-heading Locations Nearby
+  - for location in @location.nearbys(10)
+    .list-group-item
+      =link_to location.address, location
+      (#{location.distance.round(2)}
+      miles)

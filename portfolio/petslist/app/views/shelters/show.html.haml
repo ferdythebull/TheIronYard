@@ -1,0 +1,31 @@
+%p
+  %strong Name:
+  = @shelter.name
+%p
+  %strong Address:
+  = @shelter.address
+%p
+  %strong City:
+  = @shelter.city
+%p
+  %strong State:
+  = @shelter.state
+%p
+  %strong Zip code:
+  = @shelter.zip_code
+%p
+  %strong Phone:
+  = @shelter.phone
+%p
+  %strong Main url:
+  = link_to @shelter.main_url, @shelter.main_url
+
+%h3 Nearby Shelters (within 2 miles)
+%ul
+  - for shelter in @shelter.nearbys(5)
+    %li
+      = link_to shelter.name, shelter
+      (#{shelter.distance.round(2)} miles)
+= link_to 'Edit', edit_shelter_path(@shelter)
+|
+\#{link_to 'Back', shelters_path}

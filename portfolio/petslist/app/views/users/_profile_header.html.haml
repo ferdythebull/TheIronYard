@@ -1,0 +1,10 @@
+%section.page
+  #profile_header.group
+    = image_tag @user.photo.url(:big)
+    %article
+    %profile_header_info
+      .name_and_attributes
+        %ul
+          %li#username= @user.name
+          %li
+            #{@user.gender}

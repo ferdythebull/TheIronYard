@@ -40,4 +40,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.action_controller.include_all_helpers = true
 end

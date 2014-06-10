@@ -1,0 +1,6 @@
+.list-group
+  .list-group-item
+    %h4.list-group-item-heading Locations
+  - for location in @locations
+    .list-group-item
+      =link_to "#{location.address}", location_path(location)

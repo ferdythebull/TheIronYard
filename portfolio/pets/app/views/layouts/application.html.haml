@@ -15,7 +15,7 @@
     %script{src:"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
     %script{src:"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"}
   %body
-    %header.navbar.navbar-inverse.navbar-fixed-top{:role => "banner"}
+    %header.navbar.navbar-fixed-top.header{:role => "banner"}
       .container
         .navbar-header
           %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
@@ -24,7 +24,7 @@
             %span.icon-bar
             %span.icon-bar
         %nav.collapse.navbar-collapse{:role => "navigation"}
-          = render 'layouts/navbar'
+          / = render 'layouts/navbar'
     .container.theme-showcase{:role => "main"}
       .template
         = yield
