@@ -1,0 +1,22 @@
+.col-md-3
+.col-md-6.well.span-9
+  =link_to "Profile", profile_user_path(current_user)
+  %br
+  Edit your name and public profile information.
+  %br
+
+  =link_to "Password", password_user_path(current_user)
+  %br
+  Change the password for your account.
+  %br
+
+  =link_to "Photo", photo_user_path(current_user)
+  %br
+  Change the profile photo for your account.
+  %br
+
+  =link_to "Locations", locations_user_path(current_user)
+  %br
+  Add, edit, or remove your saved locations.
+  %br
+.col-md-5

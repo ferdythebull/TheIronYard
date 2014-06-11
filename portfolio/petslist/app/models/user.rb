@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def full_name
+    [first_name, last_name].compact.join(' ')
+  end
+
   def is_admin?
     is_admin
   end

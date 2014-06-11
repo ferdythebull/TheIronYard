@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :password
       get :photo
       get :profile
+      get :locations
     end
     resources :messages, only: [:create, :new]
     resources :responses, only: [:index]
