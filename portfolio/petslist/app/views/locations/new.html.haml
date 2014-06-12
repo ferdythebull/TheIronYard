@@ -1,8 +1,13 @@
+%ol.breadcrumb
+  %li
+    =link_to "Home", root_path
+  %li
+    =link_to "Locations", locations_path
+  %li.active New Location
 .col-md-4
 .col-md-4
   .well.span9
-    %form#form-inline
-      %fieldset
-        %legend Location
-        = render 'form'
+    %fieldset
+      %legend Location
+      = render 'form'
 .col-md-4

@@ -1,4 +1,16 @@
+%ol.breadcrumb
+  %li
+    =link_to "Home", root_path
+  %li
+    =link_to "Your Profile", user_path(current_user)
+  %li
+    =link_to "Account Settings", account_settings_user_path(current_user)
+  %li.active
+    Photo
 .col-md-3
 .col-md-3
-  %h3 Edit Profile Photo
+  .well.span9
+    %fieldset
+      %legend Change Your Photo
+      = render 'photo'
 .col-md-3

@@ -7,16 +7,24 @@
 
         .form-group
           = f.label :name
-          = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Name"
+          .left-inner-addon
+            %i.glyphicon.glyphicon-user
+            = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Name"
 
         .form-group
           =f.label :email
-          =f.text_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+          .left-inner-addon
+            %i.glyphicon.glyphicon-envelope
+            =f.text_field :email, autofocus: true, class: "form-control", placeholder: "Email"
 
         .form-group
           =f.label :password
-          =f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
-          =f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password"
+          .left-inner-addon
+            %i.glyphicon.glyphicon-asterisk
+            =f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+          .left-inner-addon
+            %i.glyphicon.glyphicon-asterisk
+            =f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password"
 
         .form-group
           =f.submit  "Sign Up", class: "btn btn-success"

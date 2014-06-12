@@ -5,15 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :photo, :styles => { :medium => "160x160>", :thumb => "40x40>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
-
   reverse_geocoded_by :latitude, :longitude
 
   has_one :profile, dependent: :destroy
-  has_one :photo, dependent: :destroy
   has_many :user_locations
   has_many :locations, through: :user_locations
+  has_many :images, :as => :imageable
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

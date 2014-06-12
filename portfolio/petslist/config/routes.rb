@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :responses, except: [:index, :new]
 
 
-  root 'locations#index'
+  root 'shelters#index'
 
   resources :locations
   resources :shelters

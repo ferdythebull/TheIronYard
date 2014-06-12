@@ -1,20 +1,23 @@
 .col-md-3
 .col-md-6
   .well.span9
-    %form#form-inline
-      %fieldset
-        %legend Sign In
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .form-group
-            = f.label :email
+    %fieldset
+      %legend Sign In
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.label :email
+          .left-inner-addon
+            %i.glyphicon.glyphicon-envelope
             = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"
-          .form-group
-            = f.label :password
+        .form-group
+          = f.label :password
+          .left-inner-addon
+            %i.glyphicon.glyphicon-asterisk
             = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
-          - if devise_mapping.rememberable?
-            %div
-              = f.check_box :remember_me
-              = f.label :remember_me
-          %div= f.submit "Sign in", class: "btn btn-success"
-        = render "devise/shared/links"
+        - if devise_mapping.rememberable?
+          %div
+            = f.check_box :remember_me
+            = f.label :remember_me
+        %div= f.submit "Sign in", class: "btn btn-success"
+      = render "devise/shared/links"
 .col-md-3

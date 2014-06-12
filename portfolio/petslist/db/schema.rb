@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610201600) do
+ActiveRecord::Schema.define(version: 20140612163724) do
+
+  create_table "animal_locations", force: true do |t|
+    t.integer  "animal_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "animals", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "shelter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "address"
@@ -22,6 +46,13 @@ ActiveRecord::Schema.define(version: 20140610201600) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
+  end
+
+  create_table "owners", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "shelter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", force: true do |t|
@@ -52,6 +83,13 @@ ActiveRecord::Schema.define(version: 20140610201600) do
     t.datetime "updated_at"
   end
 
+  create_table "shelter_locations", force: true do |t|
+    t.integer  "shelter_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shelters", force: true do |t|
     t.string   "name"
     t.string   "city"
@@ -62,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140610201600) do
     t.integer  "distance"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "user_locations", force: true do |t|
@@ -90,10 +129,6 @@ ActiveRecord::Schema.define(version: 20140610201600) do
     t.string   "your_headline"
     t.string   "birthday"
     t.string   "name"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"
