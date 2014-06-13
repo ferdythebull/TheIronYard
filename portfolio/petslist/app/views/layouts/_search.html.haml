@@ -1,6 +1,8 @@
-%form.navbar-form{role: "search"}
+.navbar-form{role: "search"}
   .form-group
+    %strong Look for
     %input.form-control{placeholder: "dogs, Friendly Kennel", type: "text"}/
-    %input.form-control{placeholder: "Charleston, SC", type: "text"}/
+    %strong in
+    %input.form-control{placeholder: "Charleston, SC", type: "text", style: "width: 200px;"}/
   %button.btn.btn-default{type: "submit"}
     %span.glyphicon.glyphicon-search

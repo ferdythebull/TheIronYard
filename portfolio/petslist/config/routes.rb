@@ -28,6 +28,16 @@ Rails.application.routes.draw do
   root 'shelters#index'
 
   resources :locations
-  resources :shelters
+  resources :shelters do
+    collection do
+      get 'autocomplete'
+    end
+  end
+
+  get 'home/terms'
+  get 'home/privacy'
+  get 'home/contact'
+  get 'home/about'
+  get 'home/employer'
   
 end

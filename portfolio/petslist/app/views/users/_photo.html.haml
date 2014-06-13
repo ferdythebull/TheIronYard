@@ -1,3 +1,8 @@
 = form_for @user do |f|
+  
   .form-group
     =f.label :photo
+
+  .form-group
+    =f.submit "Update", class: "btn btn-success"
+    =link_to "Cancel", account_settings_user_path(current_user), class: "btn btn-default"

@@ -15,17 +15,26 @@
     %script{src:"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
     %script{src:"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"}
   %body
-    .navbar.navbar-fixed-top{:role => "navigation"}
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle Navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          .navbar-brand=link_to image_tag("logo.png"), root_path
-        .navbar-collapse.collapse
-          = render 'layouts/navbar'
-    .container.theme-showcase{:role => "main"}
-      .template
-        = yield
+    .wrapper
+      .navbar-default.navbar-fixed-top{:role => "navigation"}
+        .container-header
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle Navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            =link_to image_tag("logo.png"), root_path
+          .navbar-collapse.collapse
+            = render 'layouts/navbar'
+      .container.theme-showcase{:role => "main"}
+        .template
+          = yield
+      .push
+    .footer
+      .container.text-center
+        =link_to "About", home_about_path
+        =link_to "Contact", home_contact_path
+        =link_to "Employer", home_employer_path
+        =link_to "Privacy", home_privacy_path
+        =link_to "Terms", home_terms_path
