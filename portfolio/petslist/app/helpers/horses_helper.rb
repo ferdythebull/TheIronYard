@@ -32,7 +32,7 @@ def horse_breeds
     ['Austrian Warmblood'],
     ['Auvergne'],
     ['Auxois'],
-    ['Azerbaijan']
+    ['Azerbaijan'],
     ['Azteca'],
     ['Baise'],
     ['Balearic'],

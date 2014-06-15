@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   has_one :profile, dependent: :destroy
-  has_many :user_locations
-  has_many :locations, through: :user_locations
   has_many :images, :as => :imageable
 
   def self.from_omniauth(auth)
@@ -21,10 +19,6 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!(validate: false)
     end
-  end
-
-  def full_name
-    [first_name, last_name].compact.join(' ')
   end
 
   def is_admin?

@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @images = @user.images
+    respond_to do |format|
+      format.html # show.html.haml
+      format.json { render json: @user }
+    end
   end
 
   def create

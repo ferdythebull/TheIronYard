@@ -1,0 +1,30 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport"}/
+    
+    %title PetsList
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %script{src: "https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"}
+    %link{href: "https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css", rel: "stylesheet"}/
+  %body
+    .wrapper
+      .navbar-default.navbar-fixed-top{:role => "navagation"}
+        .container-header
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-goggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle Navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to image_tag("logo.png"), root_path
+          .navbar-collapse.collapse
+            = render 'layouts/navbar'
+      .container.stuff{:role => "main"}
+        .template
+          = yield
+      .push
+    .footer
+      = render 'layouts/footer'

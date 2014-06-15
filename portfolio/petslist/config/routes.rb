@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root 'shelters#index'
+
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  devise_for :users
-
   resources :users do
+    resources :images
     member do
       resource :profile
       resource :info
@@ -25,13 +27,14 @@ Rails.application.routes.draw do
   resources :responses, except: [:index, :new]
 
 
-  root 'shelters#index'
-
   resources :locations
   resources :shelters do
-    collection do
-      get 'autocomplete'
-    end
+    resources :images
+    resources :animals
+  end
+
+  resources :animals, only: [] do
+    resources :pictures
   end
 
   get 'home/terms'

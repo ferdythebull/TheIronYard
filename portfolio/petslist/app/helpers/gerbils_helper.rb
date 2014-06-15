@@ -7,7 +7,7 @@ def gerbil_breeds
     ['King Jird'],
     ['Indian Desert Jird'],
     ['Tamarisk'],
-    ["Tristam's Jird"]
+    ["Tristam's Jird"],
     ["Vinogradov's"],
     ["Cheng's Jird"],
     ["Sundevall's Jird"],
@@ -66,7 +66,7 @@ def gerbil_breeds
     ['Lake Chad'],
     ["Petter's"],
     ['Senegal'],
-    ["Böehm's gerbil, King gerbil"]
+    ["Böehm's gerbil, King gerbil"],
     ['Cape'],
     ['Highveld'],
     ['Gambian'],

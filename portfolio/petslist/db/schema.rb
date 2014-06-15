@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612163724) do
-
-  create_table "animal_locations", force: true do |t|
-    t.integer  "animal_id"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140614223019) do
 
   create_table "animals", force: true do |t|
     t.string   "name"
@@ -83,13 +76,6 @@ ActiveRecord::Schema.define(version: 20140612163724) do
     t.datetime "updated_at"
   end
 
-  create_table "shelter_locations", force: true do |t|
-    t.integer  "shelter_id"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "shelters", force: true do |t|
     t.string   "name"
     t.string   "city"
@@ -101,13 +87,9 @@ ActiveRecord::Schema.define(version: 20140612163724) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-  end
-
-  create_table "user_locations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", force: true do |t|

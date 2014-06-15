@@ -1,33 +1,32 @@
 .well.span9
-  %form#form-inline
-    %fieldset
-      %legend Sign Up
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form", role: "form" } ) do |f|
-        = devise_error_messages!
+  %fieldset
+    %legend Sign Up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form", role: "form" } ) do |f|
+      = devise_error_messages!
 
-        .form-group
-          = f.label :name
-          .left-inner-addon
-            %i.glyphicon.glyphicon-user
-            = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Name"
+      .form-group
+        = f.label :name
+        .left-inner-addon
+          %i.glyphicon.glyphicon-user
+          = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Name"
 
-        .form-group
-          =f.label :email
-          .left-inner-addon
-            %i.glyphicon.glyphicon-envelope
-            =f.text_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+      .form-group
+        =f.label :email
+        .left-inner-addon
+          %i.glyphicon.glyphicon-envelope
+          =f.text_field :email, autofocus: true, class: "form-control", placeholder: "Email"
 
-        .form-group
-          =f.label :password
-          .left-inner-addon
-            %i.glyphicon.glyphicon-asterisk
-            =f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
-          .left-inner-addon
-            %i.glyphicon.glyphicon-asterisk
-            =f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password"
+      .form-group
+        =f.label :password
+        .left-inner-addon
+          %i.glyphicon.glyphicon-asterisk
+          =f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+        .left-inner-addon
+          %i.glyphicon.glyphicon-asterisk
+          =f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password"
 
-        .form-group
-          =f.submit  "Sign Up", class: "btn btn-success"
-          =f.select :user_type, options_for_select(User::USER_TYPES, f.object.user_type), {}, {class: "form-control"}
-        .form-group
-          = render 'devise/shared/links'
+      .form-group
+        =f.submit  "Sign Up", class: "btn btn-success"
+        =f.select :user_type, options_for_select(User::USER_TYPES, f.object.user_type), {}, {class: "form-control"}
+      .form-group
+        = render 'devise/shared/links'
