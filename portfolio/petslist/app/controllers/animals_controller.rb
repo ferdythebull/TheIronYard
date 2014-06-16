@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_filter :find_shelter
   before_filter :find_animal, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -9,9 +10,10 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = @shelter.animals.new animal_params
+    @animal = @shelter.animals.new (animal_params)
     if @animal.save
       flash[:notice] = "You just added a new animal."
+      redirect_to shelter_path(@shelter)
     else
       flash[:error] = "Please enter a little more information..."
       render :new
@@ -33,8 +35,15 @@ class AnimalsController < ApplicationController
 
 private
 
+  def animal_params
+  end
+
   def find_animal
     @animal = @shelter.animals.find params[:id]
+  end
+
+  def find_shelter
+    @shelter = Shelter.find params[:shelter_id]
   end
 
 end

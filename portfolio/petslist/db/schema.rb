@@ -11,12 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614223019) do
+ActiveRecord::Schema.define(version: 20140616155109) do
+
+  create_table "animal_breeds", force: true do |t|
+    t.integer  "animal_id"
+    t.integer  "breed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "animal_groups", force: true do |t|
+    t.integer  "animal_group_type"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "animals", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "shelter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "species_id"
+    t.string   "birthday"
+    t.string   "personality"
+    t.string   "color"
+    t.string   "body_type"
+    t.string   "trained"
+    t.string   "sex"
+    t.string   "size"
+    t.string   "hair"
+    t.string   "special_needs"
+    t.string   "bonded_pair"
+  end
+
+  create_table "breeds", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "species_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

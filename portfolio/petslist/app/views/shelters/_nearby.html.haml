@@ -1,0 +1,8 @@
+.list-group
+  .list-group-item
+    %h4.list-group-item-heading Shelters Nearby
+  - for shelter in @shelter.nearbys(10)
+    .list-group-item
+      =link_to shelter.name, shelter
+      (#{shelter.distance.round(2)}
+      miles)

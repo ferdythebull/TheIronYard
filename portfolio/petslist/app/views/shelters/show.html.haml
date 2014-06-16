@@ -1,31 +1,26 @@
-%p
-  %strong Name:
-  = @shelter.name
-%p
-  %strong Address:
-  = @shelter.address
-%p
-  %strong City:
-  = @shelter.city
-%p
-  %strong State:
-  = @shelter.state
-%p
-  %strong Zip code:
-  = @shelter.zip_code
-%p
-  %strong Phone:
-  = @shelter.phone
-%p
-  %strong Main url:
-  = link_to @shelter.main_url, @shelter.main_url
+%ol.breadcrumb
+  %li
+    =link_to "Home", root_path
+  %li
+    =link_to "Shelters", shelters_path
+  %li.active
+    #{@shelter.name}
+.col-md-12
+  .col-md-3
+    = render 'animals/pets_available'
+  .col-md-6
+    = render 'new_animal_button'
+    = render 'admin_buttons'
+    %h1 #{@shelter.name}
+    / = render 'user_buttons'
+  .col-md-3
+    .row 
+      = render 'map'
+    .row
+      = render 'more_info'
+    .row
+      = render 'nearby'
 
-%h3 Nearby Shelters (within 2 miles)
-%ul
-  - for shelter in @shelter.nearbys(5)
-    %li
-      = link_to shelter.name, shelter
-      (#{shelter.distance.round(2)} miles)
 = link_to 'Edit', edit_shelter_path(@shelter)
 |
 \#{link_to 'Back', shelters_path}

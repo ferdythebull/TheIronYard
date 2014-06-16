@@ -1,0 +1,2 @@
+class AnimalGroupsController < ApplicationController
+end

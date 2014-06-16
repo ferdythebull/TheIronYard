@@ -26,7 +26,6 @@ class SheltersController < ApplicationController
           city: shelter.city,
           state: shelter.state,
           zip_code: shelter.zip_code,
-          phone: shelter.phone,
           main_url: shelter.main_url,
           :'marker-color' => '#FF8B00',
           :'marker-symbol' => 'embassy',

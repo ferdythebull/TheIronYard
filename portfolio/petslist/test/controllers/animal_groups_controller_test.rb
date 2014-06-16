@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ShelterLocationTest < ActiveSupport::TestCase
+class AnimalGroupsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

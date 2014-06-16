@@ -13,10 +13,7 @@ load_on_page = ->
       el.className += " active"
       return
   
-    map = L.mapbox.map("map", "EVENTUAL_LINK_GOES_HERE").setView([
-      COORDINATE1
-      COORDINATE2
-    ], 12)
+    map = L.mapbox.map("map", "ferdythebull.ih66okdk").setView([32.802, -79.93], 13)
     listings = document.getElementById("listings")
     locations = L.mapbox.featureLayer().addTo(map)
     locations.loadURL "shelters.json"
@@ -67,7 +64,7 @@ load_on_page = ->
     locations.on "layeradd", (e) ->
       marker = e.layer
       marker.setIcon L.icon(
-        iconUrl: "EVENTUAL_TEST_LINK_GOES_HERE"
+        iconUrl: '<img src="/assets/images/shelter-icon.png">'
         iconSize: [
           48
           48
