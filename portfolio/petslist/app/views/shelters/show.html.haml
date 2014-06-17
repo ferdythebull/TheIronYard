@@ -7,13 +7,13 @@
     #{@shelter.name}
 .col-md-12
   .col-md-3
+    = render 'new_animal_button'
     = render 'animals/pets_available'
   .col-md-6
-    = render 'new_animal_button'
-    = render 'admin_buttons'
     %h1 #{@shelter.name}
-    / = render 'user_buttons'
   .col-md-3
+    .row
+      = render 'shelter_buttons'
     .row 
       = render 'map'
     .row

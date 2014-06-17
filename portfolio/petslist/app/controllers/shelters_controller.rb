@@ -53,6 +53,7 @@ class SheltersController < ApplicationController
   end
 
   def edit
+    @shelter.images.build
   end
 
   def create

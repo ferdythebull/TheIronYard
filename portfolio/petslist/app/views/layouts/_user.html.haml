@@ -8,7 +8,7 @@
   /   = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
 
 - if signed_in?
-  .btn-group
+  .btn-group.sign-in-up
     - if current_user.images.last == nil
       = link_to "My Profile", user_path(current_user), class: "btn btn-primary", type: "button"
     - else

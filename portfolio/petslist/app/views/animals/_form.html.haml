@@ -25,6 +25,12 @@
         = f.text_area :description, autofocus: true, class: "form-control", role: "label", placeholder: "He's a cute guy with a lot of spirit."
 
       .form-group
+        = f.label :species
+        = f.select :animal_group, options_for_select(animal_groups), autofocus: true, class: "form-control", role: "label", include_blank: '--- Choose Species ---'
+
+        
+
+      .form-group
         = f.label :birthday
         = f.text_field :birthday, autocomplete: "off", class: "form-control", placeholder: "Birthday"
 

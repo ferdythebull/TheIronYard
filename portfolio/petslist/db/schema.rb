@@ -11,18 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616155109) do
+ActiveRecord::Schema.define(version: 20140617180110) do
 
   create_table "animal_breeds", force: true do |t|
     t.integer  "animal_id"
     t.integer  "breed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "animal_groups", force: true do |t|
-    t.integer  "animal_group_type"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140616155109) do
     t.string   "hair"
     t.string   "special_needs"
     t.string   "bonded_pair"
+    t.string   "animal_group"
+    t.string   "patterns"
   end
 
   create_table "breeds", force: true do |t|
@@ -61,17 +56,6 @@ ActiveRecord::Schema.define(version: 20140616155109) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
   end
 
   create_table "owners", force: true do |t|
@@ -116,10 +100,8 @@ ActiveRecord::Schema.define(version: 20140616155109) do
     t.string   "zip_code"
     t.string   "phone"
     t.string   "main_url"
-    t.integer  "distance"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
