@@ -1,46 +1,48 @@
-.well.span9
-  %fieldset
-    %legend New Shelter
-    = form_for @shelter, html: { class: 'form-horizontal' } do |f|
-      - if @shelter.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@shelter.errors.count, "error")
-            prohibited this shelter from being saved:
-          %ul
-            - @shelter.errors.full_messages.each do |message|
-              %li= message
+= form_for @shelter, html: { :multipart => true, class: 'form-horizontal' } do |f|
+  - if @shelter.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@shelter.errors.count, "error")
+        prohibited this shelter from being saved:
+      %ul
+        - @shelter.errors.full_messages.each do |message|
+          %li= message
 
-      .form-group
-        = f.label :name
-        = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Puppy Love Shelter"
+  .form-group
+    = f.fields_for :images do |image|
+      = image.label :image
+      = image.file_field :image
 
-      .form-group
-        = f.label :address
-        = f.text_field :address, autofocus: true, class: 'form-control', role: "label", placeholder: "1512 Barks Lane"
+  .form-group
+    = f.label :name
+    = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Puppy Love Shelter"
 
-      .form-group
-        = f.label :city
-        = f.text_field :city, class: 'form-control', role: "label", placeholder: "Dogtown"
+  .form-group
+    = f.label :address
+    = f.text_field :address, autofocus: true, class: 'form-control', role: "label", placeholder: "1512 Barks Lane"
 
-      .form-group
-        = f.label :state
-        %br
-        = f.select :state, options_for_select(us_states), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select State ---'
+  .form-group
+    = f.label :city
+    = f.text_field :city, class: 'form-control', role: "label", placeholder: "Dogtown"
 
-      .form-group
-        = f.label :zip_code
-        = f.text_field :zip_code, class: 'form-control', role: "label", placeholder: "21324"
+  .form-group
+    = f.label :state
+    %br
+    = f.select :state, options_for_select(us_states), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select State ---'
 
-      .form-group
-        = f.label :phone
-        = f.text_field :phone, class: 'form-control', role: "label", placeholder: "(843)867-5309"
+  .form-group
+    = f.label :zip_code
+    = f.text_field :zip_code, class: 'form-control', role: "label", placeholder: "21324"
 
-      .form-group
-        = f.label :main_url
-        = f.text_field :main_url, class: 'form-control', role: "label", placeholder: "www.dogsandcats.com"
-        
-      .form-group
-        .col-lg-10.col-lg-offset-2
-          = f.submit 'Submit', class: 'btn btn-success'
-          =link_to "Go Back", shelters_path, class: "btn btn-primary"
+  .form-group
+    = f.label :phone
+    = f.text_field :phone, class: 'form-control', role: "label", placeholder: "(843)867-5309"
+
+  .form-group
+    = f.label :main_url
+    = f.text_field :main_url, class: 'form-control', role: "label", placeholder: "www.dogsandcats.com"
+    
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      = f.submit 'Submit', class: 'btn btn-success'
+      =link_to "Go Back", shelters_path, class: "btn btn-primary"

@@ -2,7 +2,6 @@ module PersonalitiesHelper
 
   def personalities
     [
-      ['any'],
       ['unknown'],
       ['aggressive'],
       ['confident'],

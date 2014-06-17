@@ -4,6 +4,7 @@ class AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
+    @animal.images.build
   end
 
   def index
@@ -36,6 +37,7 @@ class AnimalsController < ApplicationController
 private
 
   def animal_params
+    params.require(:animal).permit(:name, :description, :birthday, :personality, :color, :body_type, :trained, :sex, :size, :hair, :special_needs, :bonded_pair, images_attributes: [:image])
   end
 
   def find_animal

@@ -1,5 +1,5 @@
 module HairLengthsHelper
-  def hair_lengths
+  def hair_types
     [
       ['short'],
       ['wire'],

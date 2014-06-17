@@ -29,6 +29,16 @@ var when_page_is_ready = function() {
     });
   });
 
+  $(function() {
+    $("#animal_birthday").datepicker({
+      dateFormat : 'mm//dd/yy',
+      changeMonth : true,
+      changeYear : true,
+      yearRange: '-30y:c+nn',
+      maxDate: '-1d'
+    });
+  });
+
 }
 $(document).ready(when_page_is_ready);
 $(document).on("page:load", when_page_is_ready);

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   has_many :images, :as => :imageable
+  accepts_nested_attributes_for :images
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

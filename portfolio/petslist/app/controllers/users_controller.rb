@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.images.build
   end
 
   def my_profile
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:image, :name, :email)
+    params.require(:user).permit(:image, :name, :email, images_attributes: [:image])
   end
 
   def find_user
