@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618153437) do
+ActiveRecord::Schema.define(version: 20140618222723) do
 
   create_table "animal_breeds", force: true do |t|
     t.integer  "animal_id"
@@ -112,12 +112,13 @@ ActiveRecord::Schema.define(version: 20140618153437) do
     t.string   "last_great_book_read"
     t.string   "my_first_concert"
     t.string   "my_favorite_movie"
-    t.string   "my_last_movie"
+    t.string   "my_last_meal"
     t.string   "my_secret"
     t.string   "my_recent_discovery"
     t.string   "my_pets"
     t.string   "my_favorite_breeds"
     t.string   "my_favorite_place_to_go_walking"
+    t.string   "job"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

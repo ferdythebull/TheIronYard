@@ -80,7 +80,7 @@ class SheltersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @shelter, notice: 'Shelter was successfully updated.' }
-      format.json { render :sheow, status: :created, location: @shelter }
+      format.json { render :show, status: :created, location: @shelter }
     end
   end
 
