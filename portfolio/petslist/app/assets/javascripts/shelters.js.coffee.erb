@@ -80,5 +80,9 @@ load_on_page = ->
       )
       return
 
+    $(".show-tooltip").click ->
+    $(".tooltip-examples a").tooltip "show"
+    return
+
 $(document).ready(load_on_page)
 $(document).on('page:load', load_on_page)

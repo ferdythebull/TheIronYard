@@ -1,0 +1,4 @@
+= link_to 'Edit Animal', edit_shelter_animal_path(@shelter, @animal) if can? :edit, Animal
+- if can? :destroy, Animal
+  |
+  =link_to "Delete Animal", shelter_animal_path(@shelter, @animal), method: :delete

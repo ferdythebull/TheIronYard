@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.user_type == 'admin'
+    if user.try(:user_type) == 'admin'
         can :manage, :all
     else
         can :read, Shelter

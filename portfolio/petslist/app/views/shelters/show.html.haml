@@ -12,7 +12,12 @@
   .col-md-6
     %h1 #{@shelter.name}
 
+    - @shelter.images.each do |image|
+      %p=image_tag(image.image.url :large)
+
     %p #{@shelter.description}
+
+    %input.btn.btn-primary.show-tooltip{type: "button", value: "Show"}/
 
   .col-md-3
     .row

@@ -2,11 +2,10 @@ class SheltersController < ApplicationController
 
   layout "shelters_map", only: :index
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :set_shelter, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize! :read, Shelter
     if params[:search].present?
       @shelters = Shelter.near(params[:search], 3, order: :distance)
     else
@@ -42,7 +41,6 @@ class SheltersController < ApplicationController
   end
 
   def show
-    authorize! :read, Shelter
     @images = @shelter.images
     respond_to do |format|
       format.html #show.html.haml

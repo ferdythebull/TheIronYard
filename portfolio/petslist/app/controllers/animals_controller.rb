@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_filter :find_shelter
   before_filter :find_animal, only: [:show, :edit, :update, :destroy]
 
@@ -10,7 +10,6 @@ class AnimalsController < ApplicationController
   end
 
   def index
-    authorize! :read, Animal
   end
 
   def create
@@ -26,7 +25,6 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    authorize! :read, Animal
     @images = @animal.images
     respond_to do |format|
       format.html # show.html.haml
@@ -36,10 +34,13 @@ class AnimalsController < ApplicationController
 
   def edit
     authorize! :update, Animal
+    @animal.images.build
   end
 
   def update
     authorize! :update, Animal
+    @animal.update_attributes animal_params
+    redirect_to shelter_animal_path(@shelter, @animal)
   end
 
   def destroy
@@ -51,7 +52,7 @@ class AnimalsController < ApplicationController
 private
 
   def animal_params
-    params.require(:animal).permit(:name, :description, :birthday, :personality, :color, :body_type, :trained, :sex, :size, :hair, :special_needs, :bonded_pair,:animal_group, :patterns, images_attributes: [:image])
+    params.require(:animal).permit(:name, :description, :birthday, :personality, :color, :body_type, :trained, :sex, :size, :hair, :special_needs, :bonded_pair, :animal_group, :patterns, images_attributes: [:image])
   end
 
   def find_animal

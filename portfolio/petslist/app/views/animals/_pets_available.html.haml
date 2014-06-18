@@ -1,3 +1,6 @@
 .list-group
   .list-group-item
-    %h4.list-group-item-heading Pets
+    %h5.list-group-item-heading Animals At This Shelter
+  - for animal in @shelter.animals
+    .list-group-item
+      =link_to "#{animal.name}", shelter_animal_path(@shelter, animal)
