@@ -18,6 +18,10 @@
     = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Puppy Love Shelter"
 
   .form-group
+    = f.label :description
+    = f.text_area :description, autofocus: true, class: "form-control", role: "label", placeholder: "Describe this shelter here..."
+
+  .form-group
     = f.label :address
     = f.text_field :address, autofocus: true, class: 'form-control', role: "label", placeholder: "1512 Barks Lane"
 
@@ -45,4 +49,5 @@
   .form-group
     .col-lg-10.col-lg-offset-2
       = f.submit 'Submit', class: 'btn btn-success'
-      =link_to "Go Back", shelters_path, class: "btn btn-primary"
+      or
+      =link_to "Cancel", shelter_path(@shelter)

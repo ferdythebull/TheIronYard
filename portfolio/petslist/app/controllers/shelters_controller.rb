@@ -99,7 +99,7 @@ private
   end
 
   def shelter_params
-    params.require(:shelter).permit(:name, :address, :city, :state, :zip_code, :phone, :main_url, :latitude, :longitude, images_attributes: [:image])
+    params.require(:shelter).permit(:name, :address, :city, :state, :zip_code, :phone, :main_url, :latitude, :longitude, :description, images_attributes: [:image])
   end
 
 end

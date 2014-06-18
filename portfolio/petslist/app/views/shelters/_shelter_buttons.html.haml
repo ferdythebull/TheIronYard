@@ -1,3 +1,4 @@
-.btn-group
-  = link_to 'Edit Shelter', edit_shelter_path(@shelter), class: "btn btn-primary"
-  = render 'admin_buttons'
+= link_to 'Edit Shelter', edit_shelter_path(@shelter) if can? :edit, Shelter
+- if can? :destroy, Shelter
+  |
+  =link_to "Delete Shelter", shelter_path(@shelter), method: :delete

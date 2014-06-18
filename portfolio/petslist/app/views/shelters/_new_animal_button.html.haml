@@ -1,1 +1,1 @@
-=link_to "Add Animal", new_shelter_animal_path(@shelter), class: "btn btn-success"
+=link_to "Add Animal", new_shelter_animal_path(@shelter) if can? :create, Animal

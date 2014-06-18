@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617180110) do
+ActiveRecord::Schema.define(version: 20140618120258) do
 
   create_table "animal_breeds", force: true do |t|
     t.integer  "animal_id"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140617180110) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "description"
   end
 
   create_table "users", force: true do |t|

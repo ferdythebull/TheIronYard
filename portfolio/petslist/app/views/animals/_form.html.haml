@@ -65,3 +65,9 @@
       .form-group
         = f.label :special_needs
         = f.select :special_needs, options_for_select(special_needs), autofocus: true, class: "form-control", role: "label", include_blank: "--- Special Needs ---"
+
+      .form-group
+        .col-lg-10.col-lg-offset-2
+          = f.submit "Submit", class: 'btn btn-success'
+          or
+          = link_to "Cancel", shelter_path(@shelter)

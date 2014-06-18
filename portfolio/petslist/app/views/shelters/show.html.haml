@@ -11,6 +11,9 @@
     = render 'animals/pets_available'
   .col-md-6
     %h1 #{@shelter.name}
+
+    %p #{@shelter.description}
+
   .col-md-3
     .row
       = render 'shelter_buttons'
@@ -20,7 +23,3 @@
       = render 'more_info'
     .row
       = render 'nearby'
-
-= link_to 'Edit', edit_shelter_path(@shelter)
-|
-\#{link_to 'Back', shelters_path}

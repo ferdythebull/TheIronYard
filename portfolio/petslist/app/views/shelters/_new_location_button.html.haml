@@ -1,1 +1,1 @@
-= link_to "New Location", new_shelter_path, class: "btn btn-default new-location"
+= link_to "New Location", new_shelter_path if can? :create, Shelter
