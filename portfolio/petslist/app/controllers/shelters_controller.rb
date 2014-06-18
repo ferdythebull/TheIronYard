@@ -2,9 +2,11 @@ class SheltersController < ApplicationController
 
   layout "shelters_map", only: :index
 
+  before_action :authenticate_user!
   before_action :set_shelter, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize! :read, Shelter
     if params[:search].present?
       @shelters = Shelter.near(params[:search], 3, order: :distance)
     else
@@ -40,6 +42,7 @@ class SheltersController < ApplicationController
   end
 
   def show
+    authorize! :read, Shelter
     @images = @shelter.images
     respond_to do |format|
       format.html #show.html.haml
@@ -48,15 +51,18 @@ class SheltersController < ApplicationController
   end
 
   def new
+    authorize! :create, Shelter
     @shelter = Shelter.new
     @shelter.images.build
   end
 
   def edit
+    authorize! :update, Shelter
     @shelter.images.build
   end
 
   def create
+    authorize! :create, Shelter
     @shelter = Shelter.new(shelter_params)
 
     respond_to do |format|
@@ -71,9 +77,19 @@ class SheltersController < ApplicationController
   end
 
   def update
+    authorize! :update, Shelter
+    @shelter.update_attributes shelter_params
+
+    respond_to do |format|
+      format.html { redirect_to @shelter, notice: 'Shelter was successfully updated.' }
+      format.json { render :sheow, status: :created, location: @shelter }
+    end
   end
 
   def destroy
+    authorize! :destroy, Shelter
+    @shelter.delete
+    redirect_to shelters_path
   end
 
 private

@@ -5,6 +5,10 @@ class Ability
     if user.user_type == 'admin'
         can :manage, :all
     else
+        can :read, Shelter
+        can :read, Animal
+        can :read, User
+        can :read, Image
     end
     # Define abilities for the passed in user here. For example:
     #
