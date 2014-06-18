@@ -73,12 +73,12 @@ a {
   .listings .item:last-child { border-bottom:none; }
   .listings .item .title {
     display:block;
-    color:#00853e;
+    color:#2660A1;
     font-weight:700;
     }
     .listings .item .title small { font-weight:400; }
     .listings .item.active .title,
-    .listings .item .title:hover { color:#8cc63f; }
+    .listings .item .title:hover { color:#2660a1; }
     .listings .item.active {
       background-color:#f8f8f8;
       }
@@ -119,7 +119,7 @@ a {
     padding:0;
     }
   .leaflet-popup-content h3 {
-    background:#91c949;
+    background:#2660a1;
     color:#fff;
     margin:0;
     display:block;

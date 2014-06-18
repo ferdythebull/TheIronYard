@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
 
   def update_sanitized_params
 
-    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :password, :password_confirmation, :name, :user_type)}
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :password, :password_confirmation, :name, :user_type, images_attributes: [:image])}
 
-    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email , :password, :password_confirmation, :current_password, :name)}
+    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email , :password, :password_confirmation, :current_password, :name, images_attributes: [:image])}
   end
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message

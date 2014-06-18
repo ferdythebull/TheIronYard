@@ -40,3 +40,4 @@ gem 'omniauth-facebook'
 gem 'gmaps4rails'
 gem 'twilio-ruby'
 gem 'social-buttons', '~>0.3'
+gem "paperclip-dropbox", ">= 1.1.7"

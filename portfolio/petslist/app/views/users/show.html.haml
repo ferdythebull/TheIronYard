@@ -16,3 +16,29 @@
   .col-md-3
     = render 'profile_header'
     / = link_to "Profile", account_settings_user_path(current_user)
+
+%ol.breadcrumb
+  %li
+    =link_to "Home", root_path
+  %li.active
+    #{@user.name}
+
+.col-md-12
+  .col-md-3
+    = render 'my_pets'
+  .col-md-6
+    %h1 #{@user.name}
+    %h3 #{@user.nickname}
+
+    =link_to 'Add Image', new_user_image_path(@user)
+    %p=image_tag @animal.images[0].image.url
+
+    %p
+      %strong I'm #{user.nickname} and this is what I love: 
+      #{@profile.i_love}
+
+  .col-md-3
+    .row
+      = render 'user_buttons'
+    .row
+      = render 'more_info'

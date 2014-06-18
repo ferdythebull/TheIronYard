@@ -1,0 +1,28 @@
+%ol.breadcrumb
+  %li
+    =link_to "Home", root_path
+  %li
+    =link_to "Shelters", shelters_path
+  %li
+    =link_to "#{@shelter.name}", shelter_path(@shelter)
+  %li.active
+    #{@animal.name}
+.col-md-12
+  .col-md-3
+    = render 'animals/pets_available'
+  .col-md-6
+    %h1 #{@animal.name}
+
+    %p=image_tag @animal.images[0].image.url
+
+    %p #{@animal.description}
+
+  .col-md-3
+    .row
+      = render 'animal_buttons'
+    .row 
+      = render 'map'
+    .row
+      = render 'more_info'
+    .row
+      = render 'shelters/nearby'
