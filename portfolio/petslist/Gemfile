@@ -5,6 +5,7 @@ gem 'rails', '4.1.1'
 # database
 gem 'mysql2', group: :development
 gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 gem 'sass-rails', '~> 4.0.3'
 
