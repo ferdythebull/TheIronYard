@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   reverse_geocoded_by :latitude, :longitude
 
-  has_one :profile, dependent: :destroy
   has_many :images, :as => :imageable
   accepts_nested_attributes_for :images
 

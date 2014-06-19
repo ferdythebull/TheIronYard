@@ -39,12 +39,18 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.images.build
+  end
+
+  def update
+    @user.update_attributes user_params
+    redirect_to user_url(@user)
   end
 
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, images_attributes: [:image])
+    params.require(:user).permit(:name, :email, :nickname, :gender, :your_headline, :birthday, :i_love, :find_me_in, :hometown, :website, :when_not_with_pet, :why_you_should_read_my_reviews, :second_favorite_website, :last_great_book_read, :my_first_concert, :my_favorite_movie, :my_last_meal, :my_secret, :my_recent_discovery, :my_pets, :my_favorite_breeds, :my_favorite_place_to_go_walking, :job, images_attributes: [:image])
   end
 
   def find_user

@@ -1,0 +1,83 @@
+%fieldset
+  %legend Horse
+  = form_for [@shelter, @animal], html: { :multipart => true, class: 'form-horizontal' } do |f|
+    - if @animal.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@animal.errors.count, "error")
+          prohibited this animal from being saved:
+        %ul
+          - @animal.errors.full_messages.each do |message|
+            %li= message
+
+    .form-group
+      = f.fields_for :images do |image|
+        = image.label :image
+        = image.file_field :image
+
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: "form-control", role: "label", placeholder: "Professor Fuzzleworth"
+
+    .form-group
+      = f.label :description
+      = f.text_area :description, autofocus: true, class: "form-control", role: "label", placeholder: "He's a cute guy with a lot of spirit."
+
+    .form-group
+      = f.label :species
+      = f.select :animal_group, options_for_select(animal_groups), autofocus: true, class: "form-control", role: "label", include_blank: '--- Choose Species ---'
+
+    .form-group
+      = f.fields_for :breeds do |breed|
+        = breed.label :breed
+        = breed.select :name, options_for_select(horse_breeds), autofocus: true, class: "form-control", role: "label", include_blank: '--- Choose Horse Breed ---'
+
+    .form-group
+      = f.label :birthday
+      = f.text_field :birthday, autocomplete: "off", class: "form-control", placeholder: "Birthday"
+
+    .form-group
+      = f.label :personality
+      = f.select :personality, options_for_select(personalities), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select Personality ---'
+
+    .form-group
+      = f.label :color
+      = f.select :color, options_for_select(colors), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select Color ---'
+
+    .form-group
+      = f.label :pattern
+      = f.select :patterns, options_for_select(patterns), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select Pattern ---'
+
+    .form-group
+      = f.label :body_type
+      = f.select :body_type, options_for_select(body_types), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select Body Type ---'
+
+    .form-group
+      = f.label :trained
+      = f.select :trained, options_for_select(trained), autofocus: true, class: "form-control", role: "label", include_blank: '--- Select ---'
+
+    .form-group
+      = f.label :sex
+      = f.select :sex, options_for_select(sexes), autofocus: true, class: "form-control", role: "label", include_blank: "--- Select Sex ---"
+
+    .form-group
+      = f.label :size
+      = f.select :size, options_for_select(sizes), autofocus: true, class: "form-control", role: "label", include_blank: "--- Choose Size ---"
+
+    .form-group
+      = f.label :hair_type
+      = f.select :hair, options_for_select(hair_types), autofocus: true, class: "form-control", role: "label", include_blank: "--- Choose Hair Type ---"
+
+    .form-group
+      = f.label :special_needs
+      = f.select :special_needs, options_for_select(special_needs), autofocus: true, class: "form-control", role: "label", include_blank: "--- Special Needs ---"
+
+    .form-group
+      = f.label :bonded_pair
+      = f.select :bonded_pair, options_for_select(bonded_pairs), autofocus: true, class: "form-control", role: "label", include_blank: "--- Bonded Pair ---"
+
+    .form-group
+      .col-lg-10.col-lg-offset-2
+        = f.submit "Submit", class: 'btn btn-success'
+        or
+        = link_to "Cancel", shelter_path(@shelter)

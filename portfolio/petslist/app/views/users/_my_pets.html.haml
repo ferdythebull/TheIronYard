@@ -1,12 +1,15 @@
 .list-group
   .list-group-item
     %h4.list-group-item-heading My Pets
-  .list-group-item
-    %strong My Pets:
-    = @user.my_pets
-  .list-group-item
-    %strong My Favorite Breeds:
-    = @user.my_favorite_breeds
-  .list-group-item
-    %strong My Favorite Place To Go Walking:
-    = @user.my_favorite_place_to_go_walking
+  - unless @user.my_pets == nil
+    .list-group-item
+      %strong My Pets:
+      = @user.my_pets
+  - unless @user.my_favorite_breeds == nil
+    .list-group-item
+      %strong My Favorite Breeds:
+      = @user.my_favorite_breeds
+  - unless @user.my_favorite_place_to_go_walking == nil
+    .list-group-item
+      %strong My Favorite Place To Go Walking:
+      = @user.my_favorite_place_to_go_walking

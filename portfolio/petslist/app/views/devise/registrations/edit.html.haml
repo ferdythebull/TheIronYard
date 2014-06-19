@@ -1,30 +1,86 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  %div
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  %div
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  %div= f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.col-lg-3
+.col-lg-6
+  .well.span9
+    %fieldset
+      %legend Edit #{resource_name.to_s.humanize}
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :multipart => true, class: 'form-horizontal', method: :put }) do |f|
+        = devise_error_messages!
+        
+        .form-group
+          = f.fields_for :images do |image|
+            = image.label :image
+            = image.file_field :image
+
+        .form-group    
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, class: "form-control", role: "label", include_blank: 'Enter email here...'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        
+        .form-group
+          = f.label :password
+          %i (leave blank if you don't want to change it)
+          %br/
+          = f.password_field :password, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: 'Enter password here...'
+        
+        .form-group
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: 'Enter password one more time...'
+        
+        .form-group
+          = f.label :current_password
+          %i (we need your current password to confirm your changes)
+          %br/
+          = f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: 'Enter current password here...'
+
+        .form-group
+          = f.label :name
+          = f.text_field :name, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Enter name here..."
+
+        .form-group
+          = f.label :nickname
+          = f.text_field :nickname, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Enter your nickname..."
+
+        .form-group
+          = f.label :gender
+          = f.select :gender, options_for_select(sexes), autofocus: true, class: "form-control", role: "label", include_blank: '--- Choose gender ---'
+
+        .form-group
+          = f.label :your_headline
+          = f.text_field :your_headline, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Enter your headline here..."
+
+        .form-group
+          = f.label :birthday
+          = f.text_field :birthday, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Birthday..."
+
+        .form-group
+          = f.label :i_love
+          = f.text_area :i_love, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Enter things you love here..."
+
+        .form-group
+          = f.label :find_me_in
+          = f.text_area :find_me_in, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Where can we find you?"
+
+        .form-group
+          = f.label :hometown
+          = f.text_field :hometown, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "What is your hometown?"
+
+        .form-group
+          = f.label :website
+          = f.text_field :website, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "Enter your personal website"
+
+        .form-group
+          = f.label :when_not_with_pet
+          = f.text_field :when_not_with_pet, autocomplete: "off", autofocus: true, class: "form-control", role: "label", include_blank: "What do you do without your pet?"
+
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit "Update", class: "btn btn-success"
+
+      %h3 Cancel my account
+      %p
+        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+      = link_to "Back", :back

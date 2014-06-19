@@ -7,6 +7,7 @@ class AnimalsController < ApplicationController
     authorize! :create, Animal
     @animal = Animal.new
     @animal.images.build
+    @animal.breeds.build
   end
 
   def index
@@ -26,6 +27,7 @@ class AnimalsController < ApplicationController
 
   def show
     @images = @animal.images
+    @breeds = @animal.breeds
     respond_to do |format|
       format.html # show.html.haml
       format.json { render json: @animal }
@@ -35,6 +37,7 @@ class AnimalsController < ApplicationController
   def edit
     authorize! :update, Animal
     @animal.images.build
+    @animal.breeds.build
   end
 
   def update
@@ -52,7 +55,7 @@ class AnimalsController < ApplicationController
 private
 
   def animal_params
-    params.require(:animal).permit(:name, :description, :birthday, :personality, :color, :body_type, :trained, :sex, :size, :hair, :special_needs, :bonded_pair, :animal_group, :patterns, images_attributes: [:image])
+    params.require(:animal).permit(:name, :description, :birthday, :personality, :color, :body_type, :trained, :sex, :size, :hair, :special_needs, :bonded_pair, :animal_group, :patterns, breeds_attributes: [:name], images_attributes: [:image])
   end
 
   def find_animal

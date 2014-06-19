@@ -5,4 +5,5 @@ class Animal < ActiveRecord::Base
   accepts_nested_attributes_for :images
   has_many :animal_breeds
   has_many :breeds, through: :animal_breeds
+  accepts_nested_attributes_for :breeds
 end

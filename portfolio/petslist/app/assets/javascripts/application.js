@@ -39,6 +39,10 @@ var when_page_is_ready = function() {
     });
   });
 
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
 }
 $(document).ready(when_page_is_ready);
 $(document).on("page:load", when_page_is_ready);

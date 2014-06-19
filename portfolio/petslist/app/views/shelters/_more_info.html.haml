@@ -1,24 +1,31 @@
 .list-group
   .list-group-item
     %h4.list-group-item-heading More Info
-  .list-group-item
-    %strong Name:
-    = @shelter.name
-  .list-group-item
-    %strong Address:
-    = @shelter.address
-  .list-group-item
-    %strong City:
-    = @shelter.city
-  .list-group-item
-    %strong State:
-    = @shelter.state
-  .list-group-item
-    %strong Zip code:
-    = @shelter.zip_code
-  .list-group-item
-    %strong Phone:
-    = @shelter.phone
-  .list-group-item
-    %strong Main url:
-    = link_to @shelter.main_url, @shelter.main_url
+  - unless @shelter.name == nil
+    .list-group-item
+      %strong Name:
+      = @shelter.name
+  - unless @shelter.address == nil
+    .list-group-item
+      %strong Address:
+      = @shelter.address
+  - unless @shelter.city == nil
+    .list-group-item
+      %strong City:
+      = @shelter.city
+  - unless @shelter.state == nil
+    .list-group-item
+      %strong State:
+      = @shelter.state
+  - unless @shelter.zip_code == nil
+    .list-group-item
+      %strong Zip code:
+      = @shelter.zip_code
+  - unless @shelter.phone == nil
+    .list-group-item
+      %strong Phone:
+      = @shelter.phone
+  - unless @shelter.main_url == nil
+    .list-group-item
+      %strong Main url:
+      = link_to @shelter.main_url, @shelter.main_url

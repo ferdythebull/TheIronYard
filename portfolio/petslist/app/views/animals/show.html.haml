@@ -13,8 +13,9 @@
   .col-md-6
     %h1 #{@animal.name}
 
-    - @animal.images.each do |image|
-      %p=image_tag(image.image.url :large)
+    - unless @animal.images == nil
+      - @animal.images.each do |image|
+        %p=image_tag(image.image.url :large)
 
     %p #{@animal.description}
 

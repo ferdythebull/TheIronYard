@@ -33,7 +33,7 @@ load_on_page = ->
         link.className = "title"
         link.innerHTML = prop.name
         if prop.address
-          link.innerHTML += "<br /><small class=\"quiet\">" + prop.address + "<br />" + prop.city + ", " + prop.state + "<br />" + prop.phone + "<br />" + prop.main_url + "</small>"
+          link.innerHTML += "<br /><small class=\"quiet\">" + prop.address + "<br />" + prop.city + ", " + prop.state + "<br />" + prop.main_url + "</small>"
           popup += "<br /><small class=\"quiet\">" + prop.city + ", " + prop.state + "</small>"
         link.onclick = ->
           setActive listing
@@ -59,6 +59,11 @@ load_on_page = ->
         locale.bindPopup popup
         return
 
+      console.log($(".listings").html())
+      $(".sup_popover").popover({
+        content: $(".listings").html(),
+        html: true
+        })
       return
 
     locations.on "layeradd", (e) ->
@@ -79,10 +84,6 @@ load_on_page = ->
         ]
       )
       return
-
-    $(".show-tooltip").click ->
-    $(".tooltip-examples a").tooltip "show"
-    return
 
 $(document).ready(load_on_page)
 $(document).on('page:load', load_on_page)

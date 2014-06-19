@@ -14,9 +14,15 @@
     - @user.images.each do |image|
       %p=image_tag(image.image.url :large)
 
-    %p
-      %strong I'm #{@user.nickname} and this is what I love: 
-      #{@user.i_love}
+    - unless @user.i_love == nil
+      - if @user.nickname == nil
+        %p
+          %strong I'm #{@user.name} and this is what I love:
+          #{@user.i_love}
+      - else
+        %p
+          %strong I'm #{@user.nickname} and this is what I love: 
+          #{@user.i_love}
 
   .col-md-3
     .row

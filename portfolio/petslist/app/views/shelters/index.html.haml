@@ -1,6 +1,9 @@
-.sidebar
-  .heading
-    %h3 Animal Shelters
-  = render 'new_location_button'
-  #listings.listings
-#map.map.pad2 Map
+%div
+  #map.map.pad2{style: "z-index:0 !important;"} Map
+  .container-thing
+    %button.btn.btn-default.pull-right.sup_popover{"data-container" => "body", "data-placement" => "left", "data-toggle" => "popover", :type => "button", style: "z-index: 100000000000000000000 !important;"}
+      = render 'new_location_button'
+      %h5 Click here for a list of
+      %h3 Animal Shelters
+      #listings.listings
+

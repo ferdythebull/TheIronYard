@@ -4,51 +4,67 @@
   .list-group-item
     %strong Name:
     = @user.name
-  .list-group-item
-    %strong Nickname:
-    = @user.nickname
-  .list-group-item
-    %strong Gender:
-    = @user.gender
-  .list-group-item
-    %strong Birthday:
-    = @user.birthday
-  .list-group-item
-    %strong Website:
-    = @user.website
-  .list-group-item
-    %strong Find Me In:
-    = @user.find_me_in
-  .list-group-item
-    %strong Hometown:
-    = @user.hometown
-  .list-group-item
-    %strong When Not With Pet:
-    = @user.when_not_with_pet
-  .list-group-item
-    %strong Why You Should Read My Reviews:
-    = @user.why_you_should_read_my_reviews
-  .list-group-item
-    %strong Second Favorite Website:
-    = @user.second_favorite_website
-  .list-group-item
-    %strong Last Great Book Read:
-    = @user.last_great_book_read
-  .list-group-item
-    %strong My First Concert:
-    = @user.my_first_concert
-  .list-group-item
-    %strong My Favorite Movie:
-    = @user.my_favorite_movie
-  .list-group-item
-    %strong My Last Meal:
-    = @user.my_last_meal
-  .list-group-item
-    %strong My Secret:
-    = @user.my_secret
-  .list-group-item
-    %strong My Recent Discovery:
-    = @user.my_recent_discovery
-  .list-group-item
-    %strong My Job:
-    = @user.job
+  - unless @user.nickname == nil
+    .list-group-item
+      %strong Nickname:
+      = @user.nickname
+  - unless @user.gender == nil
+    .list-group-item
+      %strong Gender:
+      = @user.gender
+  - unless @user.birthday == nil
+    .list-group-item
+      %strong Birthday:
+      = @user.birthday
+  - unless @user.website == nil
+    .list-group-item
+      %strong Website:
+      = @user.website
+  - unless @user.find_me_in == nil
+    .list-group-item
+      %strong Find Me In:
+      = @user.find_me_in
+  - unless @user.hometown == nil
+    .list-group-item
+      %strong Hometown:
+      = @user.hometown
+  - unless @user.when_not_with_pet == nil
+    .list-group-item
+      %strong When Not With Pet:
+      = @user.when_not_with_pet
+  - unless @user.why_you_should_read_my_reviews == nil
+    .list-group-item
+      %strong Why You Should Read My Reviews:
+      = @user.why_you_should_read_my_reviews == nil
+  - unless @user.second_favorite_website == nil
+    .list-group-item
+      %strong Second Favorite Website:
+      = @user.second_favorite_website
+  - unless @user.last_great_book_read == nil
+    .list-group-item
+      %strong Last Great Book Read:
+      = @user.last_great_book_read
+  - unless @user.my_first_concert == nil
+    .list-group-item
+      %strong My First Concert:
+      = @user.my_first_concert
+  - unless @user.my_favorite_movie == nil
+    .list-group-item
+      %strong My Favorite Movie:
+      = @user.my_favorite_movie
+  - unless @user.my_last_meal == nil
+    .list-group-item
+      %strong My Last Meal:
+      = @user.my_last_meal
+  - unless @user.my_secret == nil
+    .list-group-item
+      %strong My Secret:
+      = @user.my_secret
+  - unless @user.my_recent_discovery == nil
+    .list-group-item
+      %strong My Recent Discovery:
+      = @user.my_recent_discovery
+  - unless @user.job == nil
+    .list-group-item
+      %strong My Job:
+      = @user.job
